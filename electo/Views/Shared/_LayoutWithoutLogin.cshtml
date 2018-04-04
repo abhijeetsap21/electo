@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Electo</title>
+
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+<body class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 left">
+                <a href="#" title=""><img src="~/images/logo.png" /></a>
+
+                <h1>Lorem ipsum is simply dummy text of.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+            </div>
+            <div class="col-sm-6 col-xs-12 right">
+
+                
+                    @RenderBody()
+              
+
+            </div>
+        </div>
+
+        @RenderSection("scripts", required: false)
+
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+</div>
+        <script>
+
+                    $('.logo-icon').on('click', function (e) {
+                        $('body').toggleClass("active");
+                    });
+        </script>
+</body>
+</html>

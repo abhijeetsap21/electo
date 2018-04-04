@@ -1,0 +1,73 @@
+﻿@model IEnumerable<electo.Models.sp_areaList_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Area 
+            </th>
+            <th>
+                Ward 
+            </th>
+            <th>
+                Vidhan Sabha
+            </th>
+            <th>
+                Lok Sabha
+            </th>
+            
+            <th>
+                Created Date
+            </th>
+
+        </tr>
+    </thead>
+    @{
+    var a = Model.Count();
+
+    }
+    <tbody>
+        @if(a == 0)
+        {
+            <tr>
+                <td colspan="6">
+                    No Result Found
+                </td>
+             </tr>
+        }
+        
+
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+
+            
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.areaName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wardName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vidhanSabhaConstituencyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lokSabhaConstituencyName)
+                </td>
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+
+            </tr>
+        }
+        
+    </tbody>
+</table>
+

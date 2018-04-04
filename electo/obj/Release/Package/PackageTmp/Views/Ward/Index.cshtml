@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<h2>Ward</h2>
+<p class="create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("States", null, " State ", new { @class = "form-control", onchange = "getMuncipartyListList()" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="ddl_muncipal" class="form-control">
+                <option value=""> Muncipal Corporation </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="districtID" class="form-control">
+                <option value=""> District </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-lg-12" id="viewResult">
+        <div class="col-lg-12 white-box">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/FillDistrictByStateID.js"></script>
+<script>
+
+    function searchResult() {
+        debugger;
+        var stateId = $("#States").val();
+
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+
+
+        var ddl_muncipal = $("#ddl_muncipal").val();
+        if (ddl_muncipal == "") {
+            ddl_muncipal = 0
+        }
+        var ddl_district_ID = $("#districtID").val();
+        if (ddl_district_ID == "") {
+            ddl_district_ID = 0
+        }
+
+        $("#loading").show();
+        $.ajax({
+            url: '/Ward/_partialWardList',
+            type: 'POST',
+            data: { 'stateId': stateId, 'MPCorporation': ddl_muncipal, 'districtID': ddl_district_ID },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+
+            },
+            error: function () {
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+
+            },
+        });
+        $('#loading').hide();
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Ward created successfully</p>',
+                    timeOut: 2000
+                });
+
+        }
+    });
+</script>
+
+<script>
+
+    function getMuncipartyListList() {
+        var stateId = $("#States").val();
+
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+        }
+
+        FIllDistrictDll(stateId);
+        FillMuncipartyDll(stateId);
+    }
+</script>

@@ -1,0 +1,157 @@
+﻿
+@model IEnumerable<electo.Models.sp_searchUserLoginStatus_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Name 
+            </th>
+
+            <th>
+                mobile
+            </th>
+            <th>
+                Login id
+            </th>
+
+            <th>
+               Party Logo
+            </th>
+
+            <th>
+                User Photo
+            </th>
+
+            <th>
+                Blocked
+            </th>
+            <th>
+                Active
+            </th>
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td>
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr> 
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fullName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.mobile)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.userID)
+                </td>
+
+                <td>
+                  <img src="@item.politicalPartyLogo" height="60" width="60" alt="logo" />
+                </td>
+
+                <td>
+                    <img src="@item.userPhoto" height="60" width="60" alt="Img" /> 
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.isBlocked)
+                </td>
+
+                <td>
+                  @Html.CheckBoxFor(m => item.isActive, new { @onClick= "updateLoginStatusResult.call(this,"+ @item.loginID+",'"+ @item.userID + "');" }) 
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    function updateLoginStatusResult(loginID, userID)
+    {
+        debugger
+        var result= $(this).is(':checked')
+          
+        bootbox.confirm({
+            title: "Confirmation !",
+            message: "Do you want to activate/Deactivate login of the selected user?" + userID,
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    proceedNext();
+                    searchResult();
+                }
+                else {
+                    searchResult();
+                }
+            }
+        });
+
+
+        function proceedNext() {
+            $.ajax({
+                url: '/Account/updateUserLoginStatus',
+                type: 'POST',
+                data: { 'loginID': loginID, 'isActive': result },
+                success: function (data) {
+                    debugger
+                    if (data == 1) {
+                        bootbox.alert({
+                            title: "Confirmation !",
+                            message: '<p>Login updated successfully.</p>',
+                            timeOut: 2000
+
+                        });
+                    }
+                    else {
+                        bootbox.alert({
+                            title: "Alert !",
+                            message: '<p>Whooaaa! Something went wrong..</p>',
+                            timeOut: 2000
+
+                        });
+                    }
+
+                },
+                error: function () {
+                    bootbox.alert({
+                        title: "Alert !",
+                        message: '<p>Whooaaa! Something went wrong..</p>',
+                        timeOut: 2000
+
+                    });
+
+                },
+
+
+            });
+        }
+    }
+</script>

@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Elections";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Elections</h2>
+<p class="text-right create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="row">
+        <div class="col-md-12 padding-none">
+            <div class="col-md-3 custom-width-election">
+                <div class="form-group">
+                    @Html.DropDownList("ElectionType", null, "Election Type", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3 custom-width-election-2">
+                <div class="form-group">
+                    @Html.DropDownList("electionYear", null, "Election Year", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult(1);" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="table-responsive col-lg-12" id="viewResult">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var d = new Date();
+        var month = d.getMonth();
+        searchResult(month);
+    });
+
+    function searchResult(month) {
+        debugger
+        var sel = document.getElementById('ElectionType');
+        var ElectionType = sel.options[sel.selectedIndex].value;
+        if (ElectionType == "") {
+            ElectionType = 0;
+        }
+        var ddl_year_ = document.getElementById('electionYear');
+        var ddl_year = ddl_year_.options[ddl_year_.selectedIndex].text;
+        if (ddl_year == "Election Year") {
+            var d1 = new Date();
+            var yr = d1.getFullYear();
+            ddl_year = yr;
+        }
+
+        debugger
+        $("#loading").show();
+        $.ajax({
+            url: '/Election/_PartialElections',
+            type: 'POST',
+            data: { 'ElectionType': ElectionType, 'ddl_year': ddl_year, 'ddl_month': month },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+                $('#loading').hide();
+            }
+        });
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Election created successfully</p>',
+                    timeOut: 2000
+                });
+        }
+    });
+</script>

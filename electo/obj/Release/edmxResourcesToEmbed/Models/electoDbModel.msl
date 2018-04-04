@@ -1,0 +1,1878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="electoModelStoreContainer" CdmEntityContainer="electoEntities">
+    <FunctionImportMapping FunctionImportName="sp_electionList" FunctionName="electoModel.Store.sp_electionList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_electionList_Result">
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="electionYear" ColumnName="electionYear" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetNewCampaignRequests" FunctionName="electoModel.Store.sp_GetNewCampaignRequests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetNewCampaignRequests_Result">
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetNewEnquiries" FunctionName="electoModel.Store.sp_GetNewEnquiries" />
+    <FunctionImportMapping FunctionImportName="sp_GetRunningCampaigns" FunctionName="electoModel.Store.sp_GetRunningCampaigns">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetRunningCampaigns_Result">
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_RequestedCampaignList" FunctionName="electoModel.Store.sp_RequestedCampaignList" />
+    <FunctionImportMapping FunctionImportName="sp_SearchRunningCampaigns" FunctionName="electoModel.Store.sp_SearchRunningCampaigns" />
+    <FunctionImportMapping FunctionImportName="sp_SearchUpcomingElections" FunctionName="electoModel.Store.sp_SearchUpcomingElections">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_SearchUpcomingElections_Result">
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="electionYear" ColumnName="electionYear" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="monthName" ColumnName="monthName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_areaList" FunctionName="electoModel.Store.sp_areaList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_areaList_Result">
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getVidhanSabhaLsit" FunctionName="electoModel.Store.sp_getVidhanSabhaLsit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getVidhanSabhaLsit_Result">
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_pollingBoothList" FunctionName="electoModel.Store.sp_pollingBoothList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_pollingBoothList_Result">
+          <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
+          <ScalarProperty Name="pollingBoothName" ColumnName="pollingBoothName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_createParty" FunctionName="electoModel.Store.sp_createParty" />
+    <FunctionImportMapping FunctionImportName="sp_politicalPartyList" FunctionName="electoModel.Store.sp_politicalPartyList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_politicalPartyList_Result">
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="politicalPartyName" ColumnName="politicalPartyName" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="politicalPartyWebsiteUrl" ColumnName="politicalPartyWebsiteUrl" />
+          <ScalarProperty Name="politicalPartyEmail" ColumnName="politicalPartyEmail" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="isHeadOffice" ColumnName="isHeadOffice" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_partyAddressList" FunctionName="electoModel.Store.sp_partyAddressList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_partyAddressList_Result">
+          <ScalarProperty Name="politicalPartyName" ColumnName="politicalPartyName" />
+          <ScalarProperty Name="politicalPartyAddressID" ColumnName="politicalPartyAddressID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="isHeadOffice" ColumnName="isHeadOffice" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SearchCampaignPrices" FunctionName="electoModel.Store.sp_SearchCampaignPrices" />
+    <FunctionImportMapping FunctionImportName="sp_AddNewCampaignPrice" FunctionName="electoModel.Store.sp_AddNewCampaignPrice" />
+    <FunctionImportMapping FunctionImportName="sp_resetPassword" FunctionName="electoModel.Store.sp_resetPassword" />
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetAll" FunctionName="electoModel.Store.sp_Campaigns_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetAll_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByElectionTypeId" FunctionName="electoModel.Store.sp_Campaigns_GetByElectionTypeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByElectionTypeId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ageWiseVoterCountInConstituency" FunctionName="electoModel.Store.sp_ageWiseVoterCountInConstituency">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_ageWiseVoterCountInConstituency_Result">
+          <ScalarProperty Name="VoterCount" ColumnName="VoterCount" />
+          <ScalarProperty Name="ageGroup" ColumnName="ageGroup" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByElectionId" FunctionName="electoModel.Store.sp_Campaigns_GetByElectionId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByElectionId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetById" FunctionName="electoModel.Store.sp_Campaigns_GetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetById_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByLokSabhaConstituencyId" FunctionName="electoModel.Store.sp_Campaigns_GetByLokSabhaConstituencyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByLokSabhaConstituencyId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByPoliticalPartyId" FunctionName="electoModel.Store.sp_Campaigns_GetByPoliticalPartyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByPoliticalPartyId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByVidhanSabhaConstituencyId" FunctionName="electoModel.Store.sp_Campaigns_GetByVidhanSabhaConstituencyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByVidhanSabhaConstituencyId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByVolunteerId" FunctionName="electoModel.Store.sp_Campaigns_GetByVolunteerId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByVolunteerId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Campaigns_GetByWardId" FunctionName="electoModel.Store.sp_Campaigns_GetByWardId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Campaigns_GetByWardId_Result">
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_CreateUser" FunctionName="electoModel.Store.sp_CreateUser" />
+    <FunctionImportMapping FunctionImportName="sp_update_volunteerList" FunctionName="electoModel.Store.sp_update_volunteerList" />
+    <FunctionImportMapping FunctionImportName="sp_getZoneByStateIDAndMUncipalCorporationID" FunctionName="electoModel.Store.sp_getZoneByStateIDAndMUncipalCorporationID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getZoneByStateIDAndMUncipalCorporationID_Result">
+          <ScalarProperty Name="zoneID" ColumnName="zoneID" />
+          <ScalarProperty Name="zoneName" ColumnName="zoneName" />
+          <ScalarProperty Name="municipalCorporationName" ColumnName="municipalCorporationName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAllParties_NoParams" FunctionName="electoModel.Store.sp_getAllParties_NoParams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getAllParties_NoParams_Result">
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="politicalPartyName" ColumnName="politicalPartyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Area_GetAll" FunctionName="electoModel.Store.sp_Area_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Area_GetAll_Result">
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Area_GetByPageInchargeId" FunctionName="electoModel.Store.sp_Area_GetByPageInchargeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Area_GetByPageInchargeId_Result">
+          <ScalarProperty Name="pageInchargeID" ColumnName="pageInchargeID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Area_GetByVolunteerId" FunctionName="electoModel.Store.sp_Area_GetByVolunteerId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Area_GetByVolunteerId_Result">
+          <ScalarProperty Name="pageInchargeID" ColumnName="pageInchargeID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Event_GetByCampaignId" FunctionName="electoModel.Store.sp_Event_GetByCampaignId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Event_GetByCampaignId_Result">
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+          <ScalarProperty Name="eventTypeID" ColumnName="eventTypeID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="eventTitle" ColumnName="eventTitle" />
+          <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Event_GetByEventTypeId" FunctionName="electoModel.Store.sp_Event_GetByEventTypeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Event_GetByEventTypeId_Result">
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+          <ScalarProperty Name="eventTypeID" ColumnName="eventTypeID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="eventTitle" ColumnName="eventTitle" />
+          <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Survey_GetAll" FunctionName="electoModel.Store.sp_Survey_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Survey_GetAll_Result">
+          <ScalarProperty Name="surveyID" ColumnName="surveyID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="surveyTitle" ColumnName="surveyTitle" />
+          <ScalarProperty Name="surveyDescription" ColumnName="surveyDescription" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_searchUserLoginStatus" FunctionName="electoModel.Store.sp_searchUserLoginStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_searchUserLoginStatus_Result">
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+          <ScalarProperty Name="isBlocked" ColumnName="isBlocked" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_updateLastLoginTime" FunctionName="electoModel.Store.sp_updateLastLoginTime" />
+    <FunctionImportMapping FunctionImportName="sp_updateUserLoginStatus" FunctionName="electoModel.Store.sp_updateUserLoginStatus" />
+    <FunctionImportMapping FunctionImportName="sp_GetUpcomingElections" FunctionName="electoModel.Store.sp_GetUpcomingElections">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetUpcomingElections_Result">
+          <ScalarProperty Name="electionName" ColumnName="electionName" />
+          <ScalarProperty Name="electionYear" ColumnName="electionYear" />
+          <ScalarProperty Name="monthName" ColumnName="monthName" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Survey_GetByCampaignId" FunctionName="electoModel.Store.sp_Survey_GetByCampaignId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Survey_GetByCampaignId_Result">
+          <ScalarProperty Name="surveyID" ColumnName="surveyID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="surveyTitle" ColumnName="surveyTitle" />
+          <ScalarProperty Name="surveyDescription" ColumnName="surveyDescription" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_createSurveyQuestion" FunctionName="electoModel.Store.sp_createSurveyQuestion" />
+    <FunctionImportMapping FunctionImportName="sp_Event_GetByCampaignIdANDEventTypeID" FunctionName="electoModel.Store.sp_Event_GetByCampaignIdANDEventTypeID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Event_GetByCampaignIdANDEventTypeID_Result">
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+          <ScalarProperty Name="eventTypeID" ColumnName="eventTypeID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="eventTitle" ColumnName="eventTitle" />
+          <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="mediaURL" ColumnName="mediaURL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_CheckUserInCampaign" FunctionName="electoModel.Store.sp_CheckUserInCampaign" />
+    <FunctionImportMapping FunctionImportName="sp_createEvent" FunctionName="electoModel.Store.sp_createEvent" />
+    <FunctionImportMapping FunctionImportName="sp_GetLatestNews" FunctionName="electoModel.Store.sp_GetLatestNews">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetLatestNews_Result">
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAllBiographiesStartwithLetter" FunctionName="electoModel.Store.sp_getAllBiographiesStartwithLetter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getAllBiographiesStartwithLetter_Result">
+          <ScalarProperty Name="BiographyID" ColumnName="BiographyID" />
+          <ScalarProperty Name="personName" ColumnName="personName" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getAreaListByCampignID" FunctionName="electoModel.Store.sp_getAreaListByCampignID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getAreaListByCampignID_Result">
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_assignRelationshipBetweenVolunteerANDCampaign" FunctionName="electoModel.Store.sp_assignRelationshipBetweenVolunteerANDCampaign" />
+    <FunctionImportMapping FunctionImportName="sp_GetAllSectionInchargeByCampaign" FunctionName="electoModel.Store.sp_GetAllSectionInchargeByCampaign">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetAllSectionInchargeByCampaign_Result">
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SurveyAnalysis_BySurveyId" FunctionName="electoModel.Store.sp_SurveyAnalysis_BySurveyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_SurveyAnalysis_BySurveyId_Result">
+          <ScalarProperty Name="surveyID" ColumnName="surveyID" />
+          <ScalarProperty Name="surveyQuesID" ColumnName="surveyQuesID" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="SurveyQuestionOptionId" ColumnName="SurveyQuestionOptionId" />
+          <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalResponse" ColumnName="TotalResponse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_DeleteByVoterId" FunctionName="electoModel.Store.sp_Voters_DeleteByVoterId" />
+    <FunctionImportMapping FunctionImportName="sp_getAllRelationshipsInCampaignByUserType" FunctionName="electoModel.Store.sp_getAllRelationshipsInCampaignByUserType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getAllRelationshipsInCampaignByUserType_Result">
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="WorkingArea" ColumnName="WorkingArea" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetAllDataEntryOperators" FunctionName="electoModel.Store.sp_GetAllDataEntryOperators">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetAllDataEntryOperators_Result">
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getWardByStateIDAndMUncipalCorporationID" FunctionName="electoModel.Store.sp_getWardByStateIDAndMUncipalCorporationID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getWardByStateIDAndMUncipalCorporationID_Result">
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="wardNo" ColumnName="wardNo" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="zoneName" ColumnName="zoneName" />
+          <ScalarProperty Name="municipalCorporationName" ColumnName="municipalCorporationName" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetAllEventTypes" FunctionName="electoModel.Store.sp_GetAllEventTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetAllEventTypes_Result">
+          <ScalarProperty Name="eventTypeID" ColumnName="eventTypeID" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_LoginUser_App" FunctionName="electoModel.Store.sp_LoginUser_App">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_LoginUser_App_Result">
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_PageInchargeComments_ByCampaignId" FunctionName="electoModel.Store.sp_PageInchargeComments_ByCampaignId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_PageInchargeComments_ByCampaignId_Result">
+          <ScalarProperty Name="volunteerid" ColumnName="volunteerid" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="TotalVoter" ColumnName="TotalVoter" />
+          <ScalarProperty Name="TotalVerified" ColumnName="TotalVerified" />
+          <ScalarProperty Name="TotalModified" ColumnName="TotalModified" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="submitSurveyResponse" FunctionName="electoModel.Store.submitSurveyResponse" />
+    <FunctionImportMapping FunctionImportName="sp_getPageInchargeLocation" FunctionName="electoModel.Store.sp_getPageInchargeLocation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getPageInchargeLocation_Result">
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SurveyQuestion_GetBySurveyId" FunctionName="electoModel.Store.sp_SurveyQuestion_GetBySurveyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_SurveyQuestion_GetBySurveyId_Result">
+          <ScalarProperty Name="surveyQuesID" ColumnName="surveyQuesID" />
+          <ScalarProperty Name="surveyID" ColumnName="surveyID" />
+          <ScalarProperty Name="questionSerial" ColumnName="questionSerial" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="questionTypeID" ColumnName="questionTypeID" />
+          <ScalarProperty Name="surveyTitle" ColumnName="surveyTitle" />
+          <ScalarProperty Name="questionType" ColumnName="questionType" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="optionsID" ColumnName="optionsID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetVotersByAge" FunctionName="electoModel.Store.sp_GetVotersByAge" />
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetAll" FunctionName="electoModel.Store.sp_Voters_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetAll_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetByAreaId" FunctionName="electoModel.Store.sp_Voters_GetByAreaId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetByAreaId_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetById" FunctionName="electoModel.Store.sp_Voters_GetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetById_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetByLokSabhaConstituencyId" FunctionName="electoModel.Store.sp_Voters_GetByLokSabhaConstituencyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetByLokSabhaConstituencyId_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetByStateId" FunctionName="electoModel.Store.sp_Voters_GetByStateId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetByStateId_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetByVidhanSabhaConstituencyId" FunctionName="electoModel.Store.sp_Voters_GetByVidhanSabhaConstituencyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetByVidhanSabhaConstituencyId_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetByWardId" FunctionName="electoModel.Store.sp_Voters_GetByWardId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetByWardId_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Voters_UpdateDetail" FunctionName="electoModel.Store.sp_Voters_UpdateDetail" />
+    <FunctionImportMapping FunctionImportName="sp_Voters_VerifyByPageIncharge" FunctionName="electoModel.Store.sp_Voters_VerifyByPageIncharge" />
+    <FunctionImportMapping FunctionImportName="sp_GetVoters_List" FunctionName="electoModel.Store.sp_GetVoters_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetVoters_List_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getVoterDetailsByVoterID" FunctionName="electoModel.Store.sp_getVoterDetailsByVoterID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getVoterDetailsByVoterID_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="Regional_Name" ColumnName="Regional_Name" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="emailId" ColumnName="emailId" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="userTypeName" ColumnName="userTypeName" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="politicalPartyName" ColumnName="politicalPartyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_insertVoterListExcel" FunctionName="electoModel.Store.sp_insertVoterListExcel" />
+    <FunctionImportMapping FunctionImportName="sp_Voters_GetByPageInchargeId" FunctionName="electoModel.Store.sp_Voters_GetByPageInchargeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_Voters_GetByPageInchargeId_Result">
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="Verified" ColumnName="Verified" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SectionIncharge_GetAllByBoothIncharge" FunctionName="electoModel.Store.sp_SectionIncharge_GetAllByBoothIncharge">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_SectionIncharge_GetAllByBoothIncharge_Result">
+          <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+          <ScalarProperty Name="VoterName" ColumnName="VoterName" />
+          <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="areaNames">
+      <EntityTypeMapping TypeName="electoModel.areaName">
+        <MappingFragment StoreEntitySet="areaName">
+          <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="areaName1" ColumnName="areaName" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Biography_s">
+      <EntityTypeMapping TypeName="electoModel.Biography_s">
+        <MappingFragment StoreEntitySet="Biography's">
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="personName" ColumnName="personName" />
+          <ScalarProperty Name="BiographyID" ColumnName="BiographyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="campaignPrices">
+      <EntityTypeMapping TypeName="electoModel.campaignPrice">
+        <MappingFragment StoreEntitySet="campaignPrice">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="campaignPriceID" ColumnName="campaignPriceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="campaigns">
+      <EntityTypeMapping TypeName="electoModel.campaign">
+        <MappingFragment StoreEntitySet="campaigns">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="isPaymentComplete" ColumnName="isPaymentComplete" />
+          <ScalarProperty Name="isOLD" ColumnName="isOLD" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="campaignName" ColumnName="campaignName" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="compaignVolunteerRelationships">
+      <EntityTypeMapping TypeName="electoModel.compaignVolunteerRelationship">
+        <MappingFragment StoreEntitySet="compaignVolunteerRelationship">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="relationshipID" ColumnName="relationshipID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="districts">
+      <EntityTypeMapping TypeName="electoModel.district">
+        <MappingFragment StoreEntitySet="districts">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="districtName" ColumnName="districtName" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="electionNames">
+      <EntityTypeMapping TypeName="electoModel.electionName">
+        <MappingFragment StoreEntitySet="electionName">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="monthId" ColumnName="monthId" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="electionYear" ColumnName="electionYear" />
+          <ScalarProperty Name="electionName1" ColumnName="electionName" />
+          <ScalarProperty Name="electionID" ColumnName="electionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="electionTypes">
+      <EntityTypeMapping TypeName="electoModel.electionType">
+        <MappingFragment StoreEntitySet="electionType">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="electionTypeNAME" ColumnName="electionTypeNAME" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enquiries">
+      <EntityTypeMapping TypeName="electoModel.enquiry">
+        <MappingFragment StoreEntitySet="enquiries">
+          <ScalarProperty Name="isTaskComplete" ColumnName="isTaskComplete" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="enquiryDescription" ColumnName="enquiryDescription" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="enquirerName" ColumnName="enquirerName" />
+          <ScalarProperty Name="enquiryTypeID" ColumnName="enquiryTypeID" />
+          <ScalarProperty Name="enquiryID" ColumnName="enquiryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enquiryTypes">
+      <EntityTypeMapping TypeName="electoModel.enquiryType">
+        <MappingFragment StoreEntitySet="enquiryType">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="enquiryTypeName" ColumnName="enquiryTypeName" />
+          <ScalarProperty Name="enquiryTypeID" ColumnName="enquiryTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventMedias">
+      <EntityTypeMapping TypeName="electoModel.eventMedia">
+        <MappingFragment StoreEntitySet="eventMedia">
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="mediaURL" ColumnName="mediaURL" />
+          <ScalarProperty Name="mediaName" ColumnName="mediaName" />
+          <ScalarProperty Name="eventMediaID" ColumnName="eventMediaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="events">
+      <EntityTypeMapping TypeName="electoModel.event">
+        <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+          <ScalarProperty Name="eventTitle" ColumnName="eventTitle" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="eventTypeID" ColumnName="eventTypeID" />
+          <ScalarProperty Name="eventID" ColumnName="eventID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventTypes">
+      <EntityTypeMapping TypeName="electoModel.eventType">
+        <MappingFragment StoreEntitySet="eventType">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="eventName" ColumnName="eventName" />
+          <ScalarProperty Name="eventTypeID" ColumnName="eventTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="excels">
+      <EntityTypeMapping TypeName="electoModel.excel">
+        <MappingFragment StoreEntitySet="excel">
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="wardno" ColumnName="wardno" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="voteridnumber" ColumnName="voteridnumber" />
+          <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="plotno" ColumnName="plotno" />
+          <ScalarProperty Name="voterlastname" ColumnName="voterlastname" />
+          <ScalarProperty Name="voterfirstname" ColumnName="voterfirstname" />
+          <ScalarProperty Name="areaname" ColumnName="areaname" />
+          <ScalarProperty Name="pollingboothname" ColumnName="pollingboothname" />
+          <ScalarProperty Name="wardname" ColumnName="wardname" />
+          <ScalarProperty Name="zonename" ColumnName="zonename" />
+          <ScalarProperty Name="municipalcorporationname" ColumnName="municipalcorporationname" />
+          <ScalarProperty Name="vidhansabhaname" ColumnName="vidhansabhaname" />
+          <ScalarProperty Name="loksabhaname" ColumnName="loksabhaname" />
+          <ScalarProperty Name="districtname" ColumnName="districtname" />
+          <ScalarProperty Name="statename" ColumnName="statename" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genders">
+      <EntityTypeMapping TypeName="electoModel.gender">
+        <MappingFragment StoreEntitySet="gender">
+          <ScalarProperty Name="gender1" ColumnName="gender" />
+          <ScalarProperty Name="genderId" ColumnName="genderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="languages">
+      <EntityTypeMapping TypeName="electoModel.language">
+        <MappingFragment StoreEntitySet="languages">
+          <ScalarProperty Name="fontUsed" ColumnName="fontUsed" />
+          <ScalarProperty Name="language1" ColumnName="language" />
+          <ScalarProperty Name="languageID" ColumnName="languageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loginVolunteers">
+      <EntityTypeMapping TypeName="electoModel.loginVolunteer">
+        <MappingFragment StoreEntitySet="loginVolunteer">
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="fakeAttemptCount" ColumnName="fakeAttemptCount" />
+          <ScalarProperty Name="LastbadAttempt" ColumnName="LastbadAttempt" />
+          <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+          <ScalarProperty Name="isBlocked" ColumnName="isBlocked" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lokSabhaConstituencies">
+      <EntityTypeMapping TypeName="electoModel.lokSabhaConstituency">
+        <MappingFragment StoreEntitySet="lokSabhaConstituency">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="monthNames">
+      <EntityTypeMapping TypeName="electoModel.monthName">
+        <MappingFragment StoreEntitySet="monthName">
+          <ScalarProperty Name="monthName1" ColumnName="monthName" />
+          <ScalarProperty Name="monthId" ColumnName="monthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="municipalCorporationNames">
+      <EntityTypeMapping TypeName="electoModel.municipalCorporationName">
+        <MappingFragment StoreEntitySet="municipalCorporationName">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="datatIsUpdated" ColumnName="datatIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="municipalCorporationName1" ColumnName="municipalCorporationName" />
+          <ScalarProperty Name="municipalCorporationID" ColumnName="municipalCorporationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news">
+      <EntityTypeMapping TypeName="electoModel.news">
+        <MappingFragment StoreEntitySet="news">
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="electionTypeID" ColumnName="electionTypeID" />
+          <ScalarProperty Name="newsID" ColumnName="newsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pageInchargeAssignedAreas">
+      <EntityTypeMapping TypeName="electoModel.pageInchargeAssignedArea">
+        <MappingFragment StoreEntitySet="pageInchargeAssignedArea">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="pageInchargeID" ColumnName="pageInchargeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pageInchargeComments">
+      <EntityTypeMapping TypeName="electoModel.pageInchargeComment">
+        <MappingFragment StoreEntitySet="pageInchargeComments">
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="isModified" ColumnName="isModified" />
+          <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+          <ScalarProperty Name="isChanged" ColumnName="isChanged" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="commentID" ColumnName="commentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="politicalParties">
+      <EntityTypeMapping TypeName="electoModel.politicalParty">
+        <MappingFragment StoreEntitySet="politicalParty">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="politicalPartyEmail" ColumnName="politicalPartyEmail" />
+          <ScalarProperty Name="politicalPartyWebsiteUrl" ColumnName="politicalPartyWebsiteUrl" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="politicalPartyName" ColumnName="politicalPartyName" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="politicalPartyAddresses">
+      <EntityTypeMapping TypeName="electoModel.politicalPartyAddress">
+        <MappingFragment StoreEntitySet="politicalPartyAddress">
+          <ScalarProperty Name="isHeadOffice" ColumnName="isHeadOffice" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="politicalPartyAddressID" ColumnName="politicalPartyAddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pollingBooths">
+      <EntityTypeMapping TypeName="electoModel.pollingBooth">
+        <MappingFragment StoreEntitySet="pollingBooth">
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="pollingBoothName" ColumnName="pollingBoothName" />
+          <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pollingBooth_andInchargRelationship">
+      <EntityTypeMapping TypeName="electoModel.pollingBooth_andInchargRelationship">
+        <MappingFragment StoreEntitySet="pollingBooth_andInchargRelationship">
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
+          <ScalarProperty Name="pollingBoothAreaID" ColumnName="pollingBoothAreaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="questionTypes">
+      <EntityTypeMapping TypeName="electoModel.questionType">
+        <MappingFragment StoreEntitySet="questionType">
+          <ScalarProperty Name="isActve" ColumnName="isActve" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="questionType1" ColumnName="questionType" />
+          <ScalarProperty Name="questionTypeID" ColumnName="questionTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="electoModel.state">
+        <MappingFragment StoreEntitySet="states">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="surveys">
+      <EntityTypeMapping TypeName="electoModel.survey">
+        <MappingFragment StoreEntitySet="survey">
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="surveyDescription" ColumnName="surveyDescription" />
+          <ScalarProperty Name="surveyTitle" ColumnName="surveyTitle" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="campaignID" ColumnName="campaignID" />
+          <ScalarProperty Name="surveyID" ColumnName="surveyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyQuestionOptions">
+      <EntityTypeMapping TypeName="electoModel.SurveyQuestionOption">
+        <MappingFragment StoreEntitySet="SurveyQuestionOption">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+          <ScalarProperty Name="SurveyQuestionId" ColumnName="SurveyQuestionId" />
+          <ScalarProperty Name="SurveyQuestionOptionId" ColumnName="SurveyQuestionOptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="surveyQuestions">
+      <EntityTypeMapping TypeName="electoModel.surveyQuestion">
+        <MappingFragment StoreEntitySet="surveyQuestions">
+          <ScalarProperty Name="questionTypeID" ColumnName="questionTypeID" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="questionSerial" ColumnName="questionSerial" />
+          <ScalarProperty Name="surveyID" ColumnName="surveyID" />
+          <ScalarProperty Name="surveyQuesID" ColumnName="surveyQuesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="surveyResponses">
+      <EntityTypeMapping TypeName="electoModel.surveyRespons">
+        <MappingFragment StoreEntitySet="surveyResponses">
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="SurveyQuestionOptionId" ColumnName="SurveyQuestionOptionId" />
+          <ScalarProperty Name="surveyQuesID" ColumnName="surveyQuesID" />
+          <ScalarProperty Name="surveyQuestionResponseID" ColumnName="surveyQuestionResponseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblyears">
+      <EntityTypeMapping TypeName="electoModel.tblyear">
+        <MappingFragment StoreEntitySet="tblyear">
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="yearID" ColumnName="yearID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userTypes">
+      <EntityTypeMapping TypeName="electoModel.userType">
+        <MappingFragment StoreEntitySet="userTypes">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="userTypeName" ColumnName="userTypeName" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vidhanSabhaConstituencies">
+      <EntityTypeMapping TypeName="electoModel.vidhanSabhaConstituency">
+        <MappingFragment StoreEntitySet="vidhanSabhaConstituency">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="volunteerLists">
+      <EntityTypeMapping TypeName="electoModel.volunteerList">
+        <MappingFragment StoreEntitySet="volunteerList">
+          <ScalarProperty Name="createNewCompaign" ColumnName="createNewCompaign" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="voterLists">
+      <EntityTypeMapping TypeName="electoModel.voterList">
+        <MappingFragment StoreEntitySet="voterList">
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="regionalLanguage" ColumnName="regionalLanguage" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="voterImageURL" ColumnName="voterImageURL" />
+          <ScalarProperty Name="isMarried" ColumnName="isMarried" />
+          <ScalarProperty Name="voterIDIssueDate" ColumnName="voterIDIssueDate" />
+          <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+          <ScalarProperty Name="voterAadharNumber" ColumnName="voterAadharNumber" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="genderID" ColumnName="genderID" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="plotNo" ColumnName="plotNo" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="areaID" ColumnName="areaID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="voterLastName" ColumnName="voterLastName" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wardConstituencies">
+      <EntityTypeMapping TypeName="electoModel.wardConstituency">
+        <MappingFragment StoreEntitySet="wardConstituency">
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdated" ColumnName="dataIsUpdated" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="municipalCorporationID" ColumnName="municipalCorporationID" />
+          <ScalarProperty Name="zoneID" ColumnName="zoneID" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="wardNo" ColumnName="wardNo" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zoneMunicipalities">
+      <EntityTypeMapping TypeName="electoModel.zoneMunicipality">
+        <MappingFragment StoreEntitySet="zoneMunicipality">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dataIsUpdatd" ColumnName="dataIsUpdatd" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="municipalCorporationID" ColumnName="municipalCorporationID" />
+          <ScalarProperty Name="zoneName" ColumnName="zoneName" />
+          <ScalarProperty Name="zoneID" ColumnName="zoneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sendGridDetails">
+      <EntityTypeMapping TypeName="electoModel.sendGridDetail">
+        <MappingFragment StoreEntitySet="sendGridDetails">
+          <ScalarProperty Name="APIKEY" ColumnName="APIKEY" />
+          <ScalarProperty Name="projectname" ColumnName="projectname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userRights">
+      <EntityTypeMapping TypeName="electoModel.userRight">
+        <MappingFragment StoreEntitySet="userRights">
+          <ScalarProperty Name="action_name" ColumnName="action_name" />
+          <ScalarProperty Name="controller_name" ColumnName="controller_name" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="role_action_id" ColumnName="role_action_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_LoginUser" FunctionName="electoModel.Store.sp_LoginUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_LoginUser_Result">
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+          <ScalarProperty Name="voterID" ColumnName="voterID" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+          <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+          <ScalarProperty Name="createNewCompaign" ColumnName="createNewCompaign" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetVolunteers" FunctionName="electoModel.Store.sp_GetVolunteers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetVolunteers_Result">
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="WorkingAreaName" ColumnName="WorkingAreaName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getPoolingBoothByCampignID" FunctionName="electoModel.Store.sp_getPoolingBoothByCampignID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_getPoolingBoothByCampignID_Result">
+          <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
+          <ScalarProperty Name="pollingBoothName" ColumnName="pollingBoothName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+          <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+          <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+          <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+          <ScalarProperty Name="wardName" ColumnName="wardName" />
+          <ScalarProperty Name="wardID" ColumnName="wardID" />
+          <ScalarProperty Name="stateID" ColumnName="stateID" />
+          <ScalarProperty Name="stateName" ColumnName="stateName" />
+          <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

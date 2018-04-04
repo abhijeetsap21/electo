@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<electo.Models.sp_getWardByStateIDAndMUncipalCorporationID_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Ward No
+            </th>
+            <th>
+                Ward Name
+            </th>
+            <th>
+                Zone
+            </th>
+            <th>
+                Municipal Corp.
+            </th>
+            <th>
+                District
+            </th>
+
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td colspan="6">
+                    No Result Found
+                </td>
+            </tr>
+        }
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wardNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wardName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zoneName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.municipalCorporationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.districtName)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

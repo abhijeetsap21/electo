@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Elections";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="col-lg-12 white-box">
+                <div class="form-group">
+                    @Html.DropDownList("ElectionType", null, "Election Type", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <select name="ddl_year" id="ddl_year" class="form-control">
+                        <option value="">Year</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="partyname" aria-describedby="emailHelp" placeholder="Enter Party Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="campaignname" aria-describedby="emailHelp" placeholder="Enter Campaign Name">
+                </div>
+                <div class="form-group">
+                    <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+                </div>
+
+            </div>
+
+
+            <div class="table-responsive col-lg-12" id="viewResult">
+
+            </div>
+        </div>
+    </div>
+
+<script>
+    window.setTimeout(function () {
+        bootbox.hideAll();
+    }, 3000);
+    </script>
+
+<script>
+    
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' == "Success")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Campaign Has Been Edited Successfully </p>',
+                timeOut : 2000
+            });
+
+        if ('@TempData["Result"]' == "Edited")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Price Has been edited successfully</p>',
+                timeOut: 2000
+            });
+    });
+</script>
+    <script>
+        $(document).ready(function () {
+            searchResult();
+        });
+
+        function searchResult() {
+            debugger
+            var sel = document.getElementById('ElectionType');
+            var ElectionType = sel.options[sel.selectedIndex].innerHTML;
+            if (ElectionType == "Election Type") {
+                ElectionType = "Vidhan Sabha";
+            }
+            var ddl_year_ = document.getElementById('ddl_year');
+            var ddl_year = ddl_year_.options[ddl_year_.selectedIndex].value;
+            if (ddl_year == "") {
+                var d1 = new Date();
+                var yr = d1.getFullYear();
+                ddl_year = yr;
+            }
+
+            var party_name = document.getElementById('partyname').value
+            if (party_name == "") {
+                party_name = null;
+            }
+
+            var campaign_name = document.getElementById('campaignname').value;
+            if (campaign_name == "") {
+                campaign_name = null;
+            }
+
+            debugger
+            $.ajax({
+                url: '/RunningCampaign/_PartialRunningCampaigns',
+                type: 'POST',
+                data: { 'electionTypeNAME': ElectionType, 'electionYear': ddl_year, 'politicalPartyName': party_name, 'campaignName': campaign_name },
+                success: function (data) {
+                    debugger
+                    $('#viewResult').html(data);
+                }
+            });
+        }
+    </script>

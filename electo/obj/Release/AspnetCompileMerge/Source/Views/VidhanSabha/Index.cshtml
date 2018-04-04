@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Vidhan Sabha</h2>
+<p class="create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("States", null, " State ", new { @class = "form-control", onchange = "getLS_ConstituencyList()" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="ddl_LKSC_Constituency" class="form-control">
+                <option value=""> Lock Sabha </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <input type="text" id="txt_searchVSCNAME" class="form-control" value="" placeholder="Vidhansabha Name" />
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-md-12" id="viewResult">
+        <div class="col-md-12">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' == "Success")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Vidhan Sabha Constituency Created Successfully</p>',
+                timeOut : 2000
+            });
+    });
+</script>
+
+
+<script>
+
+    function getLS_ConstituencyList()
+{
+        debugger;
+        var stateId = $("#States").val();
+       
+        if (stateId == "" )
+        {
+            
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+       
+        $.ajax
+        ({
+            url: '/VidhanSabha/GetLOCKSABHAConstituencyLsit',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                stateId: +stateId
+            }),
+            success: function(result)
+          {
+                $("#ddl_LKSC_Constituency").html("");
+                $("#ddl_LKSC_Constituency").append($('<option></option>').val('').html(' Lock Sabha'));
+                $.each($.parseJSON(result), function(i, VSC)
+                {
+                    $("#ddl_LKSC_Constituency").append($('<option></option>').val(VSC.lokSabhaConstituencyID).html(VSC.lokSabhaConstituencyName))
+                })
+
+            },
+            error: function()
+            {
+                
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+            },
+        });
+       
+    }
+</script>  
+
+<script>
+
+    function searchResult()
+{
+        debugger;
+        var stateId = $("#States").val();
+        
+        if (stateId == "" )
+        {
+            
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+     
+
+        var ddl_LKSC_Constituencyid = $("#ddl_LKSC_Constituency").val();
+        if (ddl_LKSC_Constituencyid == "") {
+            ddl_LKSC_Constituencyid=0           
+        }
+        var VSC_text= $("#txt_searchVSCNAME").val();
+     
+        $("#loading").show();
+        $.ajax({
+            url: '/VidhanSabha/_partialVidhanSabhaList',
+            type: 'POST',
+            data: { 'stateId': stateId, 'LSCID': ddl_LKSC_Constituencyid, 'VSC_NAME': VSC_text },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+
+            },
+            error: function()
+        {               
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+
+        },
+        });
+        $('#loading').hide();
+    }
+</script> 

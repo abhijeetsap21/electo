@@ -1,0 +1,63 @@
+﻿@model electo.Models.state
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-9 box-2 running-campaigns sidebar-right">
+        <div class="form-horizontal">
+            <h4>New State</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.stateName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.stateName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.stateName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-default" })
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        debugger
+        if ('@ViewBag.result' != '') {
+            if ('@ViewBag.result' != 0) {
+                bootbox.alert({
+                    title: "Alert !",
+                    message: 'State created successfully',
+                    timeOut: 2000
+
+                });
+                return;
+            }
+            else {
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: 'State not created',
+                    timeOut: 2000
+
+                });
+            }
+        }
+    });
+
+</script>

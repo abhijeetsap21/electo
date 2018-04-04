@@ -1,0 +1,75 @@
+﻿@model IEnumerable<electo.Models.eventType>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Event Types</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Event Name
+            </th>
+
+            <th>
+                Is Active
+            </th>
+
+            <th>
+                Created Date
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+    
+</table>
+
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Event type created successfully</p>',
+                    timeOut: 2000
+                });
+
+        }
+    });
+</script>
+
+
+
+
+

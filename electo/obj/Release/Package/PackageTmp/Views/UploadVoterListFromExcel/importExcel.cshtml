@@ -1,0 +1,101 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "ImportExcel";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>ImportExcel (@ViewBag.ResultData)</h2>
+<!--[if !IE]><!-->
+
+<!--<![endif]-->
+<div class="col-md-10 box-2 running-campaigns">
+    @using (Html.BeginForm("importExcel", "UploadVoterListFromExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped">
+                <tr>
+                    <td>Excel file</td>
+
+                    <td>
+                        <input type="file" id="FileUpload1" name="FileUpload1" />
+                    </td>
+                    <td>
+                        <input type="submit" id="Submit" name="Submit" value="Submit" />
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+            }
+
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped">
+
+                    @if (ViewBag.Data != null)
+                    {
+                        <thead>
+
+                            @foreach (DataColumn column in (ViewBag.Data as System.Data.DataTable).Columns)
+                            {
+                            <th>@column.ColumnName.ToUpper()</th>
+                            }
+                            </thead>
+                        if ((ViewBag.Data as System.Data.DataTable).Rows.Count > 0)
+                        {
+                            foreach (DataRow dr in (ViewBag.Data as System.Data.DataTable).Rows)
+                            {
+
+                                <tr>
+
+                                    @foreach (DataColumn column in (ViewBag.Data as System.Data.DataTable).Columns)
+                                    {
+                                        <td data-title='@column.ColumnName'>
+
+                                            @dr[column].ToString()
+                                        </td>
+                                    }
+
+
+
+
+                                </tr>
+
+                            }
+
+                        }
+                        else
+                        {
+                            int count = (ViewBag.Data as System.Data.DataTable).Columns.Count;
+                            <tr>
+
+                                <td colspan='@count' style="color:red;">
+
+                                    No Data Found.
+                                </td>
+
+
+
+                            </tr>
+
+                        }
+
+                    }
+                    else
+                    {
+                        if (ViewBag.Error != null)
+                        {
+                            <tr>
+                                <td style="color:red;">
+
+                                    @(ViewBag.Error != null ? ViewBag.Error.ToString() : "")
+                                </td>
+
+
+
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </div>

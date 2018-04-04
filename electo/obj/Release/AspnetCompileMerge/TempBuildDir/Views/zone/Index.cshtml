@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<h2>Zone</h2>
+<p class="create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("States", null, " State ", new { @class = "form-control", onchange = "getMuncipartyListList()" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="ddl_muncipal" class="form-control">
+                <option value=""> Muncipal Corporation </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="districtID" class="form-control">
+                <option value=""> District </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-md-12" id="viewResult">
+        <div class="col-md-12">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function searchResult()
+{
+        debugger;
+        var stateId = $("#States").val();
+
+        if (stateId == "" )
+        {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+
+
+        var ddl_muncipal = $("#ddl_muncipal").val();
+        if (ddl_muncipal == "") {
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select muncipal corporation</p>',
+                timeOut: 2000
+
+            });
+            return;
+        }
+      
+
+        $("#loading").show();
+        $.ajax({
+            url: '/zone/_partialZoneList',
+            type: 'POST',
+            data: { 'stateId': stateId, 'MPCorporation': ddl_muncipal },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+
+            },
+            error: function()
+        {
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+
+        },
+        });
+        $('#loading').hide();
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Zone created successfully</p>',
+                    timeOut: 2000
+                });
+            
+        }
+    });
+</script>
+<script>
+
+    function getMuncipartyListList()
+{
+        debugger;
+        var stateId = $("#States").val();
+
+        if (stateId == "" )
+        {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+       
+        $.ajax({
+            url: '/zone/getMuncipalCorporationListByStateID',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                stateId: +stateId
+            }),
+            success: function(result)
+          {
+                $("#ddl_muncipal").html("");
+                $("#ddl_muncipal").append($('<option></option>').val('').html('Muncipal Corporation'));
+                $.each($.parseJSON(result), function(i, VSC)
+                {
+                    $("#ddl_muncipal").append($('<option></option>').val(VSC.municipalCorporationID).html(VSC.municipalCorporationName1))
+                })
+
+            },
+            error: function()
+            {
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+            },
+        });
+
+      
+    }
+</script>

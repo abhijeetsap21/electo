@@ -1,0 +1,135 @@
+﻿@model electo.Models.Biography_s
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-9 box-2 running-campaigns sidebar-right">
+        <div class="form-horizontal">
+            <h4>Update Biography</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.BiographyID)
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.personName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.personName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-3" for="fullName">Company Logo</label>
+                        <div class="col-md-9 choose-img">
+                            <img id="pic" src="http://electo.qendidate.com/Logo/Emptyuser.jpg" alt="company logo" width="100px" height="100px">
+                            <input type="file" id="photoA" name="files" class="choose-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-default" })
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+        function readURL(input) {
+            debugger
+            if (input.files && input.files[0]) {
+                //Get reference of FileUpload.
+                var fileUpload = document.getElementById("photoA");
+                if (fileUpload.value.length > 0) {
+                    //Check whether the file is valid Image.
+                    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
+                    if (regex.test(fileUpload.value.toLowerCase())) {
+                        var reader = new FileReader();
+                        var s = fileUpload.files[0];
+                        reader.readAsDataURL(s);
+                        reader.onload = function (e) {
+                            var image = new Image();
+                            image.src = e.target.result;
+                            image.onload = function () {
+                                debugger
+                                var height = this.height;
+                                var width = this.width;
+                                if (height > 300 || width > 200) {
+                                    debugger
+
+                                    bootbox.alert({
+                                        title: "Alert !",
+                                        message: 'Height and Width must not exceed 200px.'
+                                    });
+                                    return false;
+                                }
+                                else {
+
+                                    var reader1 = new FileReader();
+
+                                    reader1.onload = function (e) {
+                                        $('#pic').attr('src', e.target.result);
+                                    }
+
+                                    reader1.readAsDataURL(input.files[0]);
+                                }
+                            };
+                        }
+                    }
+                    else {
+
+                        bootbox.alert({
+                            title: "Alert !",
+                            message: 'Please select .jpg,.png,.gif'
+                        });
+                        return false;
+                    }
+                }
+
+            }
+        }
+
+        $("#photoA").change(function () {
+            readURL(this);
+        });
+</script>
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' == "Success")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Details Saved Successfully </p>',
+                timeOut : 2000
+            });
+        if ('@TempData["Result"]' == "Failure")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>An Error Occurred</p>',
+                timeOut: 2000
+            });
+    });
+</script>

@@ -1,0 +1,94 @@
+﻿@using electo.Models;
+
+@{
+    var userType = Convert.ToInt64(BaseUtil.GetSessionValue(AdminInfo.userType.ToString()));
+    var userID = Convert.ToInt64(BaseUtil.GetSessionValue(AdminInfo.LoginID.ToString()));
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<style>
+    p.create-btn.half-content {
+    float: left;
+    width: auto;
+    margin: 0 20px 0 0;
+}
+</style>
+    <p class="create-btn half-content">
+        @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+    </p>
+    <p class="create-btn half-content">
+        @Html.ActionLink("Upload Voter List", "importExcel", "UploadVoterListFromExcel", "", new { @class = "create-new" })
+    </p>
+    <div class="col-md-10 box-2 running-campaigns sidebar-right">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-4" for="searchuser">Search User</label>
+                <div class="col-md-8">
+                    <input type="text" id="voterIDNumber" class="form-control" placeholder="User/volunteer voter id" />
+                </div>
+            </div>
+        </div>
+        @if (userType == 1)
+        {
+            <div class="col-md-3">
+                <div class="form-group">
+                    @*@Html.DropDownList( new SelectList(ViewBag.dataEntryOperators, "loginID", "fullName"), " usertypes ", new { @class = "form-control", @id = "ddl_" })*@
+                    @Html.DropDownList("dataEntryOperators", null, "Operators", new { @class = "form-control", @id = "ddl_userID" })
+                </div>
+            </div>
+        }
+        <div class="col-md-3">
+            <div class="form-group">
+                <input type="text" id="datepicker" class="form-control datepicker" placeholder="Date" />
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+            </div>
+        </div>
+        <div class="table-responsive col-md-12" id="viewResult"></div>
+    </div>
+
+    <script>
+        $(function () {
+            $(".datepicker").datepicker();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            searchResult();
+        });
+
+        function searchResult() {
+            debugger
+            var voterID = document.getElementById('voterIDNumber').value;
+            debugger
+            var date_ = document.getElementById('datepicker').value;
+            if (date_ == "") {
+                var date_ = "";
+            }
+
+            var userID = document.getElementById('ddl_userID').value;
+            {
+                if(userID =="")
+                    userID =@userID;
+            }
+
+            $("#loading").show();
+            debugger
+            $.ajax({
+                url: '/voterList/_partialVoterDetails',
+                type: 'POST',
+                data: { 'voterID': voterID, 'date': date_,'userID':userID},
+                success: function (data) {
+                    debugger
+                    $('#viewResult').html(data);
+                }
+            });
+            $('#loading').hide();
+        }
+    </script>

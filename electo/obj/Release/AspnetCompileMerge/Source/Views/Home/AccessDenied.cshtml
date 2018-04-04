@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutWithoutLogin.cshtml";
+}
+
+<h3>Error.</h3>
+
+@model System.Web.Mvc.HandleErrorInfo
+
+@if (Model != null)
+            {
+    <div>
+        <h5>
+            Access denied
+        </h5>
+
+    </div>
+}
+
+
+

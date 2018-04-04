@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "PresentRelationships";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cmpID = ViewBag.campaignID;
+}
+
+<h2>Present Relationships</h2>
+
+<div class="box running-campaigns">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("usertypes", new SelectList(ViewBag.usertypes, "userTypeID", "userTypeName"), " usertypes ", new { @class = "form-control", @id = "ddl_" })
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-md-12" id="viewResult">
+        <div class="col-md-12">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        searchResult();
+    });
+
+    function searchResult() {
+        debugger
+        var userType = $('#ddl_').val();
+        if (userType == "") {
+            userType = "6";			
+        }
+        $("#loading").show();
+        debugger
+        $.ajax({
+            url: '/RunningCampaign/PresentRelationships',
+            type: 'POST',
+            data: { 'cmpID': @cmpID, 'userTypeID': userType },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+            }
+        });
+        $('#loading').hide();
+    }
+</script>
+

@@ -1,0 +1,91 @@
+﻿
+@model IEnumerable<electo.Models.SP_Models.StoredProcedureModels.sp_GetNewEnquiries_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+
+            <th>
+                Enquiry Type
+            </th>
+            <th>
+                Enquirer Name
+            </th>
+           
+
+            <th>
+                Mobile
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                Task Completed
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td colspan="7">
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.enquiryTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enquirerName)
+                </td>
+               
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.mobile)
+                </td>
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isTaskComplete)
+                </td>
+
+                <td>
+                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="return dispalyDetails(@item.enquiryID);">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" role="dialog">   </div>
+
+<script>
+    function dispalyDetails(eID) {
+        debugger
+        var URL = '@Url.Action("_partialEditEnquiry", "Enquiries")?eID='+eID;
+        $.get(URL, function (data) {
+            $("#myModal").html(data);
+        });
+    }
+
+</script>
+

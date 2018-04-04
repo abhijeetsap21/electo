@@ -1,0 +1,113 @@
+﻿
+@model IEnumerable<electo.Models.sp_politicalPartyList_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Political Party Name
+            </th>
+            <th>
+                Political Party Email
+            </th>
+            <th>
+                Telephone
+            </th>
+
+            <th>
+                Political Party Website Url
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Is Active
+            </th>
+            <th>
+                Created Date
+            </th>
+            <th>More Address</th>
+        </tr>
+        <
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td>
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    <img src="politicalPartyLogo" alt="logo" />  @Html.DisplayFor(modelItem => item.politicalPartyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.politicalPartyEmail)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.politicalPartyWebsiteUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    <button data-toggle="modal" data-target="#myModal" onclick="return moreAddress('@item.politicalPartyID','@item.politicalPartyName','@item.politicalPartyLogo')">View</button>
+                    <button data-toggle="modal" data-target="#myModal" onclick="return AddNewAddress('@item.politicalPartyID','@item.politicalPartyName','@item.politicalPartyLogo')">New</button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" role="dialog">   </div>
+
+<script>
+    function moreAddress(politicalPartyID, politicalPartyName,politicalPartyLogo)
+    {
+        debugger
+        var URL = '@Url.Action("_partialMorePartyAddress", "PoliticalPartiesByState")?politicalPartyID=' + politicalPartyID;
+        $.get(URL, function (data) {
+            $("#myModal").html(data);
+            $("#modelHeader").html('<img src='+politicalPartyLogo+' />'+'&nbsp&nbsp&nbsp'+ politicalPartyName);
+        });
+    }
+
+</script>
+
+<script>
+    function AddNewAddress(politicalPartyID, politicalPartyName,politicalPartyLogo)
+    {
+        debugger
+        var URL = '@Url.Action("_PartialNewAddress", "PoliticalPartiesByState")?politicalPartyID=' + politicalPartyID;
+        $.get(URL, function (data) {
+            $("#myModal").html(data);
+            $("#modelHeader").html('<img src='+politicalPartyLogo+' />'+'&nbsp&nbsp&nbsp'+ politicalPartyName);
+        });
+    }
+
+</script>

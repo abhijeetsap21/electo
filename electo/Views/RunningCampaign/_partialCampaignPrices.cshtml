@@ -1,0 +1,69 @@
+﻿@model IEnumerable<electo.Models.SP_Models.StoredProcedureModels.sp_SearchCampaignPrices_Result>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Election Type Name
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Created Date
+            </th>
+           
+            <th>
+                Updated Date
+            </th>
+            <th>
+                Is Active
+            </th>            
+
+        </tr>
+    </thead>
+    <tbody>
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.electionTypeNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @item.dataIsCreated.ToString("dd/mm/yyyy")
+                </td>
+              
+                <td>
+                    @item.dataIsUpdated.ToString("dd/mm/yyyy")
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" role="dialog">   </div>
+
+
+
+
+

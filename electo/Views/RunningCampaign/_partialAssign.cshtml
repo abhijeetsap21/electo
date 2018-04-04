@@ -1,0 +1,230 @@
+﻿@model IEnumerable<electo.Models.sp_GetVolunteers_Result>
+    @{ 
+        var ab = TempData["cID"].ToString();
+    }
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+               Volunteer Name
+            </th>
+            <th>
+                Father/Husband
+            </th>
+            <th>
+              DOB
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Choose User Type
+            </th>
+            <th>
+                Present Status In Campaign
+            </th>
+            <th>
+               Action
+            </th>
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td colspan="8">
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.voterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.voterFather_HusbandName)
+                </td>
+                <td>
+                    @{var strdatetime = @item.dateOfBirth.HasValue ? @item.dateOfBirth.Value.ToString("dd/MM/yyyy") : string.Empty; }
+                    @strdatetime
+                
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address1)
+                </td>
+                <td>
+                    @Html.DropDownList("usertypes", new SelectList(ViewBag.usertypes, "userTypeID", "userTypeName"), " User Type ", new { @class = "form-control", @id = "ddl_" + @i })
+                    <input type="hidden" id='usertypeid_@i' name="usertypeid" />
+                </td> 
+                <td>
+                    <span class="removable-data">
+                        <span>@Html.DisplayFor(modelItem => item.userTypeID)</span>
+                    @{if (item.userTypeID != "")
+                        {
+                            <a href="javascript:void(0)" class="remove-data" title="Remove Relationship"><i class="glyphicon glyphicon-remove" onclick="deleteRelationship(@item.volunteerID,@ab,'@item.voterName')"></i></a>
+                        }
+                    }
+                    @Html.DisplayFor(modelItem => item.WorkingAreaName)
+                </span>
+                </td>                            
+                <td>
+                    <a onclick="return save(@item.volunteerID,@ab,@i,'@item.voterName')" data-toggle="modal" data-target="#myModal1" class="btn btn-2 btn-defaul">SAVE</a>                   
+                </td>
+            </tr>
+        }
+        
+
+    </tbody>
+</table>
+<div class="modal fade" id="myModal1" role="dialog">   </div>
+
+
+<script>       
+        debugger
+        function save(vID, cID, i, voterName) {
+            var ID = $("#ddl_" + i).val();
+            if (ID == "") {
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Kindly select user type</p>',
+                    timeOut: 2000
+                });
+                return;
+
+            }
+            $("#loading").show();
+            debugger
+            $.ajax({
+                url: '/RunningCampaign/assignVolunteer',
+                type: 'POST',
+                data: { 'usertype': ID, 'vID': vID, 'cID': cID },
+
+                success: function (data) {
+                    debugger
+                    if (data == "Success") {
+                        if(ID==5)
+                        {
+                            AssignPollingBoothToPollingBoothInch(vID, cID, voterName);
+                        }
+                        if(ID == 6)
+                        {
+                            debugger
+                            assignAreaPageIncharge(ID,vID,cID,voterName);
+                        }
+                    }
+                    
+                   
+                }
+            });
+            $("#loading").hide();
+        }
+</script>
+<script>
+  
+    function assignAreaPageIncharge(ID, vID,cID,voterName)
+    {
+        debugger
+        $.ajax({
+            url: '/RunningCampaign/_partialAssignAreaPageIncharge',
+            type: 'POST',
+            data: { 'userType': ID,'vID':vID,'cID':cID ,'voterName':voterName},
+            success: function (data) {
+                debugger
+                $('#myModal1').html(data);
+            }
+        });
+    }
+              
+</script>
+<script>
+    function AssignPollingBoothToPollingBoothInch(vID, cID, voterName)
+    {
+        debugger
+        $.ajax({
+            url: '/RunningCampaign/_partialAssignPollingBooth',
+            type: 'GET',
+            data: { 'cID': cID, 'vID': vID, 'voterName': voterName },
+            success: function (data) {
+                debugger
+                $('#myModal1').html(data);
+
+            }
+        });
+    }
+
+</script>
+<script>
+    function deleteRelationship(vID, cID, voterName)
+    { debugger
+        bootbox.confirm({
+            title: "Confirmation !",
+            message: "Are you sure to delete "+voterName+"  from selected campaign?",
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    proceedNext(vID, cID);
+                }
+                
+            }
+        });
+
+    }
+  function  proceedNext(vID, cID)
+    {
+        debugger
+        $.ajax({
+            url: '/RunningCampaign/DeletecampaignVolunteerRelationShip',
+            type: 'POST',
+            data: { 'cID': cID, 'vID': vID },
+            success: function (data) {
+                debugger
+                if (data == 1)
+                {
+                    bootbox.confirm({
+                        title: "Confirmation !",
+                        message: "User  deleted  from selected campaign.",
+                        buttons: {                            
+                            confirm: {
+                                label: '<i class="fa fa-check"></i> Confirm'
+                            }
+                        },
+                        callback: function (result) {
+                            if (result) {
+                                window.location.reload();
+                            }
+
+                        }
+                    });
+                }
+                else {
+                    bootbox.alert({
+                        title: "Alert !",
+                        message: '<p>Record not saved.</p>',
+                        timeOut: 2000
+                    });
+                    return;
+                }
+            }
+        });
+    }
+
+</script>
+

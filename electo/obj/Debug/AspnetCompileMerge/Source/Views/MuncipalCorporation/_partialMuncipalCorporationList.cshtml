@@ -1,0 +1,46 @@
+﻿@model IEnumerable<electo.Models.municipalCorporationName>
+
+
+<table class="table">
+    <thead> <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.municipalCorporationName1)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.district.districtName)
+        </th>      
+      
+       
+    </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td>
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.municipalCorporationName1)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.district.districtName)
+                </td>
+
+
+            </tr>
+        }
+</tbody>
+</table>

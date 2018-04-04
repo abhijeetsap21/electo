@@ -1,0 +1,55 @@
+﻿@model IEnumerable<electo.Models.sp_getZoneByStateIDAndMUncipalCorporationID_Result>
+
+
+<table class="table">
+    <thead>  <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.zoneName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.municipalCorporationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.districtName)
+        </th>       
+       
+        <th>
+            @Html.DisplayNameFor(model => model.stateName)
+        </th>
+        
+    </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td>
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zoneName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.municipalCorporationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.districtName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stateName)
+                </td>
+
+            </tr>
+        }
+</tbody>
+</table>

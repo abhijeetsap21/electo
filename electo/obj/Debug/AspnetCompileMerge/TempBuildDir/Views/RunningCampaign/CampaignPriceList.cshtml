@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Elections";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Compaign Prices</h2>
+<div class="form-group">
+    <input type="button" data-toggle="modal" data-target="#myModal" name="search" class="btn btn-defaul" value="New Price" onclick="return data();" />
+    </div>
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="col-lg-12 white-box">
+                <div class="form-group">
+                    @Html.DropDownList("ElectionType", null, "Election Type", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control" id="year" aria-describedby="emailHelp" placeholder="Enter Year">
+                </div>
+
+                <div class="form-group">
+                    <input type="checkbox" class="form-control" id="Active/Inactive" aria-describedby="emailHelp" placeholder="Active/Inactive">
+                </div>
+
+                <div class="form-group">
+                    <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+                </div>
+
+
+            </div>
+
+
+            <div class="table-responsive col-lg-12" id="viewResult">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" role="dialog">   </div>
+
+    <script>
+
+    $(document).ready(function () {
+
+        if ('@TempData["Result"]' == "Edited")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Price Has been edited successfully</p>',
+                timeOut: 2000
+            });
+    });
+    </script>
+    <script>
+
+    function data() {
+
+                debugger
+                var URL = '@Url.Action("_partialNewPrice", "RunningCampaign")';
+                debugger
+                $.get(URL, function (data) {
+                    debugger
+                    $("#myModal").html(data);
+                });
+            }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            searchResult();
+        });
+
+        function searchResult() {
+            debugger
+            var sel = document.getElementById('ElectionType');
+            var ElectionType = sel.options[sel.selectedIndex].innerHTML;
+            if (ElectionType == "Election Type") {
+                ElectionType = null;
+            }
+            var ddl_year_ = document.getElementById('year').value;
+            if (ddl_year_ == "") {
+                var d1 = new Date();
+                var yr = d1.getFullYear();
+                ddl_year_ = yr;
+            }
+
+            var AI_SelectedVal = document.getElementById('Active/Inactive').checked
+            {
+                if (AI_SelectedVal == true) {
+                    AI_SelectedVal = true;
+                }
+                if (AI_SelectedVal == false) {
+                    AI_SelectedVal = false;
+                }
+            }
+
+
+            debugger
+            $.ajax({
+                url: '/RunningCampaign/_partialCampaignPrices',
+                type: 'POST',
+                data: { 'electionTypeNAME': ElectionType, 'year': ddl_year_, 'isActive': AI_SelectedVal },
+                success: function (data) {
+                    debugger
+                    $('#viewResult').html(data);
+                }
+            });
+        }
+    </script>
+

@@ -1,0 +1,166 @@
+﻿@model electo.Models.areaName
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>New Area</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stateID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.stateID, new SelectList(ViewBag.stateID, "stateID", "stateName"), " State ", new { @class = "form-control", onchange = "getList()", @id = "stateID" })
+                @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lokSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.lokSabhaConstituencyID, new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " LockSabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency" })
+
+                @Html.ValidationMessageFor(model => model.lokSabhaConstituencyID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.districtID,  htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.districtID, new SelectList(ViewBag.districtID, "districtID", "districtName"), " District ", new { @class = "form-control", onchange = "getWard()", @id = "districtID" })
+                @Html.ValidationMessageFor(model => model.districtID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.electionID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.electionID, new SelectList(ViewBag.electionID, "electionID", "electionName1"), " Election ", new { @class = "form-control", @id = "electionID" })
+                @Html.ValidationMessageFor(model => model.electionID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.vidhanSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.vidhanSabhaConstituencyID, new SelectList(ViewBag.vidhanSabhaConstituencyID, "vidhanSabhaConstituencyID", "vidhanSabhaConstituencyName"), " VidhanSabha ", new { @class = "form-control", @id = "ddl_VKSC_Constituency" })
+                @Html.ValidationMessageFor(model => model.vidhanSabhaConstituencyID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wardID,  htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.wardID, new SelectList(ViewBag.wardID, "wardID", "wardName"), " Ward ", new { @class = "form-control",onchange = "getBooth()", @id = "ddl_Ward" })
+                @Html.ValidationMessageFor(model => model.wardID, "", new { @class = "text-danger" })
+            </div>
+        </div>  
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.pollingBoothID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.pollingBoothID, new SelectList(ViewBag.pollingBoothID, "pollingBoothID", "pollingBoothName"), " Polling Booth ", new { @class = "form-control", @id = "ddl_PollingBooth" })
+                @Html.ValidationMessageFor(model => model.pollingBoothID, "", new { @class = "text-danger" })
+            </div>
+        </div> 
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.areaName1,  htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.areaName1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.areaName1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Creation"]' != '') {
+            if ('@TempData["Creation"]' == "unsuccess")
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Record not saved</p>',
+                    timeOut: 2000
+                });         
+        }
+    });
+</script>
+
+
+
+<script src="~/js/FillDistrictByStateID.js"></script>
+<script>
+    function getList() {
+        debugger;
+        var stateId = $("#stateID").val();
+        var districtId = $("#districtID").val();
+        var MPCorporation = 0;
+
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+        debugger 
+        FIllDistrictDll(stateId);
+        debugger
+        FillLoKSabha(stateId);
+        debugger
+        FillVidhanSabha(stateId);
+        debugger
+        if (stateId != "" && districtId != "") {
+            debugger
+            FillWard(stateId,MPCorporation, districtId);
+        }        
+    }
+
+    function getWard()
+    {
+        debugger;
+        var stateId = $("#stateID").val();
+        var districtId = $("#districtID").val();
+        var MPCorporation = 0;
+
+        debugger
+        if (stateId != "" && districtId != "") {
+            debugger
+            FillWard(stateId, MPCorporation, districtId);
+        }
+    }
+
+    function getBooth()
+    {
+        debugger
+        var wardID = $("#ddl_Ward").val();
+        FillPollingBooth(wardID);
+    }
+</script>   

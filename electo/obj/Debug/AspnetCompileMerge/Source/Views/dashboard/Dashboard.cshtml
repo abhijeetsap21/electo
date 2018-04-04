@@ -1,0 +1,144 @@
+﻿@model  electo.Models.ViewModels.DashBoardViewModels
+
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Dashboard</h2>
+    <div class="row">
+        <a href="@Url.Action("RunningCampaigns","RunningCampaign")">
+            <div class="col-sm-4 box">
+                <div class="notification">
+                    <img src="~/images/app-25-bell-32.png">
+                    <div class="count">@ViewBag.runningCampaignCount</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-xs-12"><img src="~/images/d-con-icon-1.png" alt=""></div>
+                    <div class="col-sm-10 col-xs-12">
+
+
+                        <h4>Running Campaigns</h4>
+                        <marquee direction="up" scrolldelay=500>
+                            @foreach (var item in Model.getRunningCampaigns)
+                            {
+                                <ul>
+
+                                    <li><img src='@item.politicalPartyLogo' alt="logo" height="50"/> @item.campaignName | @item.voterName</li>
+                                   
+                                </ul>
+                            }
+
+                        </marquee>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+        <a href="@Url.Action("Elections","Election")">
+            <div class="col-sm-4 box">
+                <div class="notification">
+                    <img src="~/images/app-25-bell-32.png">
+                    <div class="count">@ViewBag.upComingElectionCount</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-xs-12"><img src="~/images/d-con-icon-2.png" alt=""></div>
+                    <div class="col-sm-10 col-xs-12">
+                        <h4>Upcoming Elections</h4>
+                        <marquee direction="up" scrolldelay=500>
+                            @foreach (var item in Model.getUpcomingElections)
+                            {
+
+                                <ul>
+                                    <li>@item.electionName | @item.electionTypeNAME | @item.monthName - @item.electionYear  </li>
+                                  
+                                </ul>
+
+                            }
+                        </marquee>
+
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="@Url.Action("Enquiries","Enquiries")">
+            <div class="col-sm-4 box">
+                <div class="notification">
+                    <img src="~/images/app-25-bell-32.png">
+                    <div class="count">@ViewBag.newEnquiriesCount</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-xs-12"><img src="~/images/d-con-icon-3.png" alt=""></div>
+                    <div class="col-sm-10 col-xs-12">
+                        <h4>New Enquiries</h4><marquee direction="up" scrolldelay=500>
+                            @foreach (var item in Model.getNewEnquiries)
+                            {
+
+                                <ul>
+                                    <li>@item.enquiryTypeName | @item.dataIsCreated.ToString("dd/MM/yyyy")</li>
+                                    
+                                </ul>
+
+                            }
+                        </marquee>
+
+                    </div>
+                </div>
+            </div>
+            <a href="@Url.Action("RunningCampaigns","RunningCampaign")">
+                <div class="col-sm-4 box">
+                    <div class="notification">
+                        <img src="~/images/app-25-bell-32.png">
+                        <div class="count">@ViewBag.newCampaignCount </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12"><img src="~/images/d-con-icon-4.png" alt=""></div>
+                        <div class="col-sm-10 col-xs-12">
+                            <h4>New Campaign Requests</h4><marquee direction="up" scrolldelay=500>
+                                @foreach (var item in Model.newCampaignRequests)
+                                {
+
+
+                                    <ul>
+                                        <li><img src='@item.politicalPartyLogo' alt="logo" height="50"/>  @item.campaignName | @item.voterName</li>
+                                       
+                                    </ul>
+
+                                }
+                            </marquee>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="@Url.Action("Index","Area")">
+                <div class="col-sm-4 box">
+                    <div class="notification">
+                        <img src="~/images/app-25-bell-32.png">
+                        <div class="count">2</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12"><img src="~/images/d-con-icon-5.png" alt=""></div>
+                        <div class="col-sm-10 col-xs-12">
+                            <h4>Manage Master Records</h4>
+                            <ul>
+                               <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div></a>
+                <div class="col-sm-4 box">
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12"><img src="images/d-con-icon-1.png" alt=""></div>
+                        <div class="col-sm-10 col-xs-12">
+                            <h4>Reports</h4>
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+</div>
+</div>

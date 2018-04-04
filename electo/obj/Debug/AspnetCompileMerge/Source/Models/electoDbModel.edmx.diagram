@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b03e5bc299494279b6b1abf1351544d3" Name="Diagram1">
+        <EntityTypeShape EntityType="electoModel.areaName" Width="1.5" PointX="9.75" PointY="51.875" />
+        <EntityTypeShape EntityType="electoModel.campaignPrice" Width="1.5" PointX="12.75" PointY="65.75" />
+        <EntityTypeShape EntityType="electoModel.campaign" Width="1.5" PointX="12" PointY="73.625" />
+        <EntityTypeShape EntityType="electoModel.compaignVolunteerRelationship" Width="1.5" PointX="17.25" PointY="62.375" />
+        <EntityTypeShape EntityType="electoModel.district" Width="1.5" PointX="12.75" PointY="49.375" />
+        <EntityTypeShape EntityType="electoModel.electionName" Width="1.5" PointX="9.75" PointY="62.5" />
+        <EntityTypeShape EntityType="electoModel.electionType" Width="1.5" PointX="7.5" PointY="77.625" />
+        <EntityTypeShape EntityType="electoModel.enquiry" Width="1.5" PointX="9.75" PointY="77.25" />
+        <EntityTypeShape EntityType="electoModel.enquiryType" Width="1.5" PointX="7.5" PointY="106.875" />
+        <EntityTypeShape EntityType="electoModel.eventMedia" Width="1.5" PointX="19.5" PointY="58.25" />
+        <EntityTypeShape EntityType="electoModel.event" Width="1.5" PointX="17.25" PointY="57.5" />
+        <EntityTypeShape EntityType="electoModel.eventType" Width="1.5" PointX="7.5" PointY="40.375" />
+        <EntityTypeShape EntityType="electoModel.gender" Width="1.5" PointX="0.75" PointY="55.875" />
+        <EntityTypeShape EntityType="electoModel.language" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="electoModel.loginVolunteer" Width="1.5" PointX="5.25" PointY="47.875" />
+        <EntityTypeShape EntityType="electoModel.lokSabhaConstituency" Width="1.5" PointX="15" PointY="52.5" />
+        <EntityTypeShape EntityType="electoModel.monthName" Width="1.5" PointX="7.5" PointY="69.625" />
+        <EntityTypeShape EntityType="electoModel.municipalCorporationName" Width="1.5" PointX="18" PointY="50.75" />
+        <EntityTypeShape EntityType="electoModel.pageInchargeAssignedArea" Width="1.5" PointX="14.25" PointY="61.375" />
+        <EntityTypeShape EntityType="electoModel.politicalParty" Width="1.5" PointX="7.5" PointY="102.25" />
+        <EntityTypeShape EntityType="electoModel.politicalPartyAddress" Width="1.5" PointX="15" PointY="72.5" />
+        <EntityTypeShape EntityType="electoModel.pollingBooth" Width="1.5" PointX="24.75" PointY="51.75" />
+        <EntityTypeShape EntityType="electoModel.pollingBoothArea" Width="1.5" PointX="12" PointY="54.875" />
+        <EntityTypeShape EntityType="electoModel.questionType" Width="1.5" PointX="7.5" PointY="61.375" />
+        <EntityTypeShape EntityType="electoModel.state" Width="1.5" PointX="7.5" PointY="44.125" />
+        <EntityTypeShape EntityType="electoModel.survey" Width="1.5" PointX="15.25" PointY="67.25" />
+        <EntityTypeShape EntityType="electoModel.SurveyQuestionOption" Width="1.5" PointX="21.75" PointY="63" />
+        <EntityTypeShape EntityType="electoModel.surveyQuestion" Width="1.5" PointX="19.5" PointY="62.625" />
+        <EntityTypeShape EntityType="electoModel.surveyRespons" Width="1.5" PointX="24" PointY="58.875" />
+        <EntityTypeShape EntityType="electoModel.tblyear" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="electoModel.userType" Width="1.5" PointX="7.5" PointY="65" />
+        <EntityTypeShape EntityType="electoModel.vidhanSabhaConstituency" Width="1.5" PointX="20.25" PointY="46.375" />
+        <EntityTypeShape EntityType="electoModel.volunteerList" Width="1.5" PointX="7.5" PointY="54.625" />
+        <EntityTypeShape EntityType="electoModel.voterList" Width="1.5" PointX="3" PointY="52.375" />
+        <EntityTypeShape EntityType="electoModel.wardConstituency" Width="1.5" PointX="22.5" PointY="52.125" />
+        <EntityTypeShape EntityType="electoModel.zoneMunicipality" Width="1.5" PointX="20.25" PointY="52.625" />
+        <EntityTypeShape EntityType="electoModel.pageInchargeComment" Width="1.5" PointX="7.5" PointY="86.5" />
+        <EntityTypeShape EntityType="electoModel.sendGridDetail" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="electoModel.View_ageWiseVoterCountInConstituency" Width="1.5" PointX="2.75" PointY="3.75" />
+        <AssociationConnector Association="electoModel.FK_areaName_districts" />
+        <AssociationConnector Association="electoModel.FK_areaName_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_areaName_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_areaName_lokSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_areaName_states" />
+        <AssociationConnector Association="electoModel.FK_areaName_vidhanSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_areaName_wardConstituency" />
+        <AssociationConnector Association="electoModel.FK_pageIncharge_areaName" />
+        <AssociationConnector Association="electoModel.FK_pollingBoothArea_areaName" />
+        <AssociationConnector Association="electoModel.FK_voterList_areaName" />
+        <AssociationConnector Association="electoModel.FK_campaignPrice_electionType" />
+        <AssociationConnector Association="electoModel.FK_campaignPrice_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_campaignPrice_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_campaigns_electionName" />
+        <AssociationConnector Association="electoModel.FK_campaigns_electionType" />
+        <AssociationConnector Association="electoModel.FK_campaigns_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_campaigns_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_campaigns_lokSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_campaigns_politicalParty" />
+        <AssociationConnector Association="electoModel.FK_campaigns_vidhanSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_campaigns_volunteerList" />
+        <AssociationConnector Association="electoModel.FK_campaigns_wardConstituency" />
+        <AssociationConnector Association="electoModel.FK_compaignVolunteerRelationship_campaigns" />
+        <AssociationConnector Association="electoModel.FK_events_campaigns" />
+        <AssociationConnector Association="electoModel.FK_pageIncharge_campaigns" />
+        <AssociationConnector Association="electoModel.FK_survey_campaigns" />
+        <AssociationConnector Association="electoModel.FK_compaignVolunteerRelationship_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_compaignVolunteerRelationship_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_compaignVolunteerRelationship_userTypes" />
+        <AssociationConnector Association="electoModel.FK_compaignVolunteerRelationship_volunteerList" />
+        <AssociationConnector Association="electoModel.FK_districts_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_districts_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_districts_states" />
+        <AssociationConnector Association="electoModel.FK_lokSabhaConstituency_districts" />
+        <AssociationConnector Association="electoModel.FK_municipalCorporationName_districts" />
+        <AssociationConnector Association="electoModel.FK_politicalPartyAddress_districts" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_districts" />
+        <AssociationConnector Association="electoModel.FK_vidhanSabhaConstituencyID_districts" />
+        <AssociationConnector Association="electoModel.FK_wardConstituency_districts" />
+        <AssociationConnector Association="electoModel.FK_zoneMunicipality_districts" />
+        <AssociationConnector Association="electoModel.FK_electionName_electionType" />
+        <AssociationConnector Association="electoModel.FK_electionName_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_electionName_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_electionName_monthName" />
+        <AssociationConnector Association="electoModel.FK_electionType_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_electionType_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_enquiries_enquiryType" />
+        <AssociationConnector Association="electoModel.FK_enquiries_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_enquiryType_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_enquiryType_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_eventMedia_events" />
+        <AssociationConnector Association="electoModel.FK_eventMedia_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_events_eventType" />
+        <AssociationConnector Association="electoModel.FK_events_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_events_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_eventType_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_eventType_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_voterList_gender" />
+        <AssociationConnector Association="electoModel.FK_loginVolunteer_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_loginVolunteer_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_loginVolunteer_userTypes" />
+        <AssociationConnector Association="electoModel.FK_loginVolunteer_volunteerList" />
+        <AssociationConnector Association="electoModel.FK_loginVolunteer_voterList" />
+        <AssociationConnector Association="electoModel.FK_lokSabhaConstituency_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_lokSabhaConstituency_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_municipalCorporationName_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_municipalCorporationName_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_pageInchargeAssignedArea_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_pageInchargeAssignedArea_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_pageInchargeComments_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_pageInchargeComments_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_politicalParty_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_politicalParty_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_politicalPartyAddress_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_politicalPartyAddress_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_pollingBoothArea_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_pollingBoothArea_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_questionType_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_questionType_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_states_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_states_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_survey_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_survey_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_surveyQuestions_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_surveyQuestions_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_surveyResponses_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_userTypes_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_userTypes_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_vidhanSabhaConstituency_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_vidhanSabhaConstituency_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_volunteerList_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_volunteerList_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_voterList_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_voterList_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_wardConstituency_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_wardConstituency_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_zoneMunicipality_loginVolunteer" />
+        <AssociationConnector Association="electoModel.FK_zoneMunicipality_loginVolunteer1" />
+        <AssociationConnector Association="electoModel.FK_lokSabhaConstituency_states" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_lokSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_vidhanSabhaConstituencyID_lokSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_voterList_lokSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_municipalCorporationName_states" />
+        <AssociationConnector Association="electoModel.FK_wardConstituency_municipalCorporationName" />
+        <AssociationConnector Association="electoModel.FK_zoneMunicipality_municipalCorporationName" />
+        <AssociationConnector Association="electoModel.FK_pageIncharge_volunteerList" />
+        <AssociationConnector Association="electoModel.FK_politicalPartyAddress_politicalParty" />
+        <AssociationConnector Association="electoModel.FK_politicalPartyAddress_states" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_states" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_vidhanSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_pollingBooth_wardConstituency" />
+        <AssociationConnector Association="electoModel.FK_pollingBoothArea_pollingBooth" />
+        <AssociationConnector Association="electoModel.FK_surveyQuestions_questionType" />
+        <AssociationConnector Association="electoModel.FK_vidhanSabhaConstituencyID_states" />
+        <AssociationConnector Association="electoModel.FK_voterList_states" />
+        <AssociationConnector Association="electoModel.FK_wardConstituency_states" />
+        <AssociationConnector Association="electoModel.FK_zoneMunicipality_states" />
+        <AssociationConnector Association="electoModel.FK_surveyQuestions_survey" />
+        <AssociationConnector Association="electoModel.FK_SurveyQuestionOption_surveyQuestions" />
+        <AssociationConnector Association="electoModel.FK_surveyResponses_SurveyQuestionOption" />
+        <AssociationConnector Association="electoModel.FK_surveyResponses_surveyQuestions" />
+        <AssociationConnector Association="electoModel.FK_voterList_vidhanSabhaConstituency" />
+        <AssociationConnector Association="electoModel.FK_volunteerList_voterList" />
+        <AssociationConnector Association="electoModel.FK_voterList_wardConstituency" />
+        <AssociationConnector Association="electoModel.FK_wardConstituency_zoneMunicipality" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

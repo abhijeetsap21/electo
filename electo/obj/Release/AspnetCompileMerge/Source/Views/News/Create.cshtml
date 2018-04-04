@@ -1,0 +1,154 @@
+﻿@model electo.Models.news
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+@using (Html.BeginForm("Create", "News", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "ms" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-9 box-2 running-campaigns sidebar-right">
+        <div class="form-horizontal">
+            <h4>News</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.electionTypeID,htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.electionTypeID, new SelectList(ViewBag.electionTypeID, "electionTypeID", "electionTypeNAME"), " Election  ", new { @class = "form-control", onchange = "show()", @id = "electiontypeID" })
+                        @Html.ValidationMessageFor(model => model.electionTypeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-3" for="fullName">Company Logo</label>
+                        <div class="col-md-9 choose-img">
+                            <img id="pic" src="http://electo.qendidate.com/Logo/Emptyuser.jpg" alt="company logo" width="100px" height="100px">
+                            <input type="file" id="photoA" name="files" class="choose-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function readURL(input) {
+        debugger
+        if (input.files && input.files[0]) {
+            //Get reference of FileUpload.
+            var fileUpload = document.getElementById("photoA");
+            if (fileUpload.value.length > 0) {
+                //Check whether the file is valid Image.
+                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
+                if (regex.test(fileUpload.value.toLowerCase())) {
+                    var reader = new FileReader();
+                    var s = fileUpload.files[0];
+                    reader.readAsDataURL(s);
+                    reader.onload = function (e) {
+                        var image = new Image();
+                        image.src = e.target.result;
+                        image.onload = function () {
+                            debugger
+                            var height = this.height;
+                            var width = this.width;
+                            if (height > 100 || width > 100) {
+                                debugger
+
+                                bootbox.alert({
+                                    title: "Alert !",
+                                    message: 'Height and Width must not exceed 200px.'
+                                });
+                                return false;
+                            }
+                            else {
+
+                                var reader1 = new FileReader();
+
+                                reader1.onload = function (e) {
+                                    $('#pic').attr('src', e.target.result);
+                                }
+
+                                reader1.readAsDataURL(input.files[0]);
+                            }
+                        };
+                    }
+                }
+                else {
+
+                    bootbox.alert({
+                        title: "Alert !",
+                        message: 'Please select .jpg,.png,.gif'
+                    });
+                    return false;
+                }
+            }
+
+        }
+    }
+
+    $("#photoA").change(function () {
+        readURL(this);
+    });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>News Created Successfully</p>',
+                    timeOut: 2000
+                });
+        }
+    });
+</script>
+
+<script>
+    debugger
+    $("#ms").submit(function (e) {
+        debugger
+        var fileUpload = document.getElementById("photoA").value;
+        if (fileUpload == null) {
+            e.preventDefault();
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please Upload a Image</p>',
+                timeOut: 2000
+            });
+        }
+    });
+</script>

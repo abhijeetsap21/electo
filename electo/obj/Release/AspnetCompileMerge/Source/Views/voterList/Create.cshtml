@@ -1,0 +1,277 @@
+﻿@model electo.Models.voterList
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+@using (Html.BeginForm("create", "voterList"))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-9 box-2 running-campaigns sidebar-right">
+        <div class="form-horizontal">
+            <h4>New Voter</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.stateID, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.stateID, new SelectList(ViewBag.stateID, "stateID", "stateName"), " State ", new { @class = "form-control", @id = "stateID", onchange = "getLokSabha()" })
+                            @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.lokSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.lokSabhaConstituencyID, new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " LockSabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency", onchange = "getVidhanSabha()" })
+                            @Html.ValidationMessageFor(model => model.lokSabhaConstituencyID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.vidhanSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.vidhanSabhaConstituencyID, new SelectList(ViewBag.vidhanSabhaConstituencyID, "vidhanSabhaConstituencyID", "vidhanSabhaConstituencyName"), " VidhanSabha ", new { @class = "form-control", onchange = "getWard()", @id = "ddl_VKSC_Constituency" })
+                            @Html.ValidationMessageFor(model => model.vidhanSabhaConstituencyID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.wardID, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.wardID, new SelectList(ViewBag.wardID, "wardID", "wardName"), " Ward ", new { @class = "form-control", onchange = "FillArea()", @id = "ddl_Ward" })
+                            @Html.ValidationMessageFor(model => model.wardID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.areaID, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.areaID, new SelectList(ViewBag.areaID, "areaID", "areaName1"), " Area ", new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.areaID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.pincode, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.pincode, new { htmlAttributes = new { maxlength = "6", @class = "form-control", onkeydown = "return testLength()" } })
+                            @Html.ValidationMessageFor(model => model.pincode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.regionalLanguage, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.regionalLanguage, new SelectList(ViewBag.regionalLanguage, "languageID", "language1"), " Language ", new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.regionalLanguage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="new-voter" />
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.voterName, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.voterName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.voterName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.voterLastName, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.voterLastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.voterLastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.voterFather_HusbandName, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.voterFather_HusbandName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.voterFather_HusbandName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.genderID, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+
+                            @Html.DropDownListFor(model => model.genderID, new SelectList(ViewBag.genderID, "genderId", "gender1"), " Gender ", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.genderID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.dateOfBirth, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.dateOfBirth, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.dateOfBirth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.voterIDNumber, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.voterIDNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.voterIDNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.plotNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.plotNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.plotNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.streetNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.streetNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.streetNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.address1, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.address1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.address1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.address2, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.address2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.address2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/js/FillDistrictByStateID.js"></script>
+<script>
+    function getLokSabha() {
+        debugger;
+        var stateId = $("#stateID").val();
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+        debugger
+        FillLoKSabha(stateId);
+        debugger
+        FillVidhanSabha(stateId);
+
+
+    }
+
+    function getVidhanSabha() {
+        debugger
+        var stateId = $("#stateID").val();
+        var LCSC = $("#ddl_LKSC_Constituency").val();
+        debugger
+        if (stateId != "" && LCSC != "") {
+            debugger
+            getvidhanSabhaConstituencyByStateIDANDLKSCID(stateId, LCSC);
+        }
+
+
+    }
+    function getWard() {
+        debugger;
+        var ddl_VKSC_Constituency = $("#ddl_VKSC_Constituency").val();
+
+
+        debugger
+        if (ddl_VKSC_Constituency != "") {
+            debugger
+            FillWardByVidhanSabhaConsistuencyID(ddl_VKSC_Constituency);
+        }
+    }
+
+    function FillArea() {
+        var wardid = $("#ddl_Ward").val();
+        debugger
+        if (wardid != "") {
+            debugger
+            FillAreaDDL(wardid);
+        }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Creation"]' != '') {
+            if ('@TempData["Creation"]' == "Success")
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Record created successfully</p>',
+                    timeOut: 2000
+                });
+        }
+        if ('@TempData["Creation"]' == "unuccess") {
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Record not saved</p>',
+                timeOut: 2000
+            });
+        }
+    });
+</script>
+<script>
+    $(function () {
+        $(".datepicker").datepicker();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($("#pincode").val() == "0") {
+            $("#pincode").val("");
+        }
+        $("#dateOfBirth").val("");
+        $("#genderID").val("");
+        $("#voterName").val("");
+        $("#regionalName").val("");
+        $("#voterFather_HusbandName").val("");
+        $("#voterIDNumber").val("");
+        $("#plotNo").val("");
+
+    });
+    function testLength() {
+        var e = document.getElementById('pincode');
+        if (e.value.length > 5) {
+            return false;
+        }
+        return true;
+    }
+
+</script>

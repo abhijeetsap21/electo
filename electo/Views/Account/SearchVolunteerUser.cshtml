@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "SearchVolunteerUser";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="form-group">
+        <label class="control-label col-md-2" for="searchuser">Search User</label>
+        <div class="col-md-3">
+            <input type="text" id="voterIDNumber" class="form-control" placeholder="User/volunteer voter id" />
+        </div>
+        <input type="button" id="search" class="btn btn-defaul col-md-1" onclick="return getVoterDetails();" value="Search" />
+    </div>
+
+    <div class="table-responsive col-md-8" id="viewResult">
+
+        <div class="col-md-12">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+<script>
+    function getVoterDetails()
+    {
+        $("#loading").show();
+        debugger
+        var num = document.getElementById('voterIDNumber').value;
+
+        debugger
+        $.ajax({
+            url: '/Account/getVoterDetails',
+            type: 'POST',
+            data: { 'voterIDNumber': num},
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+                $('#loading').hide();
+            }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["returnResult"]' != '') {
+            bootbox.alert({
+                title: "Alert !",
+                message: '@TempData["returnResult"]',
+                timeOut: 2000
+
+            });
+            return;
+        }
+    })
+
+</script>

@@ -1,0 +1,142 @@
+﻿@model electo.Models.politicalPartyAddress
+
+
+@using (Html.BeginForm("saveNewAddress", "PoliticalPartiesByState"))
+{
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="modelHeader"></h4>
+            </div>
+            <div class="modal-body">
+
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <input type="hidden" name="politicalPartyID" value='@ViewBag.politicalPartyID' />
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.stateID, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.stateID, new SelectList(ViewBag.stateID, "stateID", "stateName"), " State ", new { @class = "form-control", onchange = "getDistrictList()", @id = "stateID" })
+
+                        @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.districtID, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+
+                        @Html.DropDownListFor(model => model.districtID, new SelectList(ViewBag.districtID, "districtID", "districtName"), " District ", new { @class = "form-control", @id = "ddl_districtID" })
+
+                        @Html.ValidationMessageFor(model => model.districtID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.plotNo, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.plotNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.plotNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.streetNo, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.streetNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.streetNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.address1, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.address1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.address1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.address2, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.address2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.address2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.pincode, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.pincode, new { htmlAttributes = new { @class = "form-control", maxlength = 6 } })
+                        @Html.ValidationMessageFor(model => model.pincode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.telephone, htmlAttributes: new { @class = "control-label col-md-3 padding-none" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.telephone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.telephone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Create" class="btn btn-default" />    <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+
+    function getDistrictList()
+{
+        debugger;
+        var stateId = $("#stateID").val();
+
+
+        if (stateId == "" )
+        {
+
+            return;
+
+        }
+        $.ajax
+        ({
+            url: '/PoliticalPartiesByState/GetDistrictbyState',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                stateId: +stateId,
+
+            }),
+            success: function(result)
+          {
+                $("#ddl_districtID").html("");
+                $("#ddl_districtID").append($('<option></option>').val('').html('District'));
+                $.each($.parseJSON(result), function(i, VSC)
+                {
+                    $("#ddl_districtID").append($('<option></option>').val(VSC.districtID).html(VSC.districtName))
+                })
+
+            },
+            error: function()
+            {
+                alert("Whooaaa! Something went wrong..")
+            },
+        });
+    }
+</script>
+
+
+
+<script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>

@@ -1,0 +1,161 @@
+﻿@model electo.Models.campaign
+
+@{
+    ViewBag.Title = "CreateCampaign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("CreateCampaign", "RunningCampaign"))
+{
+    @Html.AntiForgeryToken()
+    <div class="box running-campaigns">
+        <div class="form-horizontal">
+            <h4>New Campaign</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.campaignName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.campaignName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.campaignName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="selectstate">State</label>
+                    <div class="col-md-9">
+                        @Html.DropDownList("stateID", new SelectList(ViewBag.stateID, "stateID", "stateName"), new { @class = "form-control", onchange = "getConstituencyList()", @id = "stateID" })
+                    </div>
+                </div>
+
+              
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.electionID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.electionID, new SelectList(ViewBag.electionID, "electionID", "electionName1"), " Election ", new { @class = "form-control", @id = "electionID" })
+                        @Html.ValidationMessageFor(model => model.electionID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.electionTypeID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.electionTypeID, new SelectList(ViewBag.electionTypeID, "electionTypeID", "electionTypeNAME"), " Election  ", new { @class = "form-control", onchange = "show()", @id = "electiontypeID" })
+                        @Html.ValidationMessageFor(model => model.electionTypeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="lksc" style="display:none">
+                    @Html.LabelFor(model => model.lokSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.lokSabhaConstituencyID, new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " Lock Sabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency" })
+
+                        @Html.ValidationMessageFor(model => model.lokSabhaConstituencyID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="vksc" style="display:none">
+                    @Html.LabelFor(model => model.vidhanSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+
+                        @Html.DropDownListFor(model => model.vidhanSabhaConstituencyID, new SelectList(ViewBag.vidhanSabhaConstituencyID, "vidhanSabhaConstituencyID", "vidhanSabhaConstituencyName"), " Vidhan Sabha ", new { @class = "form-control", @id = "ddl_VKSC_Constituency" })
+                        @Html.ValidationMessageFor(model => model.vidhanSabhaConstituencyID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/js/FillDistrictByStateID.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["result"]' != '') {
+            if ('@TempData["result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Campaign created successfully</p>',
+                    timeOut: 2000
+                });
+        }
+    });
+</script>
+
+<script>
+
+    function getConstituencyList() {
+        debugger;
+        var stateId = $("#stateID").val();
+        var districtId = $("#districtID").val();
+        var MPCorporation = 0;
+
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+
+        debugger
+        FillLoKSabha(stateId);
+        debugger
+        FillVidhanSabha(stateId);
+        debugger
+        //parties(stateId);
+    }
+
+</script>
+
+<script>
+
+    function show() {
+        debugger;
+        var electiontypeID = $("#electiontypeID").val();
+
+        if (electiontypeID == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please election type</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+
+        if (electiontypeID == "1") {
+            debugger
+            document.getElementById("lksc").style.display = "block";
+            document.getElementById("vksc").style.display = "none";
+        }
+        if (electiontypeID == "2") {
+            debugger
+            document.getElementById("vksc").style.display = "block";
+            document.getElementById("lksc").style.display = "none";
+        }
+
+
+    }
+
+</script>

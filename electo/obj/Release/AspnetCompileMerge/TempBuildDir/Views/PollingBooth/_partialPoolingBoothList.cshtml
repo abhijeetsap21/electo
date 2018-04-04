@@ -1,0 +1,80 @@
+﻿
+@model IEnumerable<electo.Models.sp_pollingBoothList_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Polling Booth Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Ward    
+            </th>
+            <th>
+                Vidhan Sabha 
+            </th>
+            <th>
+                Lok Sabha
+            </th>
+            <th>
+                State 
+            </th>
+            <th>
+                Created Date
+            </th>
+
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr >
+                <td colspan="8">
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pollingBoothName)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.address)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wardName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vidhanSabhaConstituencyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lokSabhaConstituencyName)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.stateName)
+                </th>
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+

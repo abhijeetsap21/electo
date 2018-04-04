@@ -1,0 +1,84 @@
+﻿@model electo.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Electo</title>
+
+    <!-- Bootstrap -->    
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/custom.css" rel="stylesheet" />
+    <link href="~/Content/base/jquery.ui.all.css" rel="stylesheet" />
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/bootbox.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    </head>
+<body class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 left">
+                <a href="#" title=""><img src="~/images/logo.png" /></a>
+                
+                <h1>Lorem ipsum is simply dummy text of.</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+            </div>
+            <div class="col-sm-6 col-xs-12 right">
+                @using (Html.BeginForm("login", "Account", null, FormMethod.Post))
+                {
+                <h2>LOG IN</h2>
+
+                    <span class="has-error">@ViewBag.msg</span>
+                <div class="form-group">
+                    <i class="icon-user"><img src="~/images/user-icon.png" alt=""></i>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "has-error" })
+                    @*<span class="has-error">Error message</span>*@
+                </div>
+                <div class="form-group">
+                    <i class="icon-password"><img src="~/images/password-icon.png" alt=""></i>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "has-error" })
+                </div>
+                <a href="@Url.Action("ForgotPassword","Account")" title="" class="forgot">Forgot Password</a>
+                <div class="btn-block"><button type="submit" class="btn btn-block btn-primary">Sign in</button></div>
+               
+
+                        }
+            </div>
+        </div>
+    </div>
+   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   
+   
+
+ 
+</body>
+</html>
+
+<script>
+    var jqOld = jQuery.noConflict();
+    jqOld(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Password Successfully Sent To Your Registered Email</p>',
+                    timeOut: 2000
+                });
+        }
+    });
+</script>

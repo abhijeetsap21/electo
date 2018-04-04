@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>States</h2> 
+<p class="create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+@model IEnumerable<electo.Models.state>
+
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                @Html.DisplayNameFor(model => model.stateName)
+            </th>
+
+            <th>
+              Created Date
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stateName)
+                </td>
+
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+

@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Pooling Booth</h2>
+<p class="create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("States", null, " State ", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("ElectionType", null, " Election Type ", new { @class = "form-control", onchange = "getConstituencyList()" })
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select id="ddl_Constituency" class="form-control">
+                <option value=""> Constituency </option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-lg-12" id="viewResult">
+        <div class="col-lg-12 white-box">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function getConstituencyList()
+{
+        debugger;
+        var stateId = $("#States").val();
+
+        var ElectionTypeId = $("#ElectionType").val();
+        if (stateId == "" || ElectionTypeId == "")
+        {
+            
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State and Election Type</p>',
+                timeOut: 2000
+            });
+            return;
+
+        }
+       
+        $.ajax
+        ({
+            url: '/Area/GetConstituency',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                stateId: +stateId,
+                ElectionTypeId: +ElectionTypeId
+            }),
+            success: function(result)
+          {
+                $("#ddl_Constituency").html("");
+                $("#ddl_Constituency").append($('<option></option>').val('').html('Constituency'));
+                if (ElectionTypeId == 2) {
+                    $.each($.parseJSON(result), function (i, VSC) {
+                        $("#ddl_Constituency").append($('<option></option>').val(VSC.vidhanSabhaConstituencyID).html(VSC.vidhanSabhaConstituencyName))
+                    })
+                }
+
+                if (ElectionTypeId == 1) {
+                    $.each($.parseJSON(result), function (i, VSC) {
+                        $("#ddl_Constituency").append($('<option></option>').val(VSC.lokSabhaConstituencyID).html(VSC.lokSabhaConstituencyName))
+                    })
+                }
+
+                if (ElectionTypeId == 3) {
+                    $.each($.parseJSON(result), function (i, VSC) {
+                        $("#ddl_Constituency").append($('<option></option>').val(VSC.municipalCorporationID).html(VSC.municipalCorporationName1))
+                    })
+                }
+
+            },
+            error: function()
+            {
+                
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+                });
+            },
+        });
+      
+    }
+</script>
+<script>
+
+    function searchResult() {
+        debugger
+        var stateId = $("#States").val();
+        var ElectionTypeId = $("#ElectionType").val();
+        var ddl_Constituency = $("#ddl_Constituency").val();
+
+        if (stateId == "" || ElectionTypeId == "" || ddl_Constituency=="") {
+            
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State and Election Type and Constituency </p>',
+                timeOut: 2000
+            });
+            return;
+        }
+        debugger
+        $("#loading").show();
+        $.ajax({
+            url: '/PollingBooth/_partialPoolingBoothLIst',
+            type: 'POST',
+            data: { 'ElectionTypeId': ElectionTypeId, 'stateId': stateId, 'ddl_Constituency': ddl_Constituency },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+                $('#loading').hide();
+            }
+        });
+    }
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "Success")
+
+                bootbox.alert({
+                    title: "Confirmation !",
+                    message: '<p>Polling booth created successfully</p>',
+                    timeOut: 2000
+                });
+
+        }
+    });
+</script>

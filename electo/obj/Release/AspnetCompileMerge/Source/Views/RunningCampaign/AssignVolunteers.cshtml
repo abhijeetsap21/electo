@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "AssignVolunteers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var id = Request.QueryString["cmpID"];
+}
+
+<h2>Campaign Volunteers</h2>
+
+<div class="box running-campaigns">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("stateID", new SelectList(ViewBag.stateID, "stateID", "stateName"), new { @class = "form-control", onchange = "getConstituencyList()", @id = "stateID" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.DropDownList("LokSabha", new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " LockSabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            @Html.DropDownList("VidhanSabha", new SelectList(ViewBag.vidhanSabhaConstituencyID, "vidhanSabhaConstituencyID", "vidhanSabhaConstituencyName"), " VidhanSabha ", new { @class = "form-control", @id = "ddl_VKSC_Constituency" })
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-md-12" id="viewResult">
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">   </div>
+
+<script src="~/js/FillDistrictByStateID.js"></script>
+<script>
+
+    function getConstituencyList() {
+        debugger;
+
+        var stateId = $("#stateID").val();
+        var districtId = $("#districtID").val();
+        var MPCorporation = 0;
+
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+
+        debugger
+        FillLoKSabha(stateId);
+        debugger
+        FillVidhanSabha(stateId);
+        debugger
+        //parties(stateId);
+    }
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        if ('@TempData["Creation"]' == "Success")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Details saved successfully</p>',
+                timeOut: 2000
+            });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        searchResult();
+    });
+
+    function searchResult() {
+        debugger
+        var ID = @id;
+        var stateID = $('#stateID').val();
+        var lsID = $('#ddl_LKSC_Constituency').val();
+        var vsID = $('#ddl_VKSC_Constituency').val();
+
+
+        $("#loading").show();
+        debugger
+        $.ajax({
+            url: '/RunningCampaign/_partialAssign',
+            type: 'POST',
+            data: { 'cmpID':ID,'stateID': stateID, 'lkID': lsID, 'vsID': vsID },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+            }
+        });
+        $("#loading").hide();
+    }
+</script>
+
+
+

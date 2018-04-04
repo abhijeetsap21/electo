@@ -1,0 +1,60 @@
+﻿@model IEnumerable<electo.Models.sp_electionList_Result>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Election Name
+            </th>
+            <th>
+                Election Year
+            </th>
+            <th>
+                Election Type 
+            </th>
+            <th>
+                Created Date
+            </th>
+
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td>
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.electionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.electionYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.electionTypeNAME)
+                </td>
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

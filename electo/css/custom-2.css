@@ -1,0 +1,34 @@
+.right-menu {
+    overflow-x: hidden;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: -17px;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 87px 0 0;
+}
+.content.right-menu-over {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    float: right;
+}
+.right-menu li {
+    border-bottom: 1px solid #6d5029;
+    display: block;
+    line-height: 31px !important;
+    list-style: outside none none;
+}
+.right-menu li a {
+    color: #fff;
+    padding: 0 0 0 20px;
+    font-size: 13px;
+    font-weight: normal;
+}
+.running-campaigns .btn {background: #ffa604 !important;color: #fff !important;border: 0px !important;}
+.create-btn a.create-new{background: #ffa604 !important; color:#fff !important; border:0px !important;}
+.create-btn a{background: #ffa604 !important; color:#fff !important; border:0px !important;}
+.col-lg-12.white-box.white-box1{ margin-bottom:0px;}
+.btn.btn-default.update-save{background: #ffa604 !important; color:#fff !important; border:0px !important;}

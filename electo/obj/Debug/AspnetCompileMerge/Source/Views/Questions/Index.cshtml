@@ -1,0 +1,117 @@
+﻿@model IEnumerable<electo.Models.sp_SurveyQuestion_GetBySurveyId_Result>  
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+@{ var surveyID = @ViewBag.surveyID;}
+
+<h2>Survey's</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", new { surveyID= surveyID })
+</p>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                questionSerial
+            </th>
+            <th>questionType</th>
+            <th>
+                question
+            </th>
+            
+            <th>
+                Created Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td>
+                    No Result Found
+                </td>
+            </tr>
+        }
+
+
+
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.questionSerial)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.questionType)</td>
+                <td>
+                    @Html.Raw(item.question)
+                    <div id='queOPtions_@item.surveyQuesID' onload="getQuestionOptions('@item.options',@item.questionTypeID,@item.surveyQuesID)"></div>
+                                      
+                   
+                </td>
+
+               
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+                <td><a href="@Url.Action("Index", "Questions",new {surveyID = @item.surveyID })">Questions</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Creation"]' != '') {
+            if ('@TempData["Creation"]' == "Success")
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Question saved successfully</p>',
+                    timeOut: 2000
+                });
+        }
+        $('div[onload]').trigger('onload');
+    });
+</script>
+
+<script>
+    function getQuestionOptions(options, questionTypeID, surveyQuesID)
+    {
+        debugger
+        var str = options.split(";");
+        var str0 = str[0];       
+        var str1 = str[1];
+        var str2 = str[2];
+        var str3 = str[3];       
+
+        if (questionTypeID == 1) {
+            debugger
+            var div1 = document.getElementById('queOPtions_' + surveyQuesID);
+            div1.innerHTML = "Option 1: " + str0 + "<br/> Option 2: " + str1;
+            
+        }
+        if (questionTypeID == 2) {
+            debugger
+            var div1 = document.getElementById('queOPtions_' + surveyQuesID);
+            div1.innerHTML = "Option 1: " + str0 + "<br/> Option 2: " + str1 +" <br/> Option 3: " + str2 + "<br/> Option 4: " + str3;
+
+        }
+
+    }
+</script>

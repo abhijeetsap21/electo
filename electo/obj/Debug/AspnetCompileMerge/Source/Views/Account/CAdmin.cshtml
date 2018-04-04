@@ -1,0 +1,111 @@
+﻿@model electo.Models.CompaignAdmin
+ 
+@{
+    ViewBag.Title = "CAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-lg-10">
+        <div class="col-lg-12 white-box">
+
+           @{if (ViewBag.IsCampaignCreationActive == "True")
+               {
+                   <a href="@Url.Action("Create","RunningCampaign")">Create Campaign</a>
+               }
+           }
+            <div class="col-lg-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.electionTypeID, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.electionTypeID, new SelectList(ViewBag.electionTypeID, "electionTypeID", "electionTypeNAME"), "Election Type ", new { @class = "form-control", @id = "electionTypeID", onchange = "getCompaignList()" })
+                        @Html.ValidationMessageFor(model => model.electionTypeID, "", new { @class = "text-danger" })
+                    </div>
+                    <input type="hidden" id="hdnelectionType" name="hdn_electionType" />
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.campaignID, htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(model => model.campaignID, new SelectList(ViewBag.campaignID, "campaignID", "campaignName"), "Campaign Name ", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.campaignID, "", new { @class = "text-danger" })
+                    </div>
+                    <input type="hidden" id="hdncampaignID" name="hdn_campaignID" />
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Next" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+<script>
+    function getCompaignList()
+    {
+   debugger;
+   
+
+   var ElectionTypeId = $("#electionTypeID").val();
+        if ( ElectionTypeId == "")
+        {
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select election type and campaign name</p>',
+                timeOut: 2000
+            });
+            return;
+
+        }
+        $.ajax
+        ({
+            url: '/Account/getCampaignList',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({             
+                ElectionTypeId: +ElectionTypeId
+            }),
+            success: function(result)
+            {
+                $("#campaignID").html("");
+                $("#campaignID").append($('<option></option>').val('').html('Campaign Name'));
+               
+                $.each($.parseJSON(result), function(i, VSC)
+                {
+                    $("#campaignID").append($('<option></option>').val(VSC.campaignID).html(VSC.campaignName))
+                })
+                
+
+            },
+            error: function()
+            {
+                alert("")
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+            },
+        });
+    }
+</script> 
+<script>
+
+    $("#electionTypeID").on("change", function () {
+        $("#hdnelectionType").val($(this).find("option:selected").text());
+    });
+    $("#campaignID").on("change", function () {
+        $("#hdncampaignID").val($(this).find("option:selected").text());
+    });
+
+</script>

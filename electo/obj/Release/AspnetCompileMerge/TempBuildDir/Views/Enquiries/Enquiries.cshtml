@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Elections";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+
+<div class="box running-campaigns">
+    <div class="row">
+        <div class="col-md-12 padding-none">
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.DropDownList("EnquiryType", null, "Enquiry Type", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" id="datepicker" class="form-control" placeholder="Date" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="mobilenumber" aria-describedby="emailHelp" placeholder="Telephone/Mobile" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="checkbox" class="form-control" id="taskcompleted" aria-describedby="emailHelp" /> <span>Task Completed</span>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="table-responsive col-lg-12" id="viewResult">
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
+
+<script>
+    window.setTimeout(function () {
+        bootbox.hideAll();
+    }, 3000);
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' == "Success")
+
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Enquiry Details Saved Successfully</p>',
+                timeOut: 2000
+            });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        searchResult();
+    });
+
+    function searchResult() {
+        debugger
+        var sel = document.getElementById('EnquiryType');
+        var EnquiryType = sel.options[sel.selectedIndex].innerHTML;
+        if (EnquiryType == "Enquiry Type") {
+            EnquiryType = "";
+        }
+        debugger
+        var date_ = document.getElementById('datepicker').value;
+        if (date_ == "") {
+            var date_ = "";
+
+        }
+
+        var mobNumber = document.getElementById('mobilenumber').value;
+
+        debugger
+
+        var taskcompleted = document.getElementById('taskcompleted').checked
+        {
+            if (taskcompleted == true) {
+                taskcompleted = true;
+            }
+            if (taskcompleted == false) {
+                taskcompleted = false;
+            }
+        }
+
+        $("#loading").show();
+        debugger
+        $.ajax({
+            url: '/Enquiries/_partialEnquiriesList',
+            type: 'POST',
+            data: { 'enquirytype': EnquiryType, 'date': date_, 'mobile': mobNumber, 'isTaskCompleted': taskcompleted },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+            }
+        });
+        $('#loading').hide();
+    }
+</script>
+

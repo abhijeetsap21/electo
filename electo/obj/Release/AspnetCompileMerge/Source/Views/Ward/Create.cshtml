@@ -1,0 +1,156 @@
+﻿@model electo.Models.wardConstituency
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="form-horizontal">
+        <h4>New Ward</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.stateID,  htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.stateID, new SelectList(ViewBag.stateID, "stateID", "stateName"), " State ", new { @class = "form-control", onchange = "getMuncipartyListList()", @id = "stateID" })
+                    @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.districtID,  htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.districtID, new SelectList(ViewBag.districtID, "districtID", "districtName"), " District ", new { @class = "form-control", @id = "districtID" })
+                    @Html.ValidationMessageFor(model => model.districtID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.municipalCorporationID,  htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.municipalCorporationID, new SelectList(ViewBag.municipalCorporationID, "municipalCorporationID", "municipalCorporationName1"), " Municipal Corporation", new { @class = "form-control", @id = "ddl_muncipal", onchange = "getZoneList()" })
+                    @Html.ValidationMessageFor(model => model.municipalCorporationID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.vidhanSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+
+                    @Html.DropDownListFor(model => model.vidhanSabhaConstituencyID, new SelectList(ViewBag.vidhanSabhaConstituencyID, "vidhanSabhaConstituencyID", "vidhanSabhaConstituencyName"), " Vidhan Sabha ", new { @class = "form-control", @id = "ddl_VKSC_Constituency" })
+                    @Html.ValidationMessageFor(model => model.vidhanSabhaConstituencyID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.zoneID,  htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.DropDownListFor(model => model.zoneID, new SelectList(ViewBag.zoneID, "zoneID", "zoneName"), " Municipal Corporation", new { @class = "form-control", @id = "zoneID" })
+
+                    @Html.ValidationMessageFor(model => model.zoneID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.wardNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.wardNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.wardNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.wardName, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.wardName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.wardName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-default" })
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "unsuccess") {
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Record not saved</p>',
+                    timeOut: 2000
+                });
+            }
+        }
+    });
+</script>
+<script src="~/js/FillDistrictByStateID.js"></script>
+<script>
+
+    function getMuncipartyListList() {
+        debugger;
+        var stateId = $("#stateID").val();
+
+        if (stateId == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+
+        FIllDistrictDll(stateId);
+        FillMuncipartyDll(stateId);
+        FillVidhanSabha(stateId);
+    }
+    function getZoneList(){
+        var ddl_muncipal = $("#ddl_muncipal").val();
+
+        if (ddl_muncipal == "") {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select muncipal corporation</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+        var stateId = $("#stateID").val();
+        FillZoneDll(stateId, ddl_muncipal);
+    }
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "unsuccess")
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Record not saved</p>',
+                    timeOut: 2000
+                });
+        }
+    });
+</script>

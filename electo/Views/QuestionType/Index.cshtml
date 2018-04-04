@@ -1,0 +1,70 @@
+﻿@model IEnumerable<electo.Models.questionType>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+<h2>Question Types</h2>
+<p class="create-btn">
+    @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
+</p>
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Question Type
+            </th>
+         
+            <th>
+                Is Active
+            </th>
+
+            <th>
+                Created Date
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.questionType1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActve)
+                </td>
+               
+                <td>
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' == "Success") {
+            bootbox.alert({
+                title: "Confirmation !",
+                message: '<p>Question Type Created Successfully </p>',
+                timeOut: 2000
+            });
+        }
+    });
+</script>
+
+
+

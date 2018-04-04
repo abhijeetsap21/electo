@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "SearchVolunteerUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+Search User <input type="text" id="voterIDNumber" placeholder="User/volunteer voter id" /><input type="button" id="search"  onclick="return getVoterDetails();" value="Search"/>
+<div class="table-responsive col-lg-12" id="viewResult">
+
+</div>               
+
+<script>
+    function getVoterDetails()
+    {
+        debugger
+        var num = document.getElementById('voterIDNumber').value;
+
+        debugger
+        $.ajax({
+            url: '/Account/getVoterDetails',
+            type: 'POST',
+            data: { 'voterIDNumber': num},
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+            }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["returnResult"]' != '') {
+            bootbox.alert({
+                title: "Alert !",
+                message: '@TempData["returnResult"]',
+                timeOut: 2000
+
+            });
+            return;
+        }
+    })
+
+</script>

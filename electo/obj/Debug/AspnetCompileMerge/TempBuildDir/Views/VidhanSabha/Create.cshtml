@@ -1,0 +1,169 @@
+﻿@model electo.Models.vidhanSabhaConstituency
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+}
+
+@{  var msg = ViewBag.msg;}
+
+
+@using (Html.BeginForm("Create", "VidhanSabha"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New vidhan Sabha</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stateID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.stateID, new SelectList(ViewBag.stateID, "stateID", "stateName"), " State ", new { @class = "form-control", onchange = "getLS_ConstituencyList()", @id = "stateID" })
+
+                @Html.ValidationMessageFor(model => model.stateID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.districtID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.districtID, new SelectList(ViewBag.districtID, "districtID", "districtName"), " District ", new { @class = "form-control", @id = "districtID" })
+
+                @Html.ValidationMessageFor(model => model.districtID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lokSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.lokSabhaConstituencyID, new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " LockSabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency" })
+
+                @Html.ValidationMessageFor(model => model.lokSabhaConstituencyID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.vidhanSabhaConstituencyName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.vidhanSabhaConstituencyName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.vidhanSabhaConstituencyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+
+    function getLS_ConstituencyList()
+{
+        debugger;
+        var stateId = $("#stateID").val();
+
+        if (stateId == "" )
+        {
+
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select State</p>',
+                timeOut: 2000
+
+            });
+            return;
+
+        }
+        $.ajax
+        ({
+            url: '/VidhanSabha/GetLOCKSABHAConstituencyLsit',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                stateId: +stateId
+            }),
+            success: function(result)
+          {
+                $("#ddl_LKSC_Constituency").html("");
+                $("#ddl_LKSC_Constituency").append($('<option></option>').val('').html(' Lock Sabha'));
+                $.each($.parseJSON(result), function(i, VSC)
+                {
+                    $("#ddl_LKSC_Constituency").append($('<option></option>').val(VSC.lokSabhaConstituencyID).html(VSC.lokSabhaConstituencyName))
+                })
+
+            },
+            error: function()
+            {
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+            },
+        });
+
+
+
+
+        $.ajax
+     ({
+         url: '/VidhanSabha/getDistrictListByStateID',
+         type: 'POST',
+         datatype: 'application/json',
+         contentType: 'application/json',
+         data: JSON.stringify({
+             stateId: +stateId
+         }),
+         success: function (result) {
+             $("#districtID").html("");
+             $("#districtID").append($('<option></option>').val('').html(' District '));
+             $.each($.parseJSON(result), function (i, VSC) {
+                 $("#districtID").append($('<option></option>').val(VSC.districtID).html(VSC.districtName))
+             })
+
+         },
+         error: function () {
+             bootbox.alert({
+                 title: "Alert !",
+                 message: '<p>Whooaaa! Something went wrong..</p>',
+                 timeOut: 2000
+
+             });
+         },
+     });
+
+
+    }
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        if ('@TempData["Result"]' != '') {
+            if ('@TempData["Result"]' == "unsuccess")
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Record not saved</p>',
+                    timeOut: 2000
+                });
+        }
+    });
+</script>

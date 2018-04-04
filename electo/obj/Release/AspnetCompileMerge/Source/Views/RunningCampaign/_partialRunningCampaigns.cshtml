@@ -1,0 +1,95 @@
+﻿@model IEnumerable<electo.Models.SP_Models.StoredProcedureModels.sp_SearchRunningCampaigns_Result>
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>
+                Campaign Name
+            </th>
+            <th>
+                Election Type
+            </th>
+            <th>
+                Election Year
+            </th>
+            
+            <th>
+                Political Party
+            </th>
+            <th>
+                Volunteer Name
+            </th>
+            <th>
+                Active
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    @{
+        var a = Model.Count();
+
+    }
+    <tbody>
+        @if (a == 0)
+        {
+            <tr>
+                <td colspan="8">
+                    No Result Found
+                </td>
+            </tr>
+        }
+        @{    int i = 0; }
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@(i += 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.campaignName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.electionTypeNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.electionYear)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.politicalPartyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.voterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+                <td>
+                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="return dispalyDetails(@item.campaignID);">View</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" role="dialog">   </div>
+
+<script>
+    function dispalyDetails(cID) {
+        $("#loading").show();
+        debugger
+        var URL = '@Url.Action("_partialActivateDeactiveateCampaign", "RunningCampaign")?cID='+cID;
+        $.get(URL, function (data) {
+            $("#myModal").html(data);
+        });
+        $("#loading").hide();
+    }
+
+</script>
+

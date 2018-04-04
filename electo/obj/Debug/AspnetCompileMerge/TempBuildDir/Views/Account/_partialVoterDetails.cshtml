@@ -1,0 +1,156 @@
+﻿@model IEnumerable<electo.Models.sp_getVoterDetailsByVoterID_Result>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>   
+            <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
+            <th>Voter ID Number </th>
+            <th>Regional Name </th>   
+            <th>Name</th>        
+            <th>Adhaar Number </th>           
+            <th>DOB</th>              
+            <th>Email Id</th>
+            <th>Mobile</th>
+            <th>Husband/Father Name</th> 
+            <th>User Type</th>              
+            <th>Address</th>            
+            <th>Party Name</th>
+            <th>create New volunteer/Login</th>
+            <th>Activate for new compaign</th>
+        </tr>
+    </thead>
+    <tbody>
+    @{  int i = 0; if (Model.Count() == 0)
+        {
+            <tr>
+               <td colspan="14">No record found</td>
+                </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr><td>@(i += 1)</td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.voterIDNumber)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Regional_Name)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.voterAadharNumber)
+                    </td>
+                    <td>
+                        @item.dateOfBirth.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.emailId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mobile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.voterFather_HusbandName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.politicalPartyName)
+                    </td>
+                   @{ if (@item.emailId != "")
+                       {
+                         <td>
+                             <input type="radio" id='rdo_@item.voterID' onclick='CreateNewVolunteerLogin(" @item.voterID "," @item.Regional_Name","@item.dateOfBirth.ToString("dd/MM/yyyy")")' data-toggle="modal" data-target="#myModal" />
+                            </td>
+
+                       }
+                       else
+                       {<td></td>}
+                       }
+                    @{ if (@item.emailId != "" && @item.userTypeName== "Volunteer")
+                        {
+                            <td><button id='btn_@item.voterID' onclick="ActivateVolunteerLoginForNew_Compaign(@item.volunteerID)">Activate for new compaign</button></td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                  
+                </tr>
+                }
+         }
+       }
+      </tbody>
+</table>
+
+
+<script>
+    function CreateNewVolunteerLogin(voterID, regionalName,dob) {
+
+        debugger
+      
+            var URL = '@Url.Action("CreateUser", "Account")?voterID=' + voterID;
+            $.get(URL, function (data) {           
+                debugger
+                $('#myModal').html(data);
+                debugger
+                var a = document.getElementById('spn_regionalName');
+                a.innerHTML = regionalName;
+                var b = document.getElementById('spn_dob');
+                b.innerHTML = dob;
+               
+               
+            })   
+        }
+    
+</script>
+
+<script>
+    function ActivateVolunteerLoginForNew_Compaign(volunteerID)
+    {
+        debugger
+
+        var URL = '@Url.Action("ActivateCreateCompaign", "Account")?volunteerID=' + volunteerID;
+        $.get(URL, function (data) {
+            debugger
+            if (data == 0) {
+                bootbox.alert({
+                    title: "Alert !",
+                    message: 'Permission not activated due to some problem occured',
+                    timeOut: 2000
+
+                });
+                return;
+            }
+            
+            if (data == 1) {
+                bootbox.alert({
+                    title: "Alert !",
+                    message: 'Permission granted to create compaign, and this will be active for 24 hour ',
+                    timeOut: 2000
+
+                });
+                return;
+            }
+        })
+    }
+
+</script>
+<div class="modal fade" id="myModal" role="dialog">
+      
+</div>
+
+
+
+
+
+
