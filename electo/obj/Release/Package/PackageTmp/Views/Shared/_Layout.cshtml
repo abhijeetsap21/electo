@@ -5,7 +5,8 @@
     var loginID = BaseUtil.GetSessionValue(AdminInfo.LoginID.ToString());
     var pic = BaseUtil.GetSessionValue(AdminInfo.userPhoto.ToString());
     var userType =Convert.ToInt64( BaseUtil.GetSessionValue(AdminInfo.userType.ToString()));
-}
+   
+    }
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,6 +27,8 @@
 
     <script src="/Scripts/jquery.validate.js"></script>
     <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     
 </head>
@@ -35,7 +38,7 @@
             <div class="logo-icon">
                 <a href="@Url.Action("dashboard","dashboard")" title="">
                     <i class="icon-l"><img src="~/images/logo-icon.png" alt=""></i>
-                    <p>ELECTO</p>
+                    <img src="~/images/logo.png" alt="" class="main-logo" />
                 </a>
             </div>
             <ul class="sidebar-menu">
@@ -74,8 +77,11 @@
                             }
                             if (userType == 4)
                             {
-                                <li><a href="@Url.Action("CAdmin","Account")">Dashboard</a></li>
-								 <li><a href="@Url.Action("MyCampaigns","RunningCampaign")">My Campaign</a></li>
+
+                                <li><a href="@Url.Action("MyCampaigns","RunningCampaign")">My Campaign</a></li>
+                                <li><a href="@Url.Action("CreateCampaign", "RunningCampaign")">Create Campaign</a></li>
+                                <li><a href="@Url.Action("Index", "CampaignActivity")">Volunteer Corner </a></li>
+                                <li><a href="@Url.Action("Index", "survey")">Survey </a></li>
                                 <li><a href="#">Reports</a></li>
                             }
                         }

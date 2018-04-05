@@ -1,7 +1,7 @@
-﻿@model IEnumerable<electo.Models.sp_Survey_GetByCampaignId_Result>
+﻿
     @{
         ViewBag.Title = "Index";
-        Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+        Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
 
@@ -10,70 +10,25 @@
         @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
     </p>
 
-    <div class="col-md-9 box-2 running-campaigns sidebar-right">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
-                    <th>
-                        Title
-                    </th>
-
-                    <th>
-                        Description
-                    </th>
-                    <th>Start | End date</th>
-                    <th>
-                        Created Date
-                    </th>
-                    <th>
-						View
-					</th>
-                </tr>
-            </thead>
-            @{
-                var a = Model.Count();
-
-            }
-            <tbody>
-                @if (a == 0)
-                {
-                   <tr>
-						<td colspan="8">
-							No Result Found
-						</td>
-					</tr>
-                }
-
-
-
-                @{    int i = 0; }
-                @foreach (var item in Model)
-                {
-
-
-
-                    <tr>
-                        <td>@(i += 1)</td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.surveyTitle)
-                        </td>
-                        <td>
-                            @Html.Raw(item.surveyDescription)
-                        </td>
-
-                        <td>@item.startDate.ToString("dd/MM/yyyy")  | @item.endDate.ToString("dd/MM/yyyy")</td>
-                        <td>
-                            @item.dataIsCreated.ToString("dd/MM/yyyy")
-                        </td>
-
-                        <td><a href="@Url.Action("Index", "Questions",new {surveyID = @item.surveyID })">Questions</a></td>
-                    </tr>
-                }
-
-            </tbody>
-        </table>
+<div class="col-md-9 box-2 running-campaigns sidebar-right">
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("CampaignList", null, " Select Campaign ", new { @class = "form-control" })
+        </div>
     </div>
+     <div class="col-md-1">
+        <div class="form-group">
+            <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
+        </div>
+    </div>
+    <div class="table-responsive col-md-12" id="viewResult">
+        <div class="col-md-12">
+            <p>Please use above search criteria to view the result list</p>
+        </div>
+    </div>
+</div>
+
+   
 
     <script>
 
@@ -91,3 +46,35 @@
             }
         });
     </script>
+<script>
+
+    function searchResult() {
+        debugger
+
+      
+        var CampaignId = $("#CampaignList").val();
+
+        if ( CampaignId=="") {
+            bootbox.alert({
+                title: "Alert !",
+                message: '<p>Please select Campaign from list </p>',
+                timeOut: 2000
+
+            });
+            return;
+        }
+        $("#loading").show();
+        debugger
+        $.ajax({
+            url: '/Survey/_partialsurveyList',
+            type: 'POST',
+            data: { 'CampaignId': CampaignId },
+            success: function (data) {
+                debugger
+                $('#viewResult').html(data);
+
+            }
+        });
+        $("#loading").hide();
+    }
+</script>

@@ -31,9 +31,9 @@
     <div class="wrapper">
         <div class="sidebar">
             <div class="logo-icon">
-                <a href="@Url.Action("dashboard", "dashboard")" title="">
+                <a href="@Url.Action("dashboard","dashboard")" title="">
                     <i class="icon-l"><img src="~/images/logo-icon.png" alt=""></i>
-                    <p>ELECTO</p>
+                    <img src="~/images/logo.png" alt="" class="main-logo" />
                 </a>
             </div>
             <ul class="sidebar-menu">
@@ -43,18 +43,7 @@
                         <p>My Account</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#" title="">
-                        <i class="icon-l"><img src="~/images/dhasbord-icon2.png" alt=""></i>
-                        <p>Setting</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="">
-                        <i class="icon-l"><img src="~/images/dhasbord-icon3.png" alt=""></i>
-                        <p>Reports</p>
-                    </a>
-                </li>
+               
             </ul>
         </div>
         <div class="main-panel">
@@ -72,8 +61,10 @@
                             }
                             if (userType == 4)
                             {
-                                <li><a href="@Url.Action("CAdmin", "Account")">Dashboard</a></li>
+                                
 								<li><a href="@Url.Action("MyCampaigns","RunningCampaign")">My Campaign</a></li>
+                                <li><a href="@Url.Action("Index", "CampaignActivity")">Volunteer Corner </a></li>
+                                <li><a href="@Url.Action("Index", "survey")">Survey </a></li>
                                 <li><a href="#">Reports</a></li>
                             }
                         }
@@ -92,7 +83,7 @@
                     <ul>
                         @{ if (userType == 1 || userType == 3)
                             {
-                                <li><a href="@Url.Action("Index", "Area")">Areas</a></li>
+                               
                                 <li><a href="@Url.Action("Index", "Biography_s")">Biography's </a></li>
                                 @*<li><a href="@Url.Action("CampaignPriceList", "RunningCampaign")">Campaign Prices</a></li>*@
                                 <li><a href="@Url.Action("Index", "District")">Districts</a></li>
@@ -105,20 +96,16 @@
                                 <li><a href="@Url.Action("create", "News")">News </a></li>
                                 <li><a href="@Url.Action("Index", "politicalpartiesbystate")">Political Parties</a></li>
                                 <li><a href="@Url.Action("Index", "pollingbooth")">Polling Booth</a></li>
-                                <li><a href="@Url.Action("Index", "questiontype")">Question Type</a></li>
+                                @*<li><a href="@Url.Action("Index", "questiontype")">Question Type</a></li>*@
                                 <li><a href="@Url.Action("Index", "Account")">Registered Users</a></li>
+                                <li><a href="@Url.Action("Index", "Area")">Sections</a></li>
                                 <li><a href="@Url.Action("Index", "State")">States</a></li>
                                 <li><a href="@Url.Action("Index", "VidhanSabha")">Vidhan Sabha</a></li>
                                 <li><a href="@Url.Action("Index", "voterList")">Voter List </a></li>
                                 <li><a href="@Url.Action("Index", "Ward")">Ward </a></li>
                                 <li><a href="@Url.Action("Index", "zone")">Zone </a></li>  
                             }
-                            if (userType == 4)
-                            {
-                                <li><a href="@Url.Action("Index", "CampaignActivity")">Campaign Activity </a></li>
-                                <li><a href="@Url.Action("Index", "survey")">Survey </a></li>
-                                
-                            }
+                           
                         }
                     </ul>
                 </div>

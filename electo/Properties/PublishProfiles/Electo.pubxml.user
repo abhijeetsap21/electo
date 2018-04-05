@@ -82,13 +82,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:05:32</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>04/03/2018 21:36:29</publishTime>
+      <publishTime>04/05/2018 11:25:32</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>04/03/2018 21:36:29</publishTime>
+      <publishTime>04/05/2018 11:25:32</publishTime>
     </File>
     <File Include="bin/electo.dll">
-      <publishTime>04/03/2018 21:36:12</publishTime>
+      <publishTime>04/05/2018 11:25:00</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/28/2018 11:06:26</publishTime>
@@ -646,19 +646,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/31/2018 22:32:41</publishTime>
     </File>
     <File Include="css/130218-custom.css">
-      <publishTime>03/28/2018 11:05:40</publishTime>
+      <publishTime>04/04/2018 16:47:03</publishTime>
     </File>
     <File Include="css/bootstrap.css">
-      <publishTime>03/28/2018 11:05:40</publishTime>
+      <publishTime>04/04/2018 16:47:04</publishTime>
     </File>
     <File Include="css/bootstrap.min.css">
-      <publishTime>03/28/2018 11:05:40</publishTime>
+      <publishTime>04/04/2018 16:47:05</publishTime>
     </File>
     <File Include="css/custom-2.css">
-      <publishTime>03/28/2018 11:05:40</publishTime>
+      <publishTime>04/04/2018 16:47:05</publishTime>
     </File>
     <File Include="css/custom.css">
-      <publishTime>03/28/2018 11:05:40</publishTime>
+      <publishTime>04/04/2018 16:47:06</publishTime>
     </File>
     <File Include="emailers/ForgetPassword.html">
       <publishTime>04/03/2018 16:50:43</publishTime>
@@ -766,7 +766,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:22</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>04/03/2018 21:36:18</publishTime>
+      <publishTime>04/05/2018 11:25:24</publishTime>
     </File>
     <File Include="ReleaseNotes.css">
       <publishTime>03/28/2018 11:06:22</publishTime>
@@ -967,7 +967,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Account/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:54:56</publishTime>
     </File>
     <File Include="Views/Account/login.cshtml">
       <publishTime>03/30/2018 19:03:31</publishTime>
@@ -982,34 +982,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Account/_partialViewUserLoginStatus.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:55:00</publishTime>
     </File>
     <File Include="Views/Account/_partialVoterDetails.cshtml">
-      <publishTime>04/03/2018 17:10:08</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/Area/Create.cshtml">
-      <publishTime>03/28/2018 16:52:55</publishTime>
+      <publishTime>04/04/2018 21:46:24</publishTime>
     </File>
     <File Include="Views/Area/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 20:38:54</publishTime>
     </File>
     <File Include="Views/Area/_partialAreaLIst.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Biography_s/Create.cshtml">
-      <publishTime>04/03/2018 16:50:43</publishTime>
+      <publishTime>04/05/2018 11:22:56</publishTime>
     </File>
     <File Include="Views/Biography_s/Edit.cshtml">
-      <publishTime>04/03/2018 16:50:43</publishTime>
+      <publishTime>04/04/2018 20:58:48</publishTime>
     </File>
     <File Include="Views/Biography_s/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 20:56:54</publishTime>
     </File>
     <File Include="Views/Biography_s/_partialBiography.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/CampaignActivity/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/CampaignActivity/_partialActivityList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1018,19 +1018,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/District/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:03:47</publishTime>
     </File>
     <File Include="Views/District/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:01:14</publishTime>
     </File>
     <File Include="Views/District/_partialDistrictList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Election/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:10:00</publishTime>
     </File>
     <File Include="Views/Election/Elections.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:08:57</publishTime>
     </File>
     <File Include="Views/Election/_PartialElections.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1039,7 +1039,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Enquiries/Enquiries.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 20:37:37</publishTime>
     </File>
     <File Include="Views/Enquiries/_partialEditEnquiry.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1048,10 +1048,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/EventType/create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:11:20</publishTime>
     </File>
     <File Include="Views/EventType/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:11:07</publishTime>
     </File>
     <File Include="Views/Home/AccessDenied.cshtml">
       <publishTime>03/28/2018 16:27:18</publishTime>
@@ -1066,40 +1066,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 16:27:46</publishTime>
     </File>
     <File Include="Views/language/Create.cshtml">
-      <publishTime>03/28/2018 16:54:09</publishTime>
+      <publishTime>04/04/2018 21:26:33</publishTime>
     </File>
     <File Include="Views/language/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:25:50</publishTime>
     </File>
     <File Include="Views/LokSabha/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:16:57</publishTime>
     </File>
     <File Include="Views/LokSabha/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:16:27</publishTime>
     </File>
     <File Include="Views/LokSabha/_partialLoKSabhaList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/MuncipalCorporation/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:27:07</publishTime>
     </File>
     <File Include="Views/MuncipalCorporation/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:26:53</publishTime>
     </File>
     <File Include="Views/MuncipalCorporation/_partialMuncipalCorporationList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/News/Create.cshtml">
-      <publishTime>04/03/2018 16:50:43</publishTime>
+      <publishTime>04/04/2018 21:31:56</publishTime>
     </File>
     <File Include="Views/News/Index.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/PoliticalPartiesByState/Create.cshtml">
-      <publishTime>04/03/2018 16:50:43</publishTime>
+      <publishTime>04/04/2018 21:38:57</publishTime>
     </File>
     <File Include="Views/PoliticalPartiesByState/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:36:45</publishTime>
     </File>
     <File Include="Views/PoliticalPartiesByState/_partialMorePartyAddress.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1111,19 +1111,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/PollingBooth/Create.cshtml">
-      <publishTime>03/28/2018 17:04:20</publishTime>
+      <publishTime>04/04/2018 21:41:39</publishTime>
     </File>
     <File Include="Views/PollingBooth/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:40:09</publishTime>
     </File>
     <File Include="Views/PollingBooth/_partialPoolingBoothList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Questions/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/Questions/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/QuestionType/create.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1132,34 +1132,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/RunningCampaign/AssignVolunteers.cshtml">
-      <publishTime>04/03/2018 18:25:50</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/CampaignPriceList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/RunningCampaign/CreateCampaign.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/MyCampaigns.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/PresentRelationships.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/RunningCampaigns.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 20:26:34</publishTime>
     </File>
     <File Include="Views/RunningCampaign/_partialActivateDeactiveateCampaign.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/RunningCampaign/_partialAssign.cshtml">
-      <publishTime>04/03/2018 19:40:12</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/_partialAssignAreaPageIncharge.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/_partialAssignPollingBooth.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/RunningCampaign/_partialCampaignPrices.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1174,31 +1174,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/RunningCampaign/_partialViewAllRelationships.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutInternal.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:49:21</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutWithoutLogin.cshtml">
-      <publishTime>03/30/2018 19:03:46</publishTime>
+      <publishTime>04/04/2018 16:34:01</publishTime>
     </File>
     <File Include="Views/State/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 22:00:00</publishTime>
     </File>
     <File Include="Views/State/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 21:58:19</publishTime>
     </File>
     <File Include="Views/Survey/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/Survey/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/05/2018 10:42:14</publishTime>
+    </File>
+    <File Include="Views/Survey/_partialsurveyList.cshtml">
+      <publishTime>04/05/2018 10:42:14</publishTime>
     </File>
     <File Include="Views/UploadVoterListFromExcel/importExcel.cshtml">
       <publishTime>03/31/2018 14:35:54</publishTime>
@@ -1216,10 +1219,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/01/2018 20:34:36</publishTime>
     </File>
     <File Include="Views/voterList/Edit.cshtml">
-      <publishTime>03/29/2018 17:28:46</publishTime>
+      <publishTime>04/04/2018 22:07:01</publishTime>
     </File>
     <File Include="Views/voterList/Index.cshtml">
-      <publishTime>03/31/2018 13:38:41</publishTime>
+      <publishTime>04/04/2018 22:03:47</publishTime>
     </File>
     <File Include="Views/voterList/_partialCreateNew.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1228,10 +1231,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/29/2018 18:58:48</publishTime>
     </File>
     <File Include="Views/Ward/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 22:07:51</publishTime>
     </File>
     <File Include="Views/Ward/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 22:07:27</publishTime>
     </File>
     <File Include="Views/Ward/_partialWardList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1240,10 +1243,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Views/zone/Create.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 22:10:40</publishTime>
     </File>
     <File Include="Views/zone/Index.cshtml">
-      <publishTime>03/28/2018 11:06:24</publishTime>
+      <publishTime>04/04/2018 22:08:48</publishTime>
     </File>
     <File Include="Views/zone/_partialZoneList.cshtml">
       <publishTime>03/28/2018 11:06:24</publishTime>
@@ -1252,7 +1255,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/28/2018 11:06:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/03/2018 17:22:16</publishTime>
+      <publishTime>04/05/2018 11:13:20</publishTime>
     </File>
   </ItemGroup>
 </Project>

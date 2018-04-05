@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutInternal.cshtml";
 }
 
-<h2>Political Parties</h2>
+<h2>List Of Political Parties</h2>
 <p class="create-btn">
     @Html.ActionLink("Create New", "Create", "", new { @class = "create-new" })
 </p>
@@ -16,7 +16,7 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <input type="text" class="form-control" id="txt_partyName" value="" />
+            <input type="text" class="form-control" id="txt_partyName" value="" placeholder="Party Name"/>
         </div>
     </div>
     <div class="col-md-1">
@@ -49,12 +49,15 @@
 
         }
         $("#loading").show();
+
+        debugger
         $.ajax
         ({
-            url: '/PoliticalPartiesByState/_partialPoliticalPartiesByStateList',
+            url: '/ /_partialPoliticalPartiesByStateList',
             data: { 'stateId': stateId,'partyName': partyName },
             success: function(result)
             {
+                debugger
                 $('#viewResult').html(result);
             },
             error: function()

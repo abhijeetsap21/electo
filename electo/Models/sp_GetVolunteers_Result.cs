@@ -13,11 +13,11 @@ namespace electo.Models
     
     public partial class sp_GetVolunteers_Result
     {
+        public long volunteerID { get; set; }
         public string voterName { get; set; }
         public string voterFather_HusbandName { get; set; }
         public Nullable<System.DateTime> dateOfBirth { get; set; }
         public string address1 { get; set; }
-        public long volunteerID { get; set; }
         public string userTypeID { get; set; }
         public string WorkingAreaName { get; set; }
     }

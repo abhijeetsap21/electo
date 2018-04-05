@@ -3453,10 +3453,6 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
           <FunctionImport Name="sp_Voters_DeleteByVoterId">
           <Parameter Name="VoterId" Mode="In" Type="Int64" />
           </FunctionImport>
-          <FunctionImport Name="sp_getAllRelationshipsInCampaignByUserType" ReturnType="Collection(electoModel.sp_getAllRelationshipsInCampaignByUserType_Result)">
-            <Parameter Name="userTypeID" Mode="In" Type="Int32" />
-            <Parameter Name="cmpID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="sp_GetAllDataEntryOperators" ReturnType="Collection(electoModel.sp_GetAllDataEntryOperators_Result)" />
           <FunctionImport Name="sp_getWardByStateIDAndMUncipalCorporationID" ReturnType="Collection(electoModel.sp_getWardByStateIDAndMUncipalCorporationID_Result)">
             <Parameter Name="stateId" Mode="In" Type="Int32" />
@@ -3557,6 +3553,24 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
           <FunctionImport Name="sp_SectionIncharge_GetAllByBoothIncharge" ReturnType="Collection(electoModel.sp_SectionIncharge_GetAllByBoothIncharge_Result)">
             <Parameter Name="CampaignId" Mode="In" Type="Int64" />
             <Parameter Name="BoothInchargeId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_LoginUser" ReturnType="Collection(electoModel.sp_LoginUser_Result)">
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="userID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getPoolingBoothByCampignID" ReturnType="Collection(electoModel.sp_getPoolingBoothByCampignID_Result)">
+          <Parameter Name="CampignID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetVolunteers" ReturnType="Collection(electoModel.sp_GetVolunteers_Result)">
+            <Parameter Name="politicalParty" Mode="In" Type="Int32" />
+            <Parameter Name="stateID" Mode="In" Type="Int32" />
+            <Parameter Name="vidhanSabhaConstituencyID" Mode="In" Type="Int32" />
+            <Parameter Name="lokSabhaConstituencyID" Mode="In" Type="Int32" />
+            <Parameter Name="campaignID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getAllRelationshipsInCampaignByUserType" ReturnType="Collection(electoModel.sp_getAllRelationshipsInCampaignByUserType_Result)">
+            <Parameter Name="userTypeID" Mode="In" Type="Int32" />
+            <Parameter Name="cmpID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="areaNames" EntityType="electoModel.areaName" />
           <EntitySet Name="Biography_s" EntityType="electoModel.Biography_s" />
@@ -4144,20 +4158,6 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
             <End Role="zoneMunicipality" EntitySet="zoneMunicipalities" />
             <End Role="wardConstituency" EntitySet="wardConstituencies" />
           </AssociationSet>
-          <FunctionImport Name="sp_LoginUser" ReturnType="Collection(electoModel.sp_LoginUser_Result)">
-            <Parameter Name="password" Mode="In" Type="String" />
-            <Parameter Name="userID" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_GetVolunteers" ReturnType="Collection(electoModel.sp_GetVolunteers_Result)">
-            <Parameter Name="politicalParty" Mode="In" Type="Int32" />
-            <Parameter Name="stateID" Mode="In" Type="Int32" />
-            <Parameter Name="vidhanSabhaConstituencyID" Mode="In" Type="Int32" />
-            <Parameter Name="lokSabhaConstituencyID" Mode="In" Type="Int32" />
-            <Parameter Name="campaignID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_getPoolingBoothByCampignID" ReturnType="Collection(electoModel.sp_getPoolingBoothByCampignID_Result)">
-            <Parameter Name="CampignID" Mode="In" Type="Int64" />
-          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_electionList_Result">
           <Property Type="Int32" Name="electionID" Nullable="false" />
@@ -4657,11 +4657,6 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
           <Property Type="Int32" Name="Total" Nullable="true" />
           <Property Type="Int32" Name="TotalResponse" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="sp_getAllRelationshipsInCampaignByUserType_Result">
-          <Property Type="String" Name="voterName" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="WorkingArea" Nullable="false" MaxLength="500" />
-          <Property Type="String" Name="address" Nullable="true" MaxLength="531" />
-        </ComplexType>
         <ComplexType Name="sp_GetAllDataEntryOperators_Result">
           <Property Type="String" Name="fullName" Nullable="false" MaxLength="200" />
           <Property Type="Int64" Name="loginID" Nullable="false" />
@@ -5078,6 +5073,51 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
           <Property Type="String" Name="AreaName" Nullable="false" MaxLength="500" />
           <Property Type="Int64" Name="AreaId" Nullable="false" />
           <Property Type="String" Name="voterIDNumber" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sp_LoginUser_Result">
+          <Property Type="Int64" Name="loginID" Nullable="false" />
+          <Property Type="Int64" Name="voterID" Nullable="false" />
+          <Property Type="Int64" Name="volunteerID" Nullable="true" />
+          <Property Type="String" Name="userID" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="userTypeID" Nullable="false" />
+          <Property Type="DateTime" Name="lastLogin" Nullable="false" Precision="23" />
+          <Property Type="String" Name="voterName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="message" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="politicalPartyLogo" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="politicalPartyID" Nullable="true" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="mobile" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="userPhoto" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="createNewCompaign" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_getPoolingBoothByCampignID_Result">
+          <Property Type="Int64" Name="pollingBoothID" Nullable="false" />
+          <Property Type="String" Name="pollingBoothName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="210" />
+          <Property Type="Int32" Name="vidhanSabhaConstituencyID" Nullable="false" />
+          <Property Type="String" Name="vidhanSabhaConstituencyName" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="lokSabhaConstituencyID" Nullable="false" />
+          <Property Type="String" Name="lokSabhaConstituencyName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="wardName" Nullable="true" MaxLength="551" />
+          <Property Type="Int32" Name="wardID" Nullable="false" />
+          <Property Type="Int32" Name="stateID" Nullable="false" />
+          <Property Type="String" Name="stateName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="dataIsCreated" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="isActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_GetVolunteers_Result">
+          <Property Type="Int64" Name="volunteerID" Nullable="false" />
+          <Property Type="String" Name="voterName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="voterFather_HusbandName" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="dateOfBirth" Nullable="true" />
+          <Property Type="String" Name="address1" Nullable="true" MaxLength="567" />
+          <Property Type="String" Name="userTypeID" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="WorkingAreaName" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sp_getAllRelationshipsInCampaignByUserType_Result">
+          <Property Type="String" Name="voterName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="WorkingArea" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="567" />
         </ComplexType>
         <EntityType Name="areaName">
           <Key>
@@ -7612,46 +7652,6 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="sp_LoginUser_Result">
-          <Property Type="Int64" Name="loginID" Nullable="false" />
-          <Property Type="Int64" Name="voterID" Nullable="false" />
-          <Property Type="Int64" Name="volunteerID" Nullable="true" />
-          <Property Type="String" Name="userID" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="userTypeID" Nullable="false" />
-          <Property Type="DateTime" Name="lastLogin" Nullable="false" Precision="23" />
-          <Property Type="String" Name="voterName" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="message" Nullable="false" MaxLength="9" />
-          <Property Type="String" Name="politicalPartyLogo" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="politicalPartyID" Nullable="true" />
-          <Property Type="String" Name="password" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="mobile" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="userPhoto" Nullable="true" MaxLength="200" />
-          <Property Type="Boolean" Name="createNewCompaign" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_GetVolunteers_Result">
-          <Property Type="String" Name="voterName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="voterFather_HusbandName" Nullable="true" MaxLength="500" />
-          <Property Type="DateTime" Name="dateOfBirth" Nullable="true" />
-          <Property Type="String" Name="address1" Nullable="true" MaxLength="500" />
-          <Property Type="Int64" Name="volunteerID" Nullable="false" />
-          <Property Type="String" Name="userTypeID" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="WorkingAreaName" Nullable="true" MaxLength="500" />
-        </ComplexType>
-        <ComplexType Name="sp_getPoolingBoothByCampignID_Result">
-          <Property Type="Int64" Name="pollingBoothID" Nullable="false" />
-          <Property Type="String" Name="pollingBoothName" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="address" Nullable="true" MaxLength="210" />
-          <Property Type="Int32" Name="vidhanSabhaConstituencyID" Nullable="false" />
-          <Property Type="String" Name="vidhanSabhaConstituencyName" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="lokSabhaConstituencyID" Nullable="false" />
-          <Property Type="String" Name="lokSabhaConstituencyName" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="wardName" Nullable="true" MaxLength="551" />
-          <Property Type="Int32" Name="wardID" Nullable="false" />
-          <Property Type="Int32" Name="stateID" Nullable="false" />
-          <Property Type="String" Name="stateName" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="dataIsCreated" Nullable="false" Precision="23" />
-          <Property Type="Boolean" Name="isActive" Nullable="false" />
-        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8310,15 +8310,6 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_Voters_DeleteByVoterId" FunctionName="electoModel.Store.sp_Voters_DeleteByVoterId" />
-          <FunctionImportMapping FunctionImportName="sp_getAllRelationshipsInCampaignByUserType" FunctionName="electoModel.Store.sp_getAllRelationshipsInCampaignByUserType">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="electoModel.sp_getAllRelationshipsInCampaignByUserType_Result">
-                <ScalarProperty Name="voterName" ColumnName="voterName" />
-                <ScalarProperty Name="WorkingArea" ColumnName="WorkingArea" />
-                <ScalarProperty Name="address" ColumnName="address" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_GetAllDataEntryOperators" FunctionName="electoModel.Store.sp_GetAllDataEntryOperators">
             <ResultMapping>
               <ComplexTypeMapping TypeName="electoModel.sp_GetAllDataEntryOperators_Result">
@@ -8810,6 +8801,67 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
                 <ScalarProperty Name="AreaName" ColumnName="AreaName" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="voterIDNumber" ColumnName="voterIDNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_LoginUser" FunctionName="electoModel.Store.sp_LoginUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="electoModel.sp_LoginUser_Result">
+                <ScalarProperty Name="loginID" ColumnName="loginID" />
+                <ScalarProperty Name="voterID" ColumnName="voterID" />
+                <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+                <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+                <ScalarProperty Name="voterName" ColumnName="voterName" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
+                <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+                <ScalarProperty Name="createNewCompaign" ColumnName="createNewCompaign" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getPoolingBoothByCampignID" FunctionName="electoModel.Store.sp_getPoolingBoothByCampignID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="electoModel.sp_getPoolingBoothByCampignID_Result">
+                <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
+                <ScalarProperty Name="pollingBoothName" ColumnName="pollingBoothName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
+                <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
+                <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
+                <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
+                <ScalarProperty Name="wardName" ColumnName="wardName" />
+                <ScalarProperty Name="wardID" ColumnName="wardID" />
+                <ScalarProperty Name="stateID" ColumnName="stateID" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetVolunteers" FunctionName="electoModel.Store.sp_GetVolunteers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="electoModel.sp_GetVolunteers_Result">
+                <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+                <ScalarProperty Name="voterName" ColumnName="voterName" />
+                <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+                <ScalarProperty Name="WorkingAreaName" ColumnName="WorkingAreaName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getAllRelationshipsInCampaignByUserType" FunctionName="electoModel.Store.sp_getAllRelationshipsInCampaignByUserType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="electoModel.sp_getAllRelationshipsInCampaignByUserType_Result">
+                <ScalarProperty Name="voterName" ColumnName="voterName" />
+                <ScalarProperty Name="WorkingArea" ColumnName="WorkingArea" />
+                <ScalarProperty Name="address" ColumnName="address" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -9479,58 +9531,6 @@ warning 6002: The table/view 'electo.dbo.userRights' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_LoginUser" FunctionName="electoModel.Store.sp_LoginUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="electoModel.sp_LoginUser_Result">
-                <ScalarProperty Name="loginID" ColumnName="loginID" />
-                <ScalarProperty Name="voterID" ColumnName="voterID" />
-                <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
-                <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
-                <ScalarProperty Name="voterName" ColumnName="voterName" />
-                <ScalarProperty Name="message" ColumnName="message" />
-                <ScalarProperty Name="politicalPartyLogo" ColumnName="politicalPartyLogo" />
-                <ScalarProperty Name="politicalPartyID" ColumnName="politicalPartyID" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="mobile" ColumnName="mobile" />
-                <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
-                <ScalarProperty Name="createNewCompaign" ColumnName="createNewCompaign" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetVolunteers" FunctionName="electoModel.Store.sp_GetVolunteers">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="electoModel.sp_GetVolunteers_Result">
-                <ScalarProperty Name="voterName" ColumnName="voterName" />
-                <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
-                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
-                <ScalarProperty Name="address1" ColumnName="address1" />
-                <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
-                <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
-                <ScalarProperty Name="WorkingAreaName" ColumnName="WorkingAreaName" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_getPoolingBoothByCampignID" FunctionName="electoModel.Store.sp_getPoolingBoothByCampignID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="electoModel.sp_getPoolingBoothByCampignID_Result">
-                <ScalarProperty Name="pollingBoothID" ColumnName="pollingBoothID" />
-                <ScalarProperty Name="pollingBoothName" ColumnName="pollingBoothName" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="vidhanSabhaConstituencyID" ColumnName="vidhanSabhaConstituencyID" />
-                <ScalarProperty Name="vidhanSabhaConstituencyName" ColumnName="vidhanSabhaConstituencyName" />
-                <ScalarProperty Name="lokSabhaConstituencyID" ColumnName="lokSabhaConstituencyID" />
-                <ScalarProperty Name="lokSabhaConstituencyName" ColumnName="lokSabhaConstituencyName" />
-                <ScalarProperty Name="wardName" ColumnName="wardName" />
-                <ScalarProperty Name="wardID" ColumnName="wardID" />
-                <ScalarProperty Name="stateID" ColumnName="stateID" />
-                <ScalarProperty Name="stateName" ColumnName="stateName" />
-                <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

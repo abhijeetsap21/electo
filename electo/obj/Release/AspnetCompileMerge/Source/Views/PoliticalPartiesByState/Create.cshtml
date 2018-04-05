@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
         <div class="form-horizontal">
-            <h4>Political Party</h4>
+            <h4>Add Political Party</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-12">
@@ -40,7 +40,7 @@
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="fullName">Company Logo</label>
+                            <label class="control-label col-md-3" for="fullName">Party Logo</label>
                             <div class="col-md-9 choose-img">
                                 <img id="pic" src="http://electo.qendidate.com/Logo/Emptyuser.jpg" alt="company logo" width="100px" height="100px">
                                 <input type="file" id="photoA" name="files" class="choose-input">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <h4>Head office Address</h4>
+            <h4>Party Head Office Address</h4>
             <hr />
             <div class="col-md-6">
                 <div class="form-group">

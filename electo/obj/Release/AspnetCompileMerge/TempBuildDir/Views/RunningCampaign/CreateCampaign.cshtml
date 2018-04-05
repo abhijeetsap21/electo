@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<h2>New Campaign</h2>
 
 @using (Html.BeginForm("CreateCampaign", "RunningCampaign"))
 {
     @Html.AntiForgeryToken()
     <div class="box running-campaigns">
         <div class="form-horizontal">
-            <h4>New Campaign</h4>
-            <hr />
+           
+            
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-6">
                 <div class="form-group">
@@ -26,20 +26,14 @@
                 <div class="form-group">
                     <label class="control-label col-md-3" for="selectstate">State</label>
                     <div class="col-md-9">
-                        @Html.DropDownList("stateID", new SelectList(ViewBag.stateID, "stateID", "stateName"), new { @class = "form-control", onchange = "getConstituencyList()", @id = "stateID" })
+                        @Html.DropDownList("stateID", new SelectList(ViewBag.stateID, "stateID", "stateName")," State", new { @class = "form-control", onchange = "getConstituencyList()", @id = "stateID" })
                     </div>
                 </div>
 
               
             </div>
             <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.electionID, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @Html.DropDownListFor(model => model.electionID, new SelectList(ViewBag.electionID, "electionID", "electionName1"), " Election ", new { @class = "form-control", @id = "electionID" })
-                        @Html.ValidationMessageFor(model => model.electionID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.electionTypeID, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
@@ -47,6 +41,13 @@
                         @Html.ValidationMessageFor(model => model.electionTypeID, "", new { @class = "text-danger" })
                     </div>
                 </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.electionID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => model.electionID, new SelectList(ViewBag.electionID, "electionID", "electionName1"), " Election ", new { @class = "form-control", @id = "electionID" })
+                        @Html.ValidationMessageFor(model => model.electionID, "", new { @class = "text-danger" })
+                    </div>
+                </div>                
 
                 <div class="form-group" id="lksc" style="display:none">
                     @Html.LabelFor(model => model.lokSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -154,7 +155,34 @@
             document.getElementById("vksc").style.display = "block";
             document.getElementById("lksc").style.display = "none";
         }
+        $.ajax({
+            url: '/RunningCampaign/getElectionByElectionTypeID',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                ElectionTypeID: +electiontypeID
+            }),
+            success: function (result) {
+                $("#electionID").html("");
+                $("#electionID").append($('<option></option>').val('').html(' Elections '));
+                $.each($.parseJSON(result), function (i, VSC) {
+                  
+                    $("#electionID").append($('<option></option>').val(VSC.electionID).html(VSC.electionName1 + ' ' + VSC.electionYear))
+                })
 
+            },
+            error: function () {
+
+                bootbox.alert({
+                    title: "Alert !",
+                    message: '<p>Whooaaa! Something went wrong..</p>',
+                    timeOut: 2000
+
+                });
+            },
+        }); 
+       
 
     }
 

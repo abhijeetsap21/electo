@@ -862,19 +862,6 @@ namespace electo.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Voters_DeleteByVoterId", voterIdParameter);
         }
     
-        public virtual ObjectResult<sp_getAllRelationshipsInCampaignByUserType_Result> sp_getAllRelationshipsInCampaignByUserType(Nullable<int> userTypeID, Nullable<int> cmpID)
-        {
-            var userTypeIDParameter = userTypeID.HasValue ?
-                new ObjectParameter("userTypeID", userTypeID) :
-                new ObjectParameter("userTypeID", typeof(int));
-    
-            var cmpIDParameter = cmpID.HasValue ?
-                new ObjectParameter("cmpID", cmpID) :
-                new ObjectParameter("cmpID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_getAllRelationshipsInCampaignByUserType_Result>("sp_getAllRelationshipsInCampaignByUserType", userTypeIDParameter, cmpIDParameter);
-        }
-    
         public virtual ObjectResult<sp_GetAllDataEntryOperators_Result> sp_GetAllDataEntryOperators()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetAllDataEntryOperators_Result>("sp_GetAllDataEntryOperators");
@@ -1239,6 +1226,15 @@ namespace electo.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_LoginUser_Result>("sp_LoginUser", passwordParameter, userIDParameter);
         }
     
+        public virtual ObjectResult<sp_getPoolingBoothByCampignID_Result> sp_getPoolingBoothByCampignID(Nullable<long> campignID)
+        {
+            var campignIDParameter = campignID.HasValue ?
+                new ObjectParameter("CampignID", campignID) :
+                new ObjectParameter("CampignID", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_getPoolingBoothByCampignID_Result>("sp_getPoolingBoothByCampignID", campignIDParameter);
+        }
+    
         public virtual ObjectResult<sp_GetVolunteers_Result> sp_GetVolunteers(Nullable<int> politicalParty, Nullable<int> stateID, Nullable<int> vidhanSabhaConstituencyID, Nullable<int> lokSabhaConstituencyID, Nullable<int> campaignID)
         {
             var politicalPartyParameter = politicalParty.HasValue ?
@@ -1264,13 +1260,17 @@ namespace electo.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetVolunteers_Result>("sp_GetVolunteers", politicalPartyParameter, stateIDParameter, vidhanSabhaConstituencyIDParameter, lokSabhaConstituencyIDParameter, campaignIDParameter);
         }
     
-        public virtual ObjectResult<sp_getPoolingBoothByCampignID_Result> sp_getPoolingBoothByCampignID(Nullable<long> campignID)
+        public virtual ObjectResult<sp_getAllRelationshipsInCampaignByUserType_Result> sp_getAllRelationshipsInCampaignByUserType(Nullable<int> userTypeID, Nullable<int> cmpID)
         {
-            var campignIDParameter = campignID.HasValue ?
-                new ObjectParameter("CampignID", campignID) :
-                new ObjectParameter("CampignID", typeof(long));
+            var userTypeIDParameter = userTypeID.HasValue ?
+                new ObjectParameter("userTypeID", userTypeID) :
+                new ObjectParameter("userTypeID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_getPoolingBoothByCampignID_Result>("sp_getPoolingBoothByCampignID", campignIDParameter);
+            var cmpIDParameter = cmpID.HasValue ?
+                new ObjectParameter("cmpID", cmpID) :
+                new ObjectParameter("cmpID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_getAllRelationshipsInCampaignByUserType_Result>("sp_getAllRelationshipsInCampaignByUserType", userTypeIDParameter, cmpIDParameter);
         }
     }
 }

@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
         <div class="form-horizontal">
-            <h4>New Polling Booth</h4>
+            <h4>Add Polling Booth</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-6">
@@ -26,7 +26,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.lokSabhaConstituencyID, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.DropDownListFor(model => model.lokSabhaConstituencyID, new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " LockSabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency" })
+                        @Html.DropDownListFor(model => model.lokSabhaConstituencyID, new SelectList(ViewBag.lokSabhaConstituencyID, "lokSabhaConstituencyID", "lokSabhaConstituencyName"), " Lok Sabha ", new { @class = "form-control", @id = "ddl_LKSC_Constituency" })
 
                         @Html.ValidationMessageFor(model => model.lokSabhaConstituencyID, "", new { @class = "text-danger" })
                     </div>

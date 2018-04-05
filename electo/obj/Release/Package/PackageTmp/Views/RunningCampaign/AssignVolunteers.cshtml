@@ -5,14 +5,15 @@
 }
 @{
     var id = Request.QueryString["cmpID"];
+    var campaignName = ViewBag.campaignName;
 }
 
-<h2>Campaign Volunteers</h2>
+<h3>@campaignName >> Define Role</h3> 
 
 <div class="box running-campaigns">
     <div class="col-md-3">
         <div class="form-group">
-            @Html.DropDownList("stateID", new SelectList(ViewBag.stateID, "stateID", "stateName"), new { @class = "form-control", onchange = "getConstituencyList()", @id = "stateID" })
+            @Html.DropDownList("stateID", new SelectList(ViewBag.stateID, "stateID", "stateName"),"State", new { @class = "form-control", onchange = "getConstituencyList()", @id = "stateID" })
         </div>
     </div>
     <div class="col-md-4">
@@ -76,7 +77,7 @@
 
             bootbox.alert({
                 title: "Confirmation !",
-                message: '<p>Details saved successfully</p>',
+                message: '<p>Role assigned successfully</p>',
                 timeOut: 2000
             });
     });

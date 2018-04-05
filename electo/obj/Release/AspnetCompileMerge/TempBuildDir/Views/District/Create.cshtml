@@ -12,12 +12,12 @@
     @Html.AntiForgeryToken()
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
         <div class="form-horizontal">
-            <h4>District</h4>
+            <h4>Create District</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-6">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.stateID, "stateID", htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.LabelFor(model => model.stateID, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
                         @Html.DropDownListFor(model => model.stateID, new SelectList(ViewBag.stateID, "stateID", "stateName"), " State ", new { @class = "form-control", onchange = "getLS_ConstituencyList()", @id = "stateID" })
 
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.districtName, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.districtName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.districtName, new { htmlAttributes = new { @class = "form-control",placeholder ="District Name" } })
                         @Html.ValidationMessageFor(model => model.districtName, "", new { @class = "text-danger" })
                     </div>
                 </div>

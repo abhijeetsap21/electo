@@ -1,15 +1,23 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Volunteer Corner</h2>
 <div class="col-md-9 box-2 running-campaigns sidebar-right">
     <div class="col-md-3">
         <div class="form-group">
-            @Html.DropDownList("eventTypeID", null, " Activity/Event ", new { @class = "form-control" })
+            @Html.DropDownList("CampaignList", null, " Select Campaign ", new { @class = "form-control" })
         </div>
     </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            @Html.DropDownList("eventTypeID", null, " Events/Suggestions ", new { @class = "form-control" })
+        </div>
+    </div>
+  
+    
     <div class="col-md-1">
         <div class="form-group">
             <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
@@ -28,12 +36,12 @@
         debugger
 
         var eventTypeID = $("#eventTypeID").val();
+        var CampaignId = $("#CampaignList").val();
 
-
-        if (eventTypeID == "") {
+        if (eventTypeID == "" || CampaignId=="") {
             bootbox.alert({
                 title: "Alert !",
-                message: '<p>Please select  Activity/Event </p>',
+                message: '<p>Please select  Activity/Event and Campaign from list </p>',
                 timeOut: 2000
 
             });
@@ -44,7 +52,7 @@
         $.ajax({
             url: '/CampaignActivity/_partialActivityList',
             type: 'POST',
-            data: { 'eventTypeID': eventTypeID },
+            data: { 'eventTypeID': eventTypeID, 'CampaignId': CampaignId },
             success: function (data) {
                 debugger
                 $('#viewResult').html(data);
