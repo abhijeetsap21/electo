@@ -46,7 +46,14 @@ namespace electo.Models.Repositories
             return RunningCampaigns_Result;
         }
 
-
+        public IEnumerable<campaign> getCampaignNames(string prefix)
+        {
+            // var names = uow.getCampaignNames_.Find(prefix)        
+            electoEntities db = new electoEntities();
+            var names = db.campaigns.Where(e => e.campaignName.StartsWith(prefix)).ToList();
+            return names;               
+                
+        }
         public IEnumerable<campaign> getCompaignListByElectionIDandCreatedByID(Int64 createdBy, int electionTypeID)
         {
             var campaignList = uow.GetDetails_.Find(e => e.createdBy == createdBy && e.electionTypeID == electionTypeID).ToList();

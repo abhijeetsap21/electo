@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static electo.Models.SP_Models.StoredProcedureModels;
+using System.Web.Mvc;
 
 namespace electo.Models.IRepositories
 {
@@ -27,6 +28,8 @@ namespace electo.Models.IRepositories
         int assignPageInchargeArea(PageInchargeAssignAreaviewmodel _obj);        
         IEnumerable<sp_GetAllSectionInchargeByCampaign_Result> getAllSectionInchargeByCampaign (long cmpID );
         IEnumerable<sp_getAllRelationshipsInCampaignByUserType_Result_> getAllRelationshipsInCampaignByUserType(string cmpID, string userTypeID);
+        IEnumerable<campaign> getCampaignNames(string prefix);
+        
 
         #region HR IService Function
         IEnumerable<sp_Campaigns_GetAll_Result> GetAll();

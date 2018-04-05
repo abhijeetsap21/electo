@@ -12,12 +12,12 @@
     @Html.AntiForgeryToken()
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
         <div class="form-horizontal">
-            <h4>New State</h4>
+            <h4>Add State</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-12">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.stateName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.LabelFor(model => model.stateName,"State Name", htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
                         @Html.EditorFor(model => model.stateName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.stateName, "", new { @class = "text-danger" })
