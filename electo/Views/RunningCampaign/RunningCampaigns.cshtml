@@ -12,6 +12,9 @@
                 <div class="form-group">
                     @Html.DropDownList("ElectionType", null, "Election Type", new { @class = "form-control" })
                 </div>
+                <div class="form-group">
+                    @Html.DropDownList("PoliticalParties", null, "Political Parties", new { @class = "form-control" })
+                </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
@@ -26,17 +29,12 @@
                         <option value="2024">2024</option>
                     </select>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <input type="email" class="form-control" id="partyname" aria-describedby="emailHelp" placeholder="Enter Party Name">
-                </div>
-            </div>
+            </div>            
             <div class="col-md-3">
                 <div class="form-group">
                     <input type="email" class="form-control" id="campaignname" aria-describedby="emailHelp" placeholder="Enter Campaign Name">
                 </div>
-            </div>
+            </div>            
             <div class="col-md-1">
                 <div class="form-group">
                     <input type="button" name="search" class="btn btn-defaul" value="Search" onclick="return searchResult();" />
@@ -98,8 +96,9 @@
             var yr = d1.getFullYear();
             ddl_year = yr;
         }
-
-        var party_name = document.getElementById('partyname').value
+        debugger 
+        var party_name_ = document.getElementById('PoliticalParties')
+        var party_name = party_name_.options[party_name_.selectedIndex].innerHTML;
         if (party_name == "") {
             party_name = null;
         }
@@ -122,4 +121,35 @@
         });
         $('#loading').hide();
     }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger
+        $("#campaignname").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+                debugger
+                $.ajax({                    
+                    url: "/RunningCampaign/getCampaignNames",                    
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        debugger 
+                        response($.map(data, function (item) {
+                            return { label: item.campaignName, value: item.campaignName };
+                        }))
+
+                    }
+                })
+            },
+
+            messages: {
+
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    })
 </script>

@@ -169,7 +169,7 @@ namespace electo.Models
 
     public class eventTypeViewModel
     {
-        [Display(Name = "Event Name")]
+        [Display(Name = "Event Type")]
         [Required(ErrorMessage = "Event Name required ")]
         public string eventName { get; set; }
 
@@ -226,7 +226,7 @@ namespace electo.Models
     }
     public class pollingBoothViewModel
     {
-        [Display(Name = "Polling Booth")]
+        [Display(Name = "Polling Booth Name")]
         [Required(ErrorMessage = "Polling Booth Required")]
         public string pollingBoothName { get; set; }
 
@@ -401,7 +401,7 @@ namespace electo.Models
 
         [StringLength(120, MinimumLength = 3, ErrorMessage = "120 charectar max")]
         [Required(ErrorMessage = "Loksabha name required")]
-        [Display(Name = "Lok Sabha")]
+        [Display(Name = "Lok Sabha Constituency Name")]
         public string lokSabhaConstituencyName { get; set; }
     }
 
@@ -525,7 +525,7 @@ namespace electo.Models
     {
         [StringLength(50, MinimumLength = 3, ErrorMessage = "50 charectar max")]
         [Required(ErrorMessage = "Language required")]
-        [Display(Name = "Language")]
+        [Display(Name = "Language Name")]
         public string language1 { get; set; }
 
         [StringLength(50, MinimumLength = 3, ErrorMessage = "50 charectar max")]
@@ -655,7 +655,7 @@ namespace electo.Models
         [Required(ErrorMessage = "Election Type required ")]
         public int electionTypeID { get; set; }
 
-        [Display(Name = "Title")]
+        [Display(Name = "News Title")]
         [Required(ErrorMessage = "Title required ")]
         public string title { get; set; }
 

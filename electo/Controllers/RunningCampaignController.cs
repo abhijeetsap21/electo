@@ -25,6 +25,7 @@ namespace electo.Controllers
         private readonly IVSCServices _VSCServices;
         private readonly IwardServices _WardServices;
         private readonly IPollingBooth _PollingBoothService;
+        private readonly IAccountServices _AccountServices;
         public RunningCampaignController()
         {
             _ElectionService = new ElectionService();
@@ -34,12 +35,22 @@ namespace electo.Controllers
             _VSCServices = new VSCServices();
             _WardServices = new wardServices();
             _PollingBoothService = new PollingBoothService();
+            _AccountServices = new AccountServices();
         }
 
         public ActionResult RunningCampaigns()
         {
             ViewBag.ElectionType = new SelectList((_ElectionService.getElectionTypes().Select(e => new { e.electionTypeID, e.electionTypeNAME })), "electionTypeID", "electionTypeNAME");
+            ViewBag.PoliticalParties = new SelectList((_AccountServices.getAllPoliticalParty().Select(e => new { e.politicalPartyID, e.politicalPartyName })), "politicalPartyID", "politicalPartyName");
             return View();
+        }
+
+       
+        public JsonResult getCampaignNames(string prefix)
+        {
+            var names = cmpSer.getCampaignNames(prefix).Select(e=> new { e.campaignName }).Take(10);
+           string result = Newtonsoft.Json.JsonConvert.SerializeObject(names);
+            return Json(names, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult _partialRunningCampaigns(string electionTypeNAME, string electionYear, string politicalPartyName, string campaignName)

@@ -77,6 +77,7 @@ namespace electo.Models.Repositories
         public Repositories<sp_GetVoters_List_Result> _getVoters { get; set; }
         public Repositories<sp_GetAllEventTypes_Result> _getEventTypes { get; set; }
         public Repositories<surveyRespons> _submitResponse { get; set; }
+        public Repositories<campaign> _getCampaignNames { get; set; }
 
 
         private Repositories <language> _language { get; set; }
@@ -139,6 +140,16 @@ namespace electo.Models.Repositories
         public UnitOfWork()
         {
             _context = new electoEntities();
+        }
+
+        public Repositories<campaign> getCampaignNames_
+        {
+            get
+            {
+                if (this._getCampaignNames == null)
+                    this._getCampaignNames = new Repositories<campaign>(_context);
+                return _getCampaignNames;
+            }
         }
 
         public Repositories<surveyRespons> submitResponse_
