@@ -47,9 +47,9 @@ namespace electo.Models.Repositories
         }
 
 
-        public IEnumerable<campaign> getCompaignListByElectionIDandCreatedByID(Int64 createdBy, int electionTypeID)
+        public IEnumerable<campaign> getCompaignListByElectionIDandCreatedByID(Int64 createdBy)
         {
-            var campaignList = uow.GetDetails_.Find(e => e.createdBy == createdBy && e.electionTypeID == electionTypeID).ToList();
+            var campaignList = uow.GetDetails_.Find(e => e.createdBy == createdBy ).ToList();
             return campaignList;
         }
 

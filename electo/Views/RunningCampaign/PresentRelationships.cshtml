@@ -7,12 +7,12 @@
 }
 
 
-<h2>@campaignName  >> Volunteer Position</h2>
+<h2>@campaignName  >> Allocated Roles </h2>
 
 <div class="box running-campaigns">
     <div class="col-md-3">
         <div class="form-group">
-            @Html.DropDownList("usertypes", new SelectList(ViewBag.usertypes, "userTypeID", "userTypeName"), " User Type ", new { @class = "form-control", @id = "ddl_" })
+            @Html.DropDownList("usertypes", new SelectList(ViewBag.usertypes, "userTypeID", "userTypeName"), " Roles in campaign ", new { @class = "form-control", @id = "ddl_" })
         </div>
     </div>
     <div class="col-md-1">
@@ -28,9 +28,9 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        searchResult();
-    });
+    //$(document).ready(function () {
+    //    searchResult();
+    //});
 
     function searchResult() {
         debugger

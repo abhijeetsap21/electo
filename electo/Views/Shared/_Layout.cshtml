@@ -5,7 +5,8 @@
     var loginID = BaseUtil.GetSessionValue(AdminInfo.LoginID.ToString());
     var pic = BaseUtil.GetSessionValue(AdminInfo.userPhoto.ToString());
     var userType =Convert.ToInt64( BaseUtil.GetSessionValue(AdminInfo.userType.ToString()));
-}
+   
+    }
 <html>
 <head>
     <meta charset="utf-8" />
@@ -74,8 +75,11 @@
                             }
                             if (userType == 4)
                             {
-                                <li><a href="@Url.Action("CAdmin","Account")">Dashboard</a></li>
-								 <li><a href="@Url.Action("MyCampaigns","RunningCampaign")">My Campaign</a></li>
+
+                                <li><a href="@Url.Action("MyCampaigns","RunningCampaign")">My Campaign</a></li>
+                                <li><a href="@Url.Action("CreateCampaign", "RunningCampaign")">Create Campaign</a></li>
+                                <li><a href="@Url.Action("Index", "CampaignActivity")">Volunteer Corner </a></li>
+                                <li><a href="@Url.Action("Index", "survey")">Survey </a></li>
                                 <li><a href="#">Reports</a></li>
                             }
                         }

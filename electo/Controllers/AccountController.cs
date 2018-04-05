@@ -68,7 +68,7 @@ namespace electo.Controllers
                    else if (result.userTypeID == 4)
                     {
                         TempData["createNewCompaign"] = result.createNewCompaign.ToString();
-                        return RedirectToAction("CAdmin");
+                        return RedirectToAction("MyCampaigns", "RunningCampaign");
                     }
                     else {
                         ViewBag.msg = "You are not authorized to access this website";
@@ -246,14 +246,14 @@ namespace electo.Controllers
             return result;
         }
 
-        [HttpGet]
-        public ActionResult CAdmin()
-        {
-            ViewBag.electionTypeID = _ElectionService.getElectionTypes().Select(e => new { e.electionTypeID, e.electionTypeNAME });//), "electionTypeID", "electionTypeNAME");
-            ViewBag.campaignID = _CampaignService.getCompaignListByElectionIDandCreatedByID(0, 0).Select(e=>new { e.campaignID, e.campaignName });
-            ViewBag.IsCampaignCreationActive = TempData["createNewCompaign"];
-            return View();
-        }
+        //[HttpGet]
+        //public ActionResult CAdmin()
+        //{
+        //    ViewBag.electionTypeID = _ElectionService.getElectionTypes().Select(e => new { e.electionTypeID, e.electionTypeNAME });//), "electionTypeID", "electionTypeNAME");
+        //    ViewBag.campaignID = _CampaignService.getCompaignListByElectionIDandCreatedByID(0, 0).Select(e=>new { e.campaignID, e.campaignName });
+        //    ViewBag.IsCampaignCreationActive = TempData["createNewCompaign"];
+        //    return View();
+        //}
         [HttpPost]
         public ActionResult CAdmin(CompaignAdmin oCompaignAdmin, FormCollection frm)
         {
@@ -263,13 +263,13 @@ namespace electo.Controllers
             BaseUtil.SetSessionValue(AdminInfo.campaignID.ToString(), oCompaignAdmin.campaignID.ToString());
             return RedirectToAction("Index", "CampaignActivity");
         }
-        public ActionResult getCampaignList(int ElectionTypeId)
-        {
-            var CampaignList = _CampaignService.getCompaignListByElectionIDandCreatedByID(Convert.ToInt64(BaseUtil.GetSessionValue(AdminInfo.LoginID.ToString())), ElectionTypeId).Select(e => new { e.campaignID, e.campaignName });
-            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+        //public ActionResult getCampaignList(int ElectionTypeId)
+        //{
+        //    var CampaignList = _CampaignService.getCompaignListByElectionIDandCreatedByID(Convert.ToInt64(BaseUtil.GetSessionValue(AdminInfo.LoginID.ToString())), ElectionTypeId).Select(e => new { e.campaignID, e.campaignName });
+        //    JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
            
-            return Json(javaScriptSerializer.Serialize(CampaignList), JsonRequestBehavior.AllowGet);
-        }
+        //    return Json(javaScriptSerializer.Serialize(CampaignList), JsonRequestBehavior.AllowGet);
+        //}
 
 
        

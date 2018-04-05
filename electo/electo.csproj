@@ -1039,6 +1039,7 @@
     <Content Include="Views\Home\General.cshtml" />
     <Content Include="Views\Home\underConstruction.cshtml" />
     <Content Include="Views\UploadVoterListFromExcel\importExcel.cshtml" />
+    <Content Include="Views\Survey\_partialsurveyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

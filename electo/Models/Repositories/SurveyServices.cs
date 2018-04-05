@@ -44,7 +44,7 @@ namespace electo.Models.Repositories
             osurvey.dataIsCreated = BaseUtil.GetCurrentDateTime();
             osurvey.dataIsUpdated = BaseUtil.GetCurrentDateTime();
             osurvey.isDelete = false;
-            osurvey.campaignID= Convert.ToInt16(BaseUtil.GetSessionValue(AdminInfo.campaignID.ToString()));
+            
             try
             {
                 uow.survey_.Add(osurvey);

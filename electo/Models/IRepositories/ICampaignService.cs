@@ -15,7 +15,7 @@ namespace electo.Models.IRepositories
         IEnumerable<sp_SearchCampaignPrices_Result> sp_SearchCampaignPrices_Result(string electionTypeNAME, string year, bool isActive);
         campaignPrice getCampaign(int ID);      
         int createCampaignPrice(campaignPrice newCmpPrice_);
-        IEnumerable<campaign> getCompaignListByElectionIDandCreatedByID(Int64 createdBy, int electionTypeID);
+        IEnumerable<campaign> getCompaignListByElectionIDandCreatedByID(Int64 createdBy);
         IEnumerable<campaignPrice> getAllPrices(int electionTypeID);
         void createCampaign(campaign _campaign);
         IEnumerable<campaign> getMyCampaigns(int volunteerID);

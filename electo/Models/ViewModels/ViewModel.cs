@@ -554,7 +554,12 @@ namespace electo.Models
     public partial class survey { }
     public class surveyViewModel
     {
+       
+        [Required(ErrorMessage = "Campaign is required")]
+        [Display(Name = "Campaign")]
+        public string campaignID { get; set; }
 
+        
         [StringLength(50, MinimumLength = 3, ErrorMessage = "50 charectar max")]
         [Required(ErrorMessage = "Survey title required")]
         [Display(Name = "Title")]

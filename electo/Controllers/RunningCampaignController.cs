@@ -9,6 +9,7 @@ using electo.Models.SP_Models;
 using static electo.Models.SP_Models.StoredProcedureModels;
 using electo.Models;
 using electo.Models.BaseClass;
+using System.Web.Script.Serialization;
 
 namespace electo.Controllers
 {
@@ -295,6 +296,15 @@ namespace electo.Controllers
         {
             var result = cmpSer.getAllRelationshipsInCampaignByUserType(cmpID, userTypeID);
             return PartialView("_partialViewAllRelationships", result);
+        }
+
+        public ActionResult getElectionByElectionTypeID(int ElectionTypeID)
+        {
+            var electionList= _ElectionService.getAllElections().Where(e => e.electionTypeID == ElectionTypeID).Select(e=>new { e.electionID,e.electionName1,e.electionYear});
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            string result = javaScriptSerializer.Serialize(electionList);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
