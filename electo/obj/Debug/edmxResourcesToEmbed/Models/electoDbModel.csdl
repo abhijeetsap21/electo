@@ -925,15 +925,15 @@
       <Parameter Name="password" Mode="In" Type="String" />
       <Parameter Name="userID" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_getPoolingBoothByCampignID" ReturnType="Collection(electoModel.sp_getPoolingBoothByCampignID_Result)">
+      <Parameter Name="CampignID" Mode="In" Type="Int64" />
+    </FunctionImport>
     <FunctionImport Name="sp_GetVolunteers" ReturnType="Collection(electoModel.sp_GetVolunteers_Result)">
       <Parameter Name="politicalParty" Mode="In" Type="Int32" />
       <Parameter Name="stateID" Mode="In" Type="Int32" />
       <Parameter Name="vidhanSabhaConstituencyID" Mode="In" Type="Int32" />
       <Parameter Name="lokSabhaConstituencyID" Mode="In" Type="Int32" />
       <Parameter Name="campaignID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_getPoolingBoothByCampignID" ReturnType="Collection(electoModel.sp_getPoolingBoothByCampignID_Result)">
-      <Parameter Name="CampignID" Mode="In" Type="Int64" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_electionList_Result">
@@ -4405,15 +4405,6 @@
     <Property Type="String" Name="userPhoto" Nullable="true" MaxLength="200" />
     <Property Type="Boolean" Name="createNewCompaign" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="sp_GetVolunteers_Result">
-    <Property Type="String" Name="voterName" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="voterFather_HusbandName" Nullable="true" MaxLength="500" />
-    <Property Type="DateTime" Name="dateOfBirth" Nullable="true" />
-    <Property Type="String" Name="address1" Nullable="true" MaxLength="500" />
-    <Property Type="Int64" Name="volunteerID" Nullable="false" />
-    <Property Type="String" Name="userTypeID" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="WorkingAreaName" Nullable="true" MaxLength="500" />
-  </ComplexType>
   <ComplexType Name="sp_getPoolingBoothByCampignID_Result">
     <Property Type="Int64" Name="pollingBoothID" Nullable="false" />
     <Property Type="String" Name="pollingBoothName" Nullable="false" MaxLength="200" />
@@ -4428,5 +4419,14 @@
     <Property Type="String" Name="stateName" Nullable="true" MaxLength="50" />
     <Property Type="DateTime" Name="dataIsCreated" Nullable="false" Precision="23" />
     <Property Type="Boolean" Name="isActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_GetVolunteers_Result">
+    <Property Type="Int64" Name="volunteerID" Nullable="false" />
+    <Property Type="String" Name="voterName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="voterFather_HusbandName" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="dateOfBirth" Nullable="true" />
+    <Property Type="String" Name="address1" Nullable="true" MaxLength="567" />
+    <Property Type="String" Name="userTypeID" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="WorkingAreaName" Nullable="true" MaxLength="500" />
   </ComplexType>
 </Schema>

@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm("Create", "Biography_s", FormMethod.Post, FormMethod.Post, new { id = "msform", enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
+    
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
         <div class="form-horizontal">
             <h4>New Biography</h4>
@@ -36,7 +36,7 @@
                 <div class="col-md-3">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-md-12" for="fullName">Company Logo</label>
+                            <label class="col-md-12" for="fullName">Profile Image</label>
                             <div class="col-md-12 choose-img">
                                 <img id="pic" src="http://electo.qendidate.com/Logo/Emptyuser.jpg" alt="company logo" width="100px" height="100px">
                                 <input type="file" id="photoA" name="files" class="choose-input">

@@ -1842,19 +1842,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_GetVolunteers" FunctionName="electoModel.Store.sp_GetVolunteers">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="electoModel.sp_GetVolunteers_Result">
-          <ScalarProperty Name="voterName" ColumnName="voterName" />
-          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
-          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
-          <ScalarProperty Name="address1" ColumnName="address1" />
-          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
-          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
-          <ScalarProperty Name="WorkingAreaName" ColumnName="WorkingAreaName" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_getPoolingBoothByCampignID" FunctionName="electoModel.Store.sp_getPoolingBoothByCampignID">
       <ResultMapping>
         <ComplexTypeMapping TypeName="electoModel.sp_getPoolingBoothByCampignID_Result">
@@ -1871,6 +1858,19 @@
           <ScalarProperty Name="stateName" ColumnName="stateName" />
           <ScalarProperty Name="dataIsCreated" ColumnName="dataIsCreated" />
           <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetVolunteers" FunctionName="electoModel.Store.sp_GetVolunteers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="electoModel.sp_GetVolunteers_Result">
+          <ScalarProperty Name="volunteerID" ColumnName="volunteerID" />
+          <ScalarProperty Name="voterName" ColumnName="voterName" />
+          <ScalarProperty Name="voterFather_HusbandName" ColumnName="voterFather_HusbandName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="WorkingAreaName" ColumnName="WorkingAreaName" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

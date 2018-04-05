@@ -8,25 +8,25 @@
         <tr>
             <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
             <th>
-                Name
+               Volunteer Name
             </th>
             <th>
-                Father/Husband Name
+                Father/Husband
             </th>
             <th>
-                Date Of Birth
+              DOB
             </th>
             <th>
-                address
+                Address
             </th>
             <th>
-                Choose User Type
+                Role
             </th>
             <th>
-                Present Status In Campaign
+              Role In Campaign
             </th>
             <th>
-                Save
+               Action
             </th>
         </tr>
     </thead>
@@ -63,13 +63,13 @@
                     @Html.DisplayFor(modelItem => item.address1)
                 </td>
                 <td>
-                    @Html.DropDownList("usertypes", new SelectList(ViewBag.usertypes, "userTypeID", "userTypeName"), " usertypes ", new { @class = "form-control", @id = "ddl_" + @i })
+                    @Html.DropDownList("usertypes", new SelectList(ViewBag.usertypes, "userTypeID", "userTypeName"), " User Type ", new { @class = "form-control", @id = "ddl_" + @i })
                     <input type="hidden" id='usertypeid_@i' name="usertypeid" />
                 </td> 
                 <td>
                     <span class="removable-data">
                         <span>@Html.DisplayFor(modelItem => item.userTypeID)</span>
-                    @{if (item.userTypeID != null)
+                    @{if (item.userTypeID != "")
                         {
                             <a href="javascript:void(0)" class="remove-data" title="Remove Relationship"><i class="glyphicon glyphicon-remove" onclick="deleteRelationship(@item.volunteerID,@ab,'@item.voterName')"></i></a>
                         }

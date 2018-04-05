@@ -5,46 +5,46 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b03e5bc299494279b6b1abf1351544d3" Name="Diagram1">
-        <EntityTypeShape EntityType="electoModel.areaName" Width="1.5" PointX="12" PointY="71.125" />
-        <EntityTypeShape EntityType="electoModel.Biography_s" Width="1.5" PointX="7.5" PointY="98.875" />
-        <EntityTypeShape EntityType="electoModel.campaignPrice" Width="1.5" PointX="14.75" PointY="85" />
-        <EntityTypeShape EntityType="electoModel.campaign" Width="1.5" PointX="12" PointY="80.25" />
-        <EntityTypeShape EntityType="electoModel.compaignVolunteerRelationship" Width="1.5" PointX="14.25" PointY="61.75" />
-        <EntityTypeShape EntityType="electoModel.district" Width="1.5" PointX="9.75" PointY="71.375" />
-        <EntityTypeShape EntityType="electoModel.electionName" Width="1.5" PointX="9.75" PointY="82.75" />
-        <EntityTypeShape EntityType="electoModel.electionType" Width="1.5" PointX="7.5" PointY="114.625" />
-        <EntityTypeShape EntityType="electoModel.enquiry" Width="1.5" PointX="9.75" PointY="77.75" />
-        <EntityTypeShape EntityType="electoModel.enquiryType" Width="1.5" PointX="7.5" PointY="102.5" />
-        <EntityTypeShape EntityType="electoModel.eventMedia" Width="1.5" PointX="19.5" PointY="63.375" />
-        <EntityTypeShape EntityType="electoModel.event" Width="1.5" PointX="17.25" PointY="76.25" />
-        <EntityTypeShape EntityType="electoModel.eventType" Width="1.5" PointX="7.5" PointY="106.25" />
+        <EntityTypeShape EntityType="electoModel.areaName" Width="1.5" PointX="9.75" PointY="81.125" />
+        <EntityTypeShape EntityType="electoModel.Biography_s" Width="1.5" PointX="7.5" PointY="82.375" />
+        <EntityTypeShape EntityType="electoModel.campaignPrice" Width="1.5" PointX="12.75" PointY="50.25" />
+        <EntityTypeShape EntityType="electoModel.campaign" Width="1.5" PointX="15" PointY="72.125" />
+        <EntityTypeShape EntityType="electoModel.compaignVolunteerRelationship" Width="1.5" PointX="17.25" PointY="67.375" />
+        <EntityTypeShape EntityType="electoModel.district" Width="1.5" PointX="12.75" PointY="84.375" />
+        <EntityTypeShape EntityType="electoModel.electionName" Width="1.5" PointX="12.75" PointY="54.875" />
+        <EntityTypeShape EntityType="electoModel.electionType" Width="1.5" PointX="7.5" PointY="42.25" />
+        <EntityTypeShape EntityType="electoModel.enquiry" Width="1.5" PointX="9.75" PointY="75.125" />
+        <EntityTypeShape EntityType="electoModel.enquiryType" Width="1.5" PointX="7.5" PointY="101.375" />
+        <EntityTypeShape EntityType="electoModel.eventMedia" Width="1.5" PointX="22.5" PointY="66.75" />
+        <EntityTypeShape EntityType="electoModel.event" Width="1.5" PointX="17.25" PointY="79" />
+        <EntityTypeShape EntityType="electoModel.eventType" Width="1.5" PointX="7.5" PointY="109.75" />
         <EntityTypeShape EntityType="electoModel.excel" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="electoModel.gender" Width="1.5" PointX="0.75" PointY="54.625" />
-        <EntityTypeShape EntityType="electoModel.language" Width="1.5" PointX="0.75" PointY="57.5" />
+        <EntityTypeShape EntityType="electoModel.gender" Width="1.5" PointX="0.75" PointY="57.625" />
+        <EntityTypeShape EntityType="electoModel.language" Width="1.5" PointX="0.75" PointY="54.5" />
         <EntityTypeShape EntityType="electoModel.loginVolunteer" Width="1.5" PointX="5.25" PointY="49.375" />
-        <EntityTypeShape EntityType="electoModel.lokSabhaConstituency" Width="1.5" PointX="15" PointY="72.5" />
-        <EntityTypeShape EntityType="electoModel.monthName" Width="1.5" PointX="7.5" PointY="83.875" />
-        <EntityTypeShape EntityType="electoModel.municipalCorporationName" Width="1.5" PointX="17" PointY="67.75" />
-        <EntityTypeShape EntityType="electoModel.news" Width="1.5" PointX="14.75" PointY="81.125" />
-        <EntityTypeShape EntityType="electoModel.pageInchargeAssignedArea" Width="1.5" PointX="14.25" PointY="66.375" />
-        <EntityTypeShape EntityType="electoModel.pageInchargeComment" Width="1.5" PointX="9.75" PointY="55.625" />
-        <EntityTypeShape EntityType="electoModel.politicalParty" Width="1.5" PointX="7.5" PointY="109.875" />
-        <EntityTypeShape EntityType="electoModel.politicalPartyAddress" Width="1.5" PointX="17" PointY="81" />
-        <EntityTypeShape EntityType="electoModel.pollingBooth" Width="1.5" PointX="24.5" PointY="70.75" />
-        <EntityTypeShape EntityType="electoModel.pollingBooth_andInchargRelationship" Width="1.5" PointX="17.25" PointY="62.375" />
-        <EntityTypeShape EntityType="electoModel.questionType" Width="1.5" PointX="7.5" PointY="42.25" />
-        <EntityTypeShape EntityType="electoModel.state" Width="1.5" PointX="7.5" PointY="93.375" />
-        <EntityTypeShape EntityType="electoModel.survey" Width="1.5" PointX="19.25" PointY="68.375" />
-        <EntityTypeShape EntityType="electoModel.SurveyQuestionOption" Width="1.5" PointX="23.75" PointY="55.75" />
-        <EntityTypeShape EntityType="electoModel.surveyQuestion" Width="1.5" PointX="21.5" PointY="55.25" />
-        <EntityTypeShape EntityType="electoModel.surveyRespons" Width="1.5" PointX="26" PointY="57.125" />
+        <EntityTypeShape EntityType="electoModel.lokSabhaConstituency" Width="1.5" PointX="15" PointY="81.5" />
+        <EntityTypeShape EntityType="electoModel.monthName" Width="1.5" PointX="10.5" PointY="50.125" />
+        <EntityTypeShape EntityType="electoModel.municipalCorporationName" Width="1.5" PointX="15" PointY="86.75" />
+        <EntityTypeShape EntityType="electoModel.news" Width="1.5" PointX="9.75" PointY="53.375" />
+        <EntityTypeShape EntityType="electoModel.pageInchargeAssignedArea" Width="1.5" PointX="20.25" PointY="67" />
+        <EntityTypeShape EntityType="electoModel.pageInchargeComment" Width="1.5" PointX="7.5" PointY="55.625" />
+        <EntityTypeShape EntityType="electoModel.politicalParty" Width="1.5" PointX="7.5" PointY="105.125" />
+        <EntityTypeShape EntityType="electoModel.politicalPartyAddress" Width="1.5" PointX="18" PointY="84.125" />
+        <EntityTypeShape EntityType="electoModel.pollingBooth" Width="1.5" PointX="20.25" PointY="81.75" />
+        <EntityTypeShape EntityType="electoModel.pollingBooth_andInchargRelationship" Width="1.5" PointX="20.25" PointY="62.375" />
+        <EntityTypeShape EntityType="electoModel.questionType" Width="1.5" PointX="7.5" PointY="46.5" />
+        <EntityTypeShape EntityType="electoModel.state" Width="1.5" PointX="7.5" PointY="113.375" />
+        <EntityTypeShape EntityType="electoModel.survey" Width="1.5" PointX="17.25" PointY="62.25" />
+        <EntityTypeShape EntityType="electoModel.SurveyQuestionOption" Width="1.5" PointX="21.75" PointY="55.5" />
+        <EntityTypeShape EntityType="electoModel.surveyQuestion" Width="1.5" PointX="19.5" PointY="55.125" />
+        <EntityTypeShape EntityType="electoModel.surveyRespons" Width="1.5" PointX="24" PointY="57.125" />
         <EntityTypeShape EntityType="electoModel.tblyear" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="electoModel.userType" Width="1.5" PointX="7.5" PointY="46" />
-        <EntityTypeShape EntityType="electoModel.vidhanSabhaConstituency" Width="1.5" PointX="22.25" PointY="67.25" />
-        <EntityTypeShape EntityType="electoModel.volunteerList" Width="1.5" PointX="7.5" PointY="56.125" />
+        <EntityTypeShape EntityType="electoModel.userType" Width="1.5" PointX="7.5" PointY="86.125" />
+        <EntityTypeShape EntityType="electoModel.vidhanSabhaConstituency" Width="1.5" PointX="23.25" PointY="82.25" />
+        <EntityTypeShape EntityType="electoModel.volunteerList" Width="1.5" PointX="10.5" PointY="57.125" />
         <EntityTypeShape EntityType="electoModel.voterList" Width="1.5" PointX="3" PointY="54" />
-        <EntityTypeShape EntityType="electoModel.wardConstituency" Width="1.5" PointX="27.5" PointY="70.875" />
-        <EntityTypeShape EntityType="electoModel.zoneMunicipality" Width="1.5" PointX="20.25" PointY="73.625" />
+        <EntityTypeShape EntityType="electoModel.wardConstituency" Width="1.5" PointX="25.5" PointY="80.875" />
+        <EntityTypeShape EntityType="electoModel.zoneMunicipality" Width="1.5" PointX="20.25" PointY="76.625" />
         <EntityTypeShape EntityType="electoModel.sendGridDetail" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="electoModel.userRight" Width="1.5" PointX="4.75" PointY="0.75" />
         <AssociationConnector Association="electoModel.FK_areaName_districts" />

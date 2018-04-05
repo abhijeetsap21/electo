@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
         <div class="form-horizontal">
-            <h4>News</h4>
+            <h4>Add News</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="col-md-6">
@@ -41,7 +41,7 @@
             <div class="col-md-6">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label class="control-label col-md-3" for="fullName">Company Logo</label>
+                        <label class="control-label col-md-3" for="fullName">News Image</label>
                         <div class="col-md-9 choose-img">
                             <img id="pic" src="http://electo.qendidate.com/Logo/Emptyuser.jpg" alt="company logo" width="100px" height="100px">
                             <input type="file" id="photoA" name="files" class="choose-input">

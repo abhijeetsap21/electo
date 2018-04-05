@@ -1,19 +1,23 @@
-﻿@model IEnumerable<electo.Models.SP_Models.StoredProcedureModels.sp_getAllRelationshipsInCampaignByUserType_Result_>
-
+﻿@model IEnumerable < electo.Models.sp_Survey_GetByCampaignId_Result >
+        
 <table class="table table-striped">
     <thead>
         <tr>
             <th><img src="~/images/arrow.jpg" width="27" height="34"></th>
             <th>
-               Volunteer Name
+                Title
             </th>
-            <th>
-                Booth Name/Section Name
-            </th>
-            <th>
-                Address
-            </th>           
 
+            <th>
+                Description
+            </th>
+            <th>Start | End date</th>
+            <th>
+                Created Date
+            </th>
+            <th>
+                View Questions
+            </th>
         </tr>
     </thead>
     @{
@@ -29,23 +33,33 @@
                 </td>
             </tr>
         }
+
+
+
         @{    int i = 0; }
         @foreach (var item in Model)
         {
 
+
+
             <tr>
                 <td>@(i += 1)</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.voterName)
+                    @Html.DisplayFor(modelItem => item.surveyTitle)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.WorkingArea)
+                    @Html.Raw(item.surveyDescription)
                 </td>
+
+                <td>@item.startDate.ToString("dd/MM/yyyy")  | @item.endDate.ToString("dd/MM/yyyy")</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.address)
-                </td>             
-                
+                    @item.dataIsCreated.ToString("dd/MM/yyyy")
+                </td>
+
+                <td><a href="@Url.Action("Index", "Questions",new {surveyID = @item.surveyID })">Questions</a></td>
             </tr>
         }
+
     </tbody>
 </table>
+

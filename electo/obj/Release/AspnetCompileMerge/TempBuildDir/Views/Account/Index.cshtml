@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutInternal.cshtml";
 }
+<h4>List Of Registered Users</h4>
 
 <div class="row">
     <div class="col-md-9 box-2 running-campaigns sidebar-right">
@@ -13,7 +14,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                @Html.TextBox("LoginID", null, new { @class = "form-control", @placeholder = "Login id", @id = "LoginID" })
+                @Html.TextBox("LoginID", null, new { @class = "form-control", @placeholder = "Registered Email ID", @id = "LoginID" })
             </div>
         </div>
         <div class="col-md-1">

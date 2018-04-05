@@ -67,16 +67,12 @@
                     <td data-th="Party Name">
                         @Html.DisplayFor(modelItem => item.politicalPartyName)
                     </td>
-                   @{ if (@item.emailId != null)
-                       {
+                  
                          <td data-th="create New volunteer/Login">
-                             <input type="radio" id='rdo_@item.voterID' onclick='CreateNewVolunteerLogin(" @item.voterID "," @item.Regional_Name","@item.dateOfBirth.Value.ToString("dd/MM/yyyy")")' data-toggle="modal" data-target="#myModal" />
+                             <button class="btn btn-defaul" id='rdo_@item.voterID' onclick='CreateNewVolunteerLogin(" @item.voterID "," @item.Regional_Name","@strdatetime" )' data-toggle="modal" data-target="#myModal" >Create Now</button>
                             </td>
 
-                       }
-                       else
-                       {<td data-th="create New volunteer/Login"></td>}
-                       }
+                      
                     @{ if (@item.emailId != null && @item.userTypeName== "Volunteer")
                         {
                             <td data-th="Activate for new compaign"><button id='btn_@item.voterID' class="btn btn-defaul" onclick="ActivateVolunteerLoginForNew_Compaign(@item.volunteerID)">Activate for new compaign</button></td>
